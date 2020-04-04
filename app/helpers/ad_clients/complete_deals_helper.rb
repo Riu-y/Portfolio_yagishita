@@ -1,0 +1,2 @@
+module AdClients::CompleteDealsHelper
+end

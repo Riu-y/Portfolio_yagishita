@@ -1,0 +1,2 @@
+module DealDetailsHelper
+end
