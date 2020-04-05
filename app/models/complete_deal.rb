@@ -1,0 +1,2 @@
+class CompleteDeal < ApplicationRecord
+end
