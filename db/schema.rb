@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_035148) do
+ActiveRecord::Schema.define(version: 2020_04_05_092914) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_035148) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "company_name", null: false
-    t.string "company_nam_kana", null: false
+    t.string "company_name_kana", null: false
     t.string "ceo_name", null: false
     t.string "ceo_name_kana", null: false
     t.string "postal_code", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_035148) do
     t.string "registry_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "terms", default: false
     t.index ["email"], name: "index_ad_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_ad_clients_on_reset_password_token", unique: true
   end
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_035148) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "admin_name"
+    t.string "admin_name_kana"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_035148) do
     t.integer "driver_id", null: false
     t.string "manufacturer_name", null: false
     t.string "car_name", null: false
-    t.string "certificate_image", null: false
+    t.string "certificate_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -117,12 +120,13 @@ ActiveRecord::Schema.define(version: 2020_04_05_035148) do
     t.string "driver_name_kana", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
-    t.string "telephone_number_id", null: false
+    t.string "telephone_number", null: false
     t.string "profile_image_id"
     t.string "driver_license_image_id", null: false
-    t.boolean "is_acctive"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "terms", default: false
     t.index ["email"], name: "index_drivers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
