@@ -1,0 +1,2 @@
+module AdClients::ApplicationHelper
+end

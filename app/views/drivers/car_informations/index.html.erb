@@ -1,2 +1,21 @@
-<h1>Drivers::CarInformations#index</h1>
-<p>Find me in app/views/drivers/car_informations/index.html.erb</p>
+<h1>車両情報</h1>
+
+<h3>新規車両登録</h3>
+<%= form_for(@car_information) do |f| %>
+  <tr>
+    <td><%= f.label :登録車メーカー %></td>
+    <td><%= f.text_field :manufacturer_name, autofocus: true, autocomplete:"", placeholder:"車のメーカー名を入力", class: "form-control"%></td>
+  </tr>
+    <tr>
+    <td><%= f.label :登録車名 %></td>
+    <td><%= f.text_field :car_name, autofocus: true, autocomplete:"", placeholder:"車種名を入力", class: "form-control"%></td>
+  </tr>
+  </tr>
+    <tr>
+    <td><%= f.label :車検証写真 %></td>
+    <td><%= f.file_field :certificate_image %></td>
+  </tr>
+<% end %>
+
+
+<h3>登録車両一覧</h3>
