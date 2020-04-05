@@ -1,0 +1,2 @@
+class CarInformation < ApplicationRecord
+end

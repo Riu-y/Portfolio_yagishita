@@ -1,0 +1,2 @@
+class UnderDeal < ApplicationRecord
+end

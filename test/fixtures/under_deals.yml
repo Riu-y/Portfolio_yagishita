@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_id: 1
+  ad_client_id: 1
+  driver_id: 1
+  work_status: 1
+
+two:
+  ad_id: 1
+  ad_client_id: 1
+  driver_id: 1
+  work_status: 1
