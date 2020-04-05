@@ -35,11 +35,11 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.2]
       t.string :driver_name_kana, null: false
       t.string :postal_code, null: false
       t.string :address, null: false
-      t.string :telephone_number_id, null: false
+      t.string :telephone_number, null: false
       t.string :email, null: false
       t.string :profile_image_id
       t.string :driver_license_image_id, null: false
-      t.boolean :is_acctive, defalt: true
+      t.boolean :is_active, null: false, default: true
 
 
       t.timestamps null: false
