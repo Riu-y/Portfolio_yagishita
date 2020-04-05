@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :drivers
-  devise_for :ad_clients
-  devise_for :admins
-  root 'homes#top'
+  devise_for :admins, controllers:{
+    registrations: 'admins/registrations',
+    sessions: 'admins/sessions'
+  }
+  devise_for :drivers, controllers:{
+    registrations: 'drivers/registrations',
+    sessions: 'drivers/sessions'
+  }
+  devise_for :ad_clients, controllers:{
+    registrations: 'ad_clients/registrations',
+    sessions: 'ad_clients/sessions'
+  }
 
-  resources :admin, only:[:index]
-		namespace :admin do
+  get 'homes/index'
+  get 'homes/show'
+
+  resources :admins, only:[:index]
+  root 'admins#index'
+		namespace :admins do
 			resources :ad_clients, only: [:index, :show, :update]
 			resources :driver, only: [:index, :show, :update]
 			resources :genres, only: [:index, :create, :edit, :update]
@@ -13,6 +25,7 @@ Rails.application.routes.draw do
 	  end
 
 	resources :ad_clients, only:[:index, :edit, :update]do
+    root 'ad_clients#index'
 		member do
 			get :following, :followers
 		end
@@ -23,6 +36,7 @@ Rails.application.routes.draw do
 	  end
 
 	resources :drivers, only:[:index, :edit, :update]do
+    root 'drivers#index'
 	  member do
 	  	get :following, :follower
 	  	patch :is_active

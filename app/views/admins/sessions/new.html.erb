@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-offset-3">
+      <h3>管理者 ログインページ</h3>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <table class="table" id="none-border">
+            <tbody>
+              <tr>
+                <td><%= f.label :メールアドレス %></td>
+                <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :パスワード %></td>
+                <td><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                  <%=link_to "=>パスワードを忘れた方はこちら", edit_admin_password_path %>
+                </td>
+              </tr>
+              <tr>
+                <td><%= f.submit "ログイン", class: "btn btn-primary btn-lg col-lg-offset-12" %></td>
+              </tr>
+            </tbody>
+         </table>
+        <% end %>
+      </div>
+    </div>
+   <h3>登録がお済みでない方</h3>
+   <div class="col-lg-offset-3">
+     <%=link_to "こちら", new_admin_registration_path %>から新規登録を行なってください。
+   </div>
+</div>

@@ -4,7 +4,7 @@ class CreateCarInformations < ActiveRecord::Migration[5.2]
       t.integer :driver_id,null: false
       t.string :manufacturer_name,null: false
       t.string :car_name,null: false
-      t.string :certificate_image,null: false
+      t.string :certificate_image_id,null: false
 
       t.timestamps
     end
