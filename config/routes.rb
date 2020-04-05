@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 	  end
 
 	resources :deal_details, only:[:index, :create, :update]
-	resources :deallings, only:[:index, :show, :create, :edit,:update]
+	resources :under_deals, only:[:index, :show, :create, :edit,:update]
 	resources :completed_deals, only:[:index, :show, :update]
 	resources :contacts, only:[:new]do
 		post :confirm, action: :confirm_new, on: :new
@@ -59,9 +59,9 @@ end
   # get 'contacts/new'
   # get 'completed_deals/index'
   # get 'completed_deals/show'
-  # get 'deallings/index'
-  # get 'deallings/show'
-  # get 'deallings/edit'
+  # get 'under_deals/index'
+  # get 'under_deals/show'
+  # get 'under_deals/edit'
   # get 'deal_details/index'
   # namespace :drivers do
   #   get 'transfer_informations/index'
