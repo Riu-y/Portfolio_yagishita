@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_092914) do
+ActiveRecord::Schema.define(version: 2020_04_06_130347) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_092914) do
     t.string "certificate_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "flame_number"
+    t.string "license_plate"
   end
 
   create_table "chats", force: :cascade do |t|
