@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   get 'homes/index'
-  get 'homes/show'
+  get 'homes/about'
 
   resources :admins, only:[:index]
   root 'admins#index'
@@ -24,8 +24,8 @@ Rails.application.routes.draw do
 			resources :contacts, only: [:index,:show]
 	  end
 
-	resources :ad_clients, only:[:index, :edit, :update]do
-    root 'ad_clients#index'
+	resources :ad_clients, only:[:show, :edit, :update]do
+    root 'ad_clients#show'
 		member do
 			get :following, :followers
 		end
@@ -35,8 +35,8 @@ Rails.application.routes.draw do
 	  	resources :complete_deals, only:[:index, :show, :create, :edit, :update]
 	  end
 
-	resources :drivers, only:[:index, :edit, :update]do
-    root 'drivers#index'
+	resources :drivers, only:[:show, :edit, :update]do
+    root 'drivers#show'
 	  member do
 	  	get :following, :follower
 	  	patch :is_active
