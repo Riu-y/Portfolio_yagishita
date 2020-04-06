@@ -78,7 +78,7 @@
           <td><%= t.account_number %></td>
           <td><%= t.account_name %></td>
           <td><%= link_to "編 集",edit_driver_transfer_information_path(t.driver_id,t.id), class: "btn-sm btn-success edit_book_#{t.id}" %></td>
-          <td><%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{t.id}" %></td>
+          <td><%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
         </tr>
        <% end %>
       </tbody>

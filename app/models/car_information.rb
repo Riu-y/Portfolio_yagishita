@@ -1,9 +1,11 @@
 class CarInformation < ApplicationRecord
 	validates :manufacturer_name, presence: true
 	validates :car_name, presence: true
-	validates :certificate_image_id, presence: true
+	validates :certificate_image, presence: true
+	validates :flame_number, presence: true
+	validates :license_plate, presence: true
 
 	belongs_to :driver
-end
 
-:manufacturer_name, :car_name, :certificate_image_id, 
+	attachment :certificate_image
+end
