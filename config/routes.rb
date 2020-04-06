@@ -37,15 +37,13 @@ Rails.application.routes.draw do
 
 	resources :drivers, only:[:show, :edit, :update]do
     root 'drivers#show'
-	  member do
-	  	get :following, :follower
-	  	patch :is_active
-	  end
-	end
-	  namespace :drivers do
-	  	resources :car_informations, only:[:index, :create, :edit, :update]
-	  	resources :transfer_informations, only:[:index, :create, :edit, :update]
-	  end
+  	  member do
+  	  	get :following, :follower
+  	  	patch :is_active
+  	  end
+    resources :car_informations, only:[:index, :create, :edit, :update]
+    resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
+  end
 
 	resources :deal_details, only:[:index, :create, :update]
 	resources :under_deals, only:[:index, :show, :create, :edit,:update]

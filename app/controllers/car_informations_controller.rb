@@ -1,4 +1,4 @@
-class Drivers::CarInformationsController < ApplicationController
+class CarInformationsController < ApplicationController
   def index
   end
 

@@ -1,5 +1,5 @@
 class TransferInformation < ApplicationRecord
-	validates :bank_name,, presence: true
+	validates :bank_name, presence: true
 	validates :branch_name, presence: true
 	validates :account_type, presence: true
 	validates :account_number, presence: true
@@ -7,4 +7,7 @@ class TransferInformation < ApplicationRecord
 
 
 	belongs_to :driver
+
+	enum account_type:{ ordinary: 0, checking: 1 }
+
 end
