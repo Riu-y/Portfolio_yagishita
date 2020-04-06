@@ -1,2 +1,95 @@
-<h1>Drivers#edit</h1>
-<p>Find me in app/views/drivers/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class = "col-xs-6">
+			<%= form_for(@driver) do |f| %>
+				<%= attachment_image_tag @driver, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+					<%= f.attachment_field :profile_image, class: "user_image" %><br>
+
+					<table class="table .table-borderless">
+						<tr>
+							<th><%= f.label :名前 %></th>
+							<td><%= f.text_field :driver_name, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :名前（カナ） %></th>
+							<td><%= f.text_field :driver_name_kana, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :郵便番号 %></th>
+							<td><%= f.text_field :postal_code, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :住所 %></th>
+							<td><%= f.text_field :address, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :電話番号 %></th>
+							<td><%= f.text_field :telephone_number, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :メールアドレス %></th>
+							<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class="text-center"><%= f.submit "更新する",class: "btn btn-primary" %></td>
+						</tr>
+						<% end %>
+					</table>
+		</div>
+		<div class = "col-xs-6">
+			<h3>振込先情報</h3>
+			<table class="table .table-borderless">
+						<tr>
+							<th>銀行名</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>支店名</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>口座</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>振込先人名</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td><%= link_to "編集する", root_path , class: "btn btn-primary" %></td>
+						</tr>
+					</table>
+					<br>
+			<h3>登録車情報</h3>
+				<table class="table .table-borderless">
+						<tr>
+							<th>メーカー名</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>車名</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td><%= link_to "編集する", root_path , class: "btn btn-primary" %></td>
+						</tr>
+					</table>
+	</div>
+
+
+
+		<!-- エラーメッセージ表示-->
+		<div class="row">		
+			<% if @driver.errors.any? %>
+				<h3><%= @driver.errors.count %>error occurrence</h3><!--エラーメッセ-->
+				<ul>
+					<% @driver.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
+		<!-- エラーメッセージ表示-->
