@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   	  	get :following, :follower
   	  	patch :is_active
   	  end
-    resources :car_informations, only:[:index, :create, :edit, :update]
+    resources :car_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
   end
 
