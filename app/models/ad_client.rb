@@ -6,7 +6,7 @@ class AdClient < ApplicationRecord
 
   validates_acceptance_of :terms, allow_nil: false, message: "※会員登録には利用規約への同意が必要です。", on: :create
 	validates :company_name, presence: true
-	validates :company_name_kana, presence: true
+	validates :company_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{brank}--]+\z/,message: 'はカタカナで入力してください。'}
 	validates :ceo_name, presence: true
 	validates :ceo_name_kana, presence: true
 	validates :address, presence: true
