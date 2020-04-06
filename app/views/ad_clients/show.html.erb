@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'profile' , ad_client: @ad_client %><br>
+		<!-- ジャンル検索 -->
+			<table class="table" id = none-border>
+					<tr>
+						<td><%= link_to "お気に入り広告", root_path  %></td>
+					</tr>
+					<tr>
+						<td><%= link_to "広告を探す", root_path  %></td>
+					</tr>
+					<tr>
+						<td><%= link_to "取引一覧", root_path  %></td>
+					</tr>
+					<tr>
+						<td><%= link_to "問い合せ", root_path  %></td>
+					</tr>
+			</table>
+		</div>
+		<div class="col-xs-9">
+		</div>
