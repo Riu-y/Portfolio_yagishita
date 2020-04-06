@@ -15,5 +15,6 @@ class Driver < ApplicationRecord
 	attachment :profile_image
 
 	has_many :transfer_informations
+	has_many :car_informations
 
 end
