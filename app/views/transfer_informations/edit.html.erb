@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>振込先口座編集</h1>
+      <%= form_for @transfer_information, url: driver_transfer_information_path do |f| %>
+      <table class="table" id="none-border">
+        <tbody>
+            <tr>
+              <td>
+                <%= f.label :銀行名（ハイフンなし） %>
+                <%= f.text_field :bank_name, autofocus: true, autocomplete:"", placeholder:"郵便番号", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :支店名 %>
+                <%= f.text_field :branch_name, autofocus: true, autocomplete:"", placeholder:"住所", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :口座種別 %>
+                <%= f.text_field :account_type, autofocus: true, autocomplete:"", placeholder:"宛名", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :口座番号 %>
+                <%= f.text_field :account_number, autofocus: true, autocomplete:"", placeholder:"宛名", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :口座名義人名 %>
+                <%= f.text_field :account_name, autofocus: true, autocomplete:"", placeholder:"宛名", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">
+                <%= f.submit "登録する", class: "btn btn-primary col-lg-offset-10"%>
+              </td>
+             </tr>
+           <% end %>
+         </tbody>
+       </table>
+    </div>
+  </div>
+</div>
