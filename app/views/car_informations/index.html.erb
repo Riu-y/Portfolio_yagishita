@@ -6,19 +6,19 @@
           <%= form_for @car_information, url: driver_car_informations_path do |f| %>
             <tr>
               <td><%= f.label :メーカー名 %></td>
-              <td><%= f.text_field :manufacturer_name, autofocus: true, autocomplete:"", placeholder:"車のメーカー名を入力", class: "form-control"%></td>
+              <td><%= f.text_field :manufacturer_name, autofocus: true, placeholder:"車のメーカー名を入力", class: "form-control"%></td>
             </tr>
              <tr>
               <td><%= f.label :車名 %></td>
-              <td><%= f.text_field :car_name, autofocus: true, autocomplete:"", placeholder:"車種名を入力", class: "form-control"%></td>
+              <td><%= f.text_field :car_name, autofocus: true, placeholder:"車種名を入力", class: "form-control"%></td>
             </tr> 
             <tr>
               <td><%= f.label :ナンバープレート %></td>
-              <td><%= f.text_field :license_plate, autofocus: true, autocomplete:"", placeholder:"登録番号を入力", class: "form-control"%></td>
+              <td><%= f.text_field :license_plate, autofocus: true, placeholder:"登録番号を入力", class: "form-control"%></td>
             </tr>
             <tr>
               <td><%= f.label :車台番号 %></td>
-              <td><%= f.text_field :flame_number, autofocus: true, autocomplete:"", placeholder:"車両検査表に記載の車台番号を入力", class: "form-control"%></td>
+              <td><%= f.text_field :flame_number, autofocus: true, placeholder:"車両検査表に記載の車台番号を入力", class: "form-control"%></td>
             </tr>
             <tr>
               <td><%= f.label :車検証写真 %></td>
