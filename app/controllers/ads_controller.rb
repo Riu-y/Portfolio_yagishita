@@ -1,8 +1,12 @@
 class AdsController < ApplicationController
   def index
+    @ads = Ad.all
+    @genres = Genre.all
   end
 
   def show
+    @ad = Ad.find(params[:id])
+    @genres = Genre.all
   end
 
   def genre_serch
