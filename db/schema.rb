@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_130347) do
+ActiveRecord::Schema.define(version: 2020_04_07_105459) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -52,12 +52,14 @@ ActiveRecord::Schema.define(version: 2020_04_06_130347) do
     t.integer "genre_id", null: false
     t.string "title", null: false
     t.text "content", null: false
-    t.integer "ad_image"
+    t.string "ad_image_id"
     t.integer "ad_fee", null: false
     t.boolean "is_active", default: true, null: false
-    t.integer "ad_priod", null: false
+    t.string "ad_priod", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "heading"
+    t.integer "ad_client_id"
   end
 
   create_table "car_informations", force: :cascade do |t|
