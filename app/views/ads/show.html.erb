@@ -1,2 +1,33 @@
-<h1>Ads#show</h1>
-<p>Find me in app/views/ads/show.html.erb</p>
+<div class="container">
+  <div class="row">
+		<%= render "ads/genre_templete", genres: @genres %>
+    <div class="col-xs-9">
+      <h3>広告詳細</h3>
+         <tr>
+           <td><%= attachment_image_tag @ad, :ad_image, :fill,320,200, fallback: "no_image.jpg", size:'200x130' %></td><br><br>
+           <td><h4><%= @ad.title %></h4></td>
+           <td><h3><%= @ad.ad_fee %>円</h3></td><br>
+           <td><h4><%= @ad.heading %></h4></td><br>
+         </tr>
+         <table class="table">
+         <tr>
+           <th>広告主</th>
+           <th>広告作業期間</th>
+         </tr>
+         <tr>
+           <td><%= @ad.ad_client_id %></td>
+           <td><%= @ad.ad_priod %></td>
+         </tr>
+         <tr>
+          <td>ジャンル</td>
+          <td></td>
+         </tr>
+         <tr>
+          <td><%= @ad.genre_id %></td>
+          <td> <%= link_to "この広告に申し込む", ads_path , class: "btn btn-lg btn-primary"%></td>
+         </tr>
+       </table>
+        <%= link_to "前の画面に戻る", ads_path  %>
+    </div>
+  </div>
+</div>
