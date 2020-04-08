@@ -3,13 +3,30 @@
 		<%= render "ads/genre_templete", genres: @genres %>
     <div class="col-xs-9">
       <h3>広告詳細</h3>
+        <%= attachment_image_tag @ad, :ad_image, :fill,760,420, fallback: "no_image.jpg", size:'200x130' %>
+        <table>
          <tr>
-           <td><%= attachment_image_tag @ad, :ad_image, :fill,320,200, fallback: "no_image.jpg", size:'200x130' %></td><br><br>
-           <td><h4><%= @ad.title %></h4></td>
-           <td><h3><%= @ad.ad_fee %>円</h3></td><br>
-           <td><h4><%= @ad.heading %></h4></td><br>
+           <th><h4><%= @ad.title %></h4></th>
+           <th class="text-right">
+              <% if @ad.favorited_by?(current_driver)  %>
+               <%= link_to ad_favorites_path(@ad),method: :delete do %>
+               <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red; font-size: 30px"></span>
+              <% end %>
+             <% else %>
+               <%= link_to ad_favorites_path(@ad), method: :post do %>
+                 <span class="glyphicon glyphicon-heart-empty" aria-hidden="true" style="color: grey; font-size: 30px"></span>
+               <% end %>
+             <% end %>
+           </th>
          </tr>
-         <table class="table">
+         <tr>
+           <td><h3><%= @ad.ad_fee %>円</h3></td>
+         </tr>
+         <tr>
+           <td><h4><%= @ad.heading %></h4></td>
+         </tr>
+       </table>
+       <table class="table">
          <tr>
            <th>広告主</th>
            <th>広告作業期間</th>
