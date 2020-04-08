@@ -1,13 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<!-- お気に入り一覧 -->
-			<%= link_to "お気に入り一覧", favorite_serch_ad_path(current_driver), class: "btn btn-default btn-lg", style: "color: black;" %>
+			<!-- 前の画面に戻る -->
+
 			<!-- ジャンル一覧 -->
  			<%= render "ads/genre_templete", genres: @genres %>
  		</div>
 		<div class="col-xs-8">
-			<h2>広告一覧</h2>
+			<h2>お気に入り一覧</h2>
 				<% i = 0 %>
 				<table class="table" id="none-border">
 					<% @ads.each do |ad| %>
