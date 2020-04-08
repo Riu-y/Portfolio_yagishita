@@ -54,11 +54,10 @@ Rails.application.routes.draw do
 	resources :chats, only: [:create]
  	resources :ads, only:[:index, :show]do
  		member do
- 		 get :genre_serch
+ 		 get :genre_search
  		 get :favorite_serch
  		 post :apply
  		end
- 		resource :favorites, only: [:create, :destroy]do
- 		end
+ 		resource :favorites, only: [:create, :destroy]
  	end
 end

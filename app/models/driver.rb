@@ -16,5 +16,6 @@ class Driver < ApplicationRecord
 
 	has_many :transfer_informations
 	has_many :car_informations
+	has_many :favorites, dependent: :destroy
 
 end
