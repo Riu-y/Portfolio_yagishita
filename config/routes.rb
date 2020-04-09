@@ -55,7 +55,7 @@ Rails.application.routes.draw do
  	resources :ads, only:[:index, :show]do
  		member do
  		 get :genre_search
- 		 get :favorite_serch
+ 		 get :favorite_search
  		 post :apply
  		end
  		resource :favorites, only: [:create, :destroy]

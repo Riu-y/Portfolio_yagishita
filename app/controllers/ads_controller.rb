@@ -14,9 +14,10 @@ class AdsController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
-  def favorite_serch
+  def favorite_search
      @genres = Genre.all
-     @ads = current_driver.favorites.ad.all
+     @driver = current_driver
+     @favorited_ads = Ad.joins(:favorites).where(favorites: { driver: @driver })
   end
 
   def apply
