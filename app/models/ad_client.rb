@@ -12,7 +12,6 @@ class AdClient < ApplicationRecord
 	validates :address, presence: true
 	validates :ceo_name_kana, presence: true
 	validates :telephone_number, presence: true
-	validates :profile_image, presence: true
 	validates :registry_image_id, presence: true
 	validates :email, presence: true
 

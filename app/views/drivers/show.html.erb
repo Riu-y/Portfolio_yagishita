@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3">
-			<%= render 'profile' , driver: @driver %><br>
-		<!-- ジャンル検索 -->
+		<div class="col-md-3">
+			<!-- ジャンル一覧 -->
+ 			<%= render "ads/genre_templete", genres: @genres %>
+ 		</div>
 			<table class="table" id = none-border>
 					<tr>
 						<td><%= link_to "お気に入り広告", favorite_serch_ad_path  %></td>
