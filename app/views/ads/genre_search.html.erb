@@ -1,7 +1,9 @@
 <div class="container">
 	<div class="row">
-		 <!-- ジャンル一覧 -->
- 		<%= render "ads/genre_templete", genres: @genres %>
+		<div class="col-md-3">
+			<!-- ジャンル一覧 -->
+ 			<%= render "ads/genre_templete", genres: @genres %>
+ 		</div>
 		<div class="col-xs-8">
 			<h2><%= @genre.genre_name %></h2>
 				<% i = 0 %>
@@ -20,6 +22,7 @@
 						<% end %>
 					<% end %>
 				</table>
+			<%= link_to "前のページへ戻る", ads_path %>
 		</div>
 	</div>
 </div>

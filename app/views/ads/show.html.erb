@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-		<%= render "ads/genre_templete", genres: @genres %>
+    <div class="col-md-3">
+      <!-- ジャンル一覧 -->
+      <%= render "ads/genre_templete", genres: @genres %>
+    </div>
     <div class="col-xs-9">
       <h3>広告詳細</h3>
         <%= attachment_image_tag @ad, :ad_image, :fill,760,420, fallback: "no_image.jpg", size:'200x130' %>
