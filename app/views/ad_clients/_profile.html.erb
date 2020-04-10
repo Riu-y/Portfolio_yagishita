@@ -1,13 +1,17 @@
 <table class="table">
 	<tr>
-		<td class="text-center"><%= attachment_image_tag @ad_client, :profile_image, :fill, 230, 170, fallback: "no_image.jpg",size:"230x170" %></td>
+		<td class="text-center">
+			<%= attachment_image_tag @ad_client, :profile_image, :fill, 230, 170, fallback: "no_image.jpg",size:"230x170" %>
+		</td>
 	</tr>
 	<tr>
-		<td class="text-center"><%= ad_client.company_name %> さん</td>
-	<tr>
-	<tr>
-		<td class="text-center"><%= link_to 'プロフィール編集',edit_ad_client_path(current_ad_client),class: "btn btn-default" %></td>
+		<td class="text-center">
+			<%= ad_client.company_name %> さん
+		</td>
 	</tr>
 	<tr>
-			<td class="text-center"><%= link_to '口座情報編集',edit_ad_client_path(current_ad_client),class: "btn btn btn-default" %></td>
+		<td class="text-center">
+			<%= link_to 'プロフィール編集',edit_ad_client_path(current_ad_client),class: "btn btn-default" %>
+		</td>
 	</tr>
+</table>
