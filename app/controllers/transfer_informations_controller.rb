@@ -7,7 +7,7 @@ class TransferInformationsController < ApplicationController
   	@transfer_information = TransferInformation.new(transfer_information_params)
   	@transfer_information.driver_id = current_driver.id
 	  	if @transfer_information.save
-	  		redirect_back(fallback_location: drivers_root_path)
+	  		redirect_back(fallback_location: driver_dashboard_path)
 	  	else
 	  		@transfer_information = current_driver.transfer_informations
 	  		render 'index'
@@ -26,14 +26,14 @@ class TransferInformationsController < ApplicationController
 	  		redirect_to driver_transfer_informations_path
 	  	else
 	  		@transfer_information = TransferInformation.find(params[:id])
-	  		redirect_back(fallback_location: drivers_root_path)
+	  		redirect_back(fallback_location: driver_dashboard_path)
 	  	end
   end
 
   def destroy
   	@transfer_information = TransferInformation.find(params[:id])
   	@transfer_information.destroy
-  	redirect_back(fallback_location: drivers_root_path)
+  	redirect_back(fallback_location: driver_dashboard_path)
   end
 
   private

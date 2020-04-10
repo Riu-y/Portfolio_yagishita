@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_074132) do
+ActiveRecord::Schema.define(version: 2020_04_09_052038) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -145,6 +145,13 @@ ActiveRecord::Schema.define(version: 2020_04_08_074132) do
   create_table "genres", force: :cascade do |t|
     t.string "genre_name", null: false
     t.boolean "flag_active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

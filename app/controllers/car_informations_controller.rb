@@ -8,7 +8,7 @@ class CarInformationsController < ApplicationController
   	@car_information = CarInformation.new(car_information_params)
   	@car_information.driver_id = current_driver.id
   	if @car_information.save
-  		redirect_back(fallback_location: drivers_root_path)
+  		redirect_back(fallback_location: driver_dashboard_path)
   	else
   	 @car_informations = current_driver.car_informations
   		render 'index'
@@ -24,14 +24,14 @@ class CarInformationsController < ApplicationController
   		redirect_to driver_car_informations_path
   	else
   		@car_information = CarInformation.find(params[:id])
-  		redirect_back(fallback_location: drivers_root_path)
+  		redirect_back(fallback_location: driver_dashboard_path)
   	end
   end
 
   def destroy
   	@car_information = CarInformation.find(params[:id])
   	if @car_information.destroy
-  		redirect_back(fallback_location: drivers_root_path)
+  		redirect_back(fallback_location: driver_dashboard_path)
   	else
   		render 'index'
   	end
