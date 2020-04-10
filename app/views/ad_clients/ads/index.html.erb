@@ -1,8 +1,10 @@
 <div class="container">
 	<div class="row">
-		 <!-- ジャンル一覧 -->
- 		<%= render "ads/genre_templete", genres: @genres %>
-  <%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), class: "btn btn-lg btn-info " %>
+		<div class="col-md-3">
+			<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), class: "btn btn-lg btn-info " %>
+		 	<!-- ジャンル一覧 -->
+ 			<%= render "ads/genre_templete", genres: @genres %>
+ 		</div>
 		<div class="col-xs-8">
 			<h2>掲載広告一覧</h2>
 				<% i = 0 %>
@@ -21,6 +23,7 @@
 						<% end %>
 					<% end %>
 				</table>
+				<%= link_to "トップページに戻る", ad_clients_root_path(current_ad_client) %>
 		</div>
 	</div>
 </div>

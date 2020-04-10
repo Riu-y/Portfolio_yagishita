@@ -19,6 +19,24 @@
  @import 'bootstrap-datetimepicker';
 
 
+.img_wrap{
+  width: 200px;
+  height: 180px;
+  margin: 20px auto 0;
+  transition-duration: 0.5s;
+}
+.img_wrap img{
+  width: 100%;
+  cursor: pointer;
+}
+
+.img_wrap:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-5px);
+  transition-duration: 0.5s;
+}
+
+
 #none-border td,
 #none-border tr{
 	border-style: none;

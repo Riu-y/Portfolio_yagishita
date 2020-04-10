@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-6">
+		<h3>  Follower Ad_clients</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Image</th>
+					<th>Name</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @driver.follower_ad_clients.each do |ad_client| %>
+				<tr>
+					<td><%= attachment_image_tag ad_client, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg" %></td>
+					<td><%= ad_client.company_name %></td>
+					<td><%= link_to "Show", ad_client, class: "ad_client_#{ad_client.id}" %></td>
+					<!-- 上記rと同じ記述 -->
+					<!-- <td><%= link_to "Show", ad_client_path(ad_client) %></td> -->
+				</tr>
+			 <% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
