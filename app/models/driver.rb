@@ -18,4 +18,20 @@ class Driver < ApplicationRecord
 	has_many :car_informations
 	has_many :favorites, dependent: :destroy
 
+
+	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
+	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+
+	has_many :following_ad_clients, through: :follower, source: :followed #自分がフォローしている広告主
+	has_many :follower_ad_clients, through: :followed, source: :follower #自分をフォローしている広告主
+
+	def follow(driver_id)
+		follower.create(followed_id: driver_id)
+	end
+	def unfollow(driver_id)
+		follower.find_by(followed_id: driver_id).destroy
+	end
+	def ad_client_following?(ad_client)
+		following_ad_clients.include?(ad_client)
+	end
 end

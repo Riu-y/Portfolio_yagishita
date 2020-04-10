@@ -27,23 +27,25 @@ Rails.application.routes.draw do
 	resources :ad_clients, only:[:show, :edit, :update]do
     root 'ad_clients#show'
   		member do
-  			get :following, :followers
+  			get :followings, :followers
   		end
     scope module: :ad_clients do
   	 resources :ads
   	 resources :complete_deals, only:[:index, :show, :create, :edit, :update]
     end
+    resources :relationships, only:[:create, :destroy]
   end
 
-	resources :drivers, only:[:show, :edit, :update]do
-    root 'drivers#show'
+	resources :drivers, only:[:index, :show, :edit, :update]do
+    get :dashboard
   	  member do
-  	  	get :following, :follower
+  	  	get :followings, :followers
   	  	patch :is_active
   	  end
     resources :car_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
   end
+
 
 	resources :deal_details, only:[:index, :create, :update]
 	resources :under_deals, only:[:index, :show, :create, :edit,:update]
