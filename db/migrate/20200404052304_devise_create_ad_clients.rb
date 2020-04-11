@@ -32,7 +32,7 @@ class DeviseCreateAdClients < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
       t.string :company_name, null: false
-      t.string :company_nam_kana, null: false
+      t.string :company_name_kana, null: false
       t.string :ceo_name, null: false
       t.string :ceo_name_kana, null: false
       t.string :postal_code, null: false
@@ -41,6 +41,7 @@ class DeviseCreateAdClients < ActiveRecord::Migration[5.2]
       t.string :email, null: false
       t.string :profile_image_id
       t.string :registry_image_id, null: false
+      t.boolean :terms, null: false, default: false
 
       t.timestamps null: false
     end

@@ -12,8 +12,12 @@
               <td><%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :広告期間 %></td>
-              <td><%= f.text_field :ad_priod,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: '2020/01/01'  %></td>
+              <td><%= f.label :広告開始日 %></td>
+              <td><%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: '2020/01/01'  %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :広告開始日 %></td>
+              <td><%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: '2020/01/01'  %></td>
             </tr>
             <tr>
               <td><%= f.label :広告金額 %></td>

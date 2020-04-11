@@ -1,7 +1,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-			<%= render 'ad_clients/profile' , ad_client: @ad_client %>
+			<% if ad_client_signed_in? %>
+				<%= render 'ad_clients/profile' , ad_client: @ad_client %>
+			<% elsif driver_signed_in?%>
+				<%= render 'drivers/profile' , driver: @driver %>
+			<% end %>
 		</div>
 		<div class="col-xs-8">
 					<h2>ドライバー一覧</h2>
