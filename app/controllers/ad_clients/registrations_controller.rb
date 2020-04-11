@@ -14,12 +14,15 @@ class AdClients::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      ad_clients_root_path
+      ad_client_path(resource)
   end
   # GET /resource/edit
   # def edit
   #   super
   # end
+  def after_sign_out_path_for(resource)
+      new_ad_client_session_path
+  end
 
   # PUT /resource
   # def update
