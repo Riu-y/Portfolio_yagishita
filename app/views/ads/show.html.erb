@@ -17,16 +17,10 @@
         <table>
          <tr>
            <th><h4><%= @ad.title %></h4></th>
-           <th class="text-right">
-              <% if @ad.favorited_by?(current_driver)  %>
-               <%= link_to ad_favorites_path(@ad),method: :delete do %>
-               <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red; font-size: 30px"></span>
-              <% end %>
-             <% else %>
-               <%= link_to ad_favorites_path(@ad), method: :post do %>
-                 <span class="glyphicon glyphicon-heart-empty" aria-hidden="true" style="color: grey; font-size: 30px"></span>
-               <% end %>
-             <% end %>
+           <th>
+              <div id="favorites_buttons_<%= @ad.id %>">
+                <%= render partial: 'favorites/favorite',locals: { ad: @ad } %>
+              </div>
            </th>
          </tr>
          <tr>
