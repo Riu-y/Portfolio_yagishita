@@ -1,6 +1,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
+			<!-- プロフィール -->
+			<% if ad_client_signed_in? %>
+				<%= render 'ad_clients/profile' , ad_client: @ad_client %>
+			<% elsif driver_signed_in?%>
+				<%= render 'drivers/profile' , driver: @driver %>
+			<% end %>
 			<!-- お気に入り一覧 -->
 			<%= link_to "お気に入り一覧", favorite_search_ad_path(current_driver), class: "btn btn-default btn-lg", style: "color: black;" %>
 			<!-- ジャンル一覧 -->

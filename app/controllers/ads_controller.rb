@@ -2,10 +2,14 @@ class AdsController < ApplicationController
   def index
     @ads = Ad.all
     @genres = Genre.all
+    @driver = current_driver
+    @ad_client = current_ad_client
   end
   def show
     @ad = Ad.find(params[:id])
     @genres = Genre.all
+    @driver = current_driver
+    @ad_client = current_ad_client
   end
 
   def genre_search

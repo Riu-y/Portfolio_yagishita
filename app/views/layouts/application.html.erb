@@ -10,6 +10,61 @@
   </head>
 
   <body>
-    <%= yield %>
+  <!-- ヘッダー -->
+    <div class="row">
+      <div class="col-xs-5 col-xs-offset-1">
+         <nav class="nav navbar-nav ">
+           <h3><%= link_to image_tag('logo.png',width:'70'),homes_index_path %>&emsp;Ader</h3>
+          </nav>
+      </div>
+      <div class="col-xs-6">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if ad_client_signed_in? %>
+              <li><%= link_to "フォロードライバー",followings_ad_client_path(current_ad_client) %></li>
+              <li><%= link_to "お知らせ",followings_ad_client_path(current_ad_client) %></li>
+              <li><%= link_to "マイぺージ",ad_client_path(current_ad_client) %></li>
+              <li><%= link_to "お問い合わせ",new_contact_path %></li>
+            <% elsif driver_signed_in? %>
+              <li><%= link_to "お気に入り",favorite_search_ad_path(current_driver) %></li>
+              <li><%= link_to "お知らせ",favorite_search_ad_path(current_driver) %></li>
+              <li><%= link_to "マイぺージ",driver_path(current_driver) %></li>
+              <li><%= link_to "お問い合わせ",new_contact_path %></li>
+            <% else %>
+              <li><%= link_to "About Ader",homes_about_path %></li>
+              <li><%= link_to "ドライバーになる",new_driver_registration_path %></li>
+              <li><%= link_to "広告主になる",new_ad_client_registration_path %></li>
+              <li><%= link_to "お問い合わせ",new_contact_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- エラーメッセージ -->
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+
+  <!-- フッター -->
+      <div class="row">
+        <div class="col-xs-12">
+          <footer class="text-center">
+            &copy;2020 Ader
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

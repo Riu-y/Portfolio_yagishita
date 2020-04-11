@@ -2,7 +2,12 @@
 	<div class="row">
 		<div class="col-md-3">
 			<!-- 前の画面に戻る -->
-
+						<!-- プロフィール -->
+			<% if ad_client_signed_in? %>
+				<%= render 'ad_clients/profile' , ad_client: @ad_client %>
+			<% elsif driver_signed_in?%>
+				<%= render 'drivers/profile' , driver: @driver %>
+			<% end %>
 			<!-- ジャンル一覧 -->
  			<%= render "ads/genre_templete", genres: @genres %>
  		</div>
