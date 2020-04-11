@@ -2,21 +2,23 @@
 	<div class="row">
 		<div class="col-xs-3">
 			<%= render 'profile' , ad_client: @ad_client %><br>
-		<!-- ジャンル検索 -->
-			<table class="table" id = none-border>
-					<tr>
-						<td><%= link_to "フォローユーザー", root_path  %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "ドライバーを探す", drivers_path  %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "取引一覧", root_path  %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "問い合せ", root_path  %></td>
-					</tr>
-			</table>
+			<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), class: "btn btn-lg btn-info " %><br>
+				<!-- サイドバー -->
+				<table class="table" id = none-border>
+						<tr>
+							<td><%= link_to "フォローユーザー", root_path  %></td>
+						</tr>
+						<tr>
+							<td><%= link_to "ドライバーを探す", drivers_path  %></td>
+						</tr>
+						<tr>
+							<td><%= link_to "取引一覧", root_path  %></td>
+						</tr>
+						<tr>
+							<td><%= link_to "問い合せ", root_path  %></td>
+						</tr>
+				</table>
 		</div>
 		<div class="col-xs-9">
 		</div>
+</div>

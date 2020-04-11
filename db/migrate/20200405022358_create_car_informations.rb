@@ -5,6 +5,8 @@ class CreateCarInformations < ActiveRecord::Migration[5.2]
       t.string :manufacturer_name,null: false
       t.string :car_name,null: false
       t.string :certificate_image_id,null: false
+      t.string :flame_number,null: false
+      t.string :license_plate,null: false
 
       t.timestamps
     end

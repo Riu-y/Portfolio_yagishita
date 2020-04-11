@@ -2,6 +2,7 @@ class DriversController < ApplicationController
 
   def index
     @ad_client = current_ad_client
+    @driver = current_driver
     @drivers = Driver.all
   end
 
