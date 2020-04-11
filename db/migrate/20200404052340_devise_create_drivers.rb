@@ -40,7 +40,7 @@ class DeviseCreateDrivers < ActiveRecord::Migration[5.2]
       t.string :profile_image_id
       t.string :driver_license_image_id, null: false
       t.boolean :is_active, null: false, default: true
-
+      t.boolean :terms,null: false, default: false
 
       t.timestamps null: false
     end

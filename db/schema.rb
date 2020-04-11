@@ -27,14 +27,16 @@ ActiveRecord::Schema.define(version: 2020_04_09_052038) do
     t.string "telephone_number", null: false
     t.string "profile_image_id"
     t.string "registry_image_id", null: false
+    t.boolean "terms", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "terms", default: false
     t.index ["email"], name: "index_ad_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_ad_clients_on_reset_password_token", unique: true
   end
 
   create_table "admins", force: :cascade do |t|
+    t.string "admin_name", null: false
+    t.string "admin_name_kana", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -42,8 +44,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_052038) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "admin_name"
-    t.string "admin_name_kana"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -51,15 +51,16 @@ ActiveRecord::Schema.define(version: 2020_04_09_052038) do
   create_table "ads", force: :cascade do |t|
     t.integer "genre_id", null: false
     t.string "title", null: false
+    t.string "heading"
     t.text "content", null: false
     t.string "ad_image_id"
     t.integer "ad_fee", null: false
     t.boolean "is_active", default: true, null: false
-    t.string "ad_priod", null: false
+    t.string "start_date", null: false
+    t.string "end_date", null: false
+    t.integer "ad_client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "heading"
-    t.integer "ad_client_id"
   end
 
   create_table "car_informations", force: :cascade do |t|
@@ -67,10 +68,10 @@ ActiveRecord::Schema.define(version: 2020_04_09_052038) do
     t.string "manufacturer_name", null: false
     t.string "car_name", null: false
     t.string "certificate_image_id", null: false
+    t.string "flame_number", null: false
+    t.string "license_plate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "flame_number"
-    t.string "license_plate"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -128,9 +129,9 @@ ActiveRecord::Schema.define(version: 2020_04_09_052038) do
     t.string "profile_image_id"
     t.string "driver_license_image_id", null: false
     t.boolean "is_active", default: true, null: false
+    t.boolean "terms", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "terms", default: false
     t.index ["email"], name: "index_drivers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
