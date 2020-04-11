@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+      <!-- プロフィール -->
+            <!-- プロフィール -->
+      <% if ad_client_signed_in? %>
+        <%= render 'ad_clients/profile' , ad_client: @ad_client %>
+      <% elsif driver_signed_in?%>
+        <%= render 'drivers/profile' , driver: @driver %>
+      <% end %>
       <!-- ジャンル一覧 -->
       <%= render "ads/genre_templete", genres: @genres %>
     </div>
@@ -28,6 +35,9 @@
          <tr>
            <td><h4><%= @ad.heading %></h4></td>
          </tr>
+         <tr>
+           <td><p><%= @ad.content %></p></td>
+         </tr>
        </table>
        <table class="table">
          <tr>
@@ -36,7 +46,7 @@
          </tr>
          <tr>
            <td><%= @ad.ad_client_id %></td>
-           <td><%= @ad.ad_priod %></td>
+           <td><%= @ad.start_date %><br>&emsp;〜<%= @ad.end_date %></td>
          </tr>
          <tr>
           <td>ジャンル</td>
