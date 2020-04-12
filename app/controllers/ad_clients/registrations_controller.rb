@@ -14,7 +14,7 @@ class AdClients::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      ad_client_path(resource)
+      dashboard_ad_client_path(resource)
   end
   # GET /resource/edit
   # def edit

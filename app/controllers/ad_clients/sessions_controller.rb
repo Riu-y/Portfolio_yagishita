@@ -13,7 +13,7 @@ class AdClients::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      ad_client_path(resource)
+      dashboard_ad_client_path(resource)
   end
 
   # DELETE /resource/sign_out

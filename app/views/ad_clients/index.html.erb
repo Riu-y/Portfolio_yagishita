@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<% if driver_signed_in?%>
+	 			<%= render "drivers/profile", driver: @driver %>
+	 			<%= render "drivers/sidebar", driver: @driver %>
+			<% end %>
+		</div>
+		<div class="col-xs-8">
+					<h2>広告主一覧</h2>
+						<% i = 0 %>
+						<table class="table" id="none-border">
+							<% @ad_clients.each do |ad_client| %>
+									<td>
+										<%= link_to ad_client_path(ad_client.id) do %>
+										<%= attachment_image_tag ad_client,:profile_image, fallback: "no_image.jpg", size:'200x160',class: "img_wrap" %><br>
+										<%= ad_client.company_name %><% end %><br>
+										<%= ad_client.company_name_kana %><br>
+									</td>
+									<% i = i + 1 %>
+									<% if i % 3 == 0 %>
+									<tr></tr>
+								<% end %>
+							<% end %>
+						</table>
+					<%= link_to "マイページへ戻る", dashboard_driver_path(current_driver) %>
+				</div>
+		</div>
+	</div>

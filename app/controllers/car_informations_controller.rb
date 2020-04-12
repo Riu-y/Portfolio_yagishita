@@ -1,4 +1,6 @@
 class CarInformationsController < ApplicationController
+  before_action :authenticate_driver!
+  
   def index
   	@car_information = CarInformation.new
   	@car_informations = current_driver.car_informations

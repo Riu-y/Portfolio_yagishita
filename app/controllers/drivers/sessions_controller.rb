@@ -13,7 +13,7 @@ class Drivers::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      driver_path(resource)
+      dashboard_driver_path(resource)
   end
 
   # DELETE /resource/sign_out

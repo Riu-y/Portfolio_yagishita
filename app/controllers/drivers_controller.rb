@@ -1,4 +1,12 @@
 class DriversController < ApplicationController
+  before_action :authenticate_driver!, only:[:dashboard]
+
+  def dashboard
+    @driver = current_driver
+    @genres = Genre.all
+    @car_informations = @driver.car_informations
+    ad_client = current_ad_client
+  end
 
   def index
     @ad_client = current_ad_client
@@ -10,7 +18,7 @@ class DriversController < ApplicationController
   	@driver = Driver.find(params[:id])
     @genres = Genre.all
     @car_informations = @driver.car_informations
-    @ad_client = current_ad_client
+    ad_client = current_ad_client
   end
 
   def edit
