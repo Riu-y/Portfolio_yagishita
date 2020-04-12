@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'homes/about'
 
   resources :admins, only:[:index]
-  root 'admins#index'
 		namespace :admins do
 			resources :ad_clients, only: [:index, :show, :update]
 			resources :driver, only: [:index, :show, :update]
@@ -24,9 +23,9 @@ Rails.application.routes.draw do
 			resources :contacts, only: [:index,:show]
 	  end
 
-	resources :ad_clients, only:[:show, :edit, :update]do
-    root 'ad_clients#show'
+	resources :ad_clients, only:[:index, :show, :edit, :update]do
   		member do
+        get :dashboard
   			get :followings, :followers
   		end
     scope module: :ad_clients do
@@ -37,13 +36,14 @@ Rails.application.routes.draw do
   end
 
 	resources :drivers, only:[:index, :show, :edit, :update]do
-    get :dashboard
   	  member do
+        get :dashboard
   	  	get :followings, :followers
   	  	patch :is_active
   	  end
     resources :car_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
+    resources :relationship_drivers, only:[:create, :destroy]
   end
 
 
