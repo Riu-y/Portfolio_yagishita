@@ -1,5 +1,6 @@
 class AdClients::AdsController < ApplicationController
-def index
+  
+  def index
     ad_client = current_ad_client
     @ads = ad_client.ads
     @genres = Genre.all

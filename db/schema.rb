@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_151406) do
+ActiveRecord::Schema.define(version: 2020_04_12_042850) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -150,13 +150,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_151406) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationship_ad_clients", force: :cascade do |t|
-    t.integer "follower_id", null: false
-    t.integer "followed_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "relationship_drivers", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
@@ -165,8 +158,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_151406) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
