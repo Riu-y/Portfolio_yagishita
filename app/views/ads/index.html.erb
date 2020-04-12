@@ -21,15 +21,9 @@
 								<%= link_to ad_path(ad.id) do %>
 								<%= attachment_image_tag ad,:ad_image, :fill,200,160, fallback: "no_image.jpg", size:'200x160' %><br>
 								<%= ad.title %><% end %>&emsp;
-								<% if ad.favorited_by?(current_driver)  %>
-		               <%= link_to ad_favorites_path(ad),method: :delete do %>
-		               	<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red; font-size: 18px"></span>
-		            	 <% end %>
-		            <% else %>
-		               <%= link_to ad_favorites_path(ad), method: :post do %>
-		              	 <span class="glyphicon glyphicon-heart-empty" aria-hidden="true" style="color: grey; font-size: 18px"></span>
-		               <% end %>
-		            <% end %><br>
+								<div id="favorites_buttons_<%= ad.id %>">
+									<%= render partial:'favorites/favorite', locals: { ad: ad} %>
+								</div><br>
 								<%= ad.ad_fee %><br>
 								<%= ad.heading %>
 							</td>
