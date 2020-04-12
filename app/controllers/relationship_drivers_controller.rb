@@ -1,11 +1,11 @@
 class RelationshipDriversController < ApplicationController
-	def create
-    current_driver.follow(params[:driver_id])
-    redirect_back(fallback_location: drivers_path(current_driver))
+  def create
+    current_driver.follow(params[:ad_client_id])
+    redirect_back(fallback_location: ad_clients_path)
   end
 
   def destroy
-    current_driver.unfollow(params[:driver_id])
-    redirect_back(fallback_location: drivers_path(current_driver))
+    current_driver.unfollow(params[:ad_client_id]) #driverからad_clientに変更する
+    redirect_back(fallback_location: ad_clients_path)
   end
 end
