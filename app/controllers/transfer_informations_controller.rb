@@ -1,4 +1,6 @@
 class TransferInformationsController < ApplicationController
+  before_action :authenticate_driver!
+
   def index
   	@transfer_informations = current_driver.transfer_informations
   	@transfer_information = TransferInformation.new

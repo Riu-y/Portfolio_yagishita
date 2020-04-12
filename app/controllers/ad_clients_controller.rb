@@ -1,6 +1,17 @@
 class AdClientsController < ApplicationController
+
+  def dashboard
+    @ad_client = current_ad_client
+  end
+
+  def index
+    # @ad_client = current_ad_client
+    @driver = current_driver
+    @ad_clients = AdClient.all
+  end
+
   def show
-  	@ad_client = current_ad_client
+  	@ad_client = AdClient.find(params[:id])
   end
 
   def edit

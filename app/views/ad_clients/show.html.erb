@@ -1,23 +1,48 @@
 	<div class="row">
 		<div class="col-xs-3">
-			<%= render 'profile' , ad_client: @ad_client %><br>
-			<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), class: "btn btn-lg btn-info " %><br>
-				<!-- サイドバー -->
-				<table class="table" id = none-border>
-						<tr>
-							<td><%= link_to "フォローユーザー", root_path  %></td>
-						</tr>
-						<tr>
-							<td><%= link_to "ドライバーを探す", drivers_path  %></td>
-						</tr>
-						<tr>
-							<td><%= link_to "取引一覧", root_path  %></td>
-						</tr>
-						<tr>
-							<td><%= link_to "問い合せ", root_path  %></td>
-						</tr>
-				</table>
+			<% if driver_signed_in?%>
+ 				<%= render "drivers/profile", driver: current_driver %>
+ 				<%= render "drivers/sidebar", driver: current_driver %>
+			<% end %><br>
 		</div>
-		<div class="col-xs-9">
+		<div class = "col-xs-6">
+				<%= attachment_image_tag @ad_client, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+						<% if driver_signed_in? %> <!-- currentか引数を定義するか後で統一 -->
+	            <% if current_driver.following?(@ad_client) %>
+	              <%= link_to 'フォローを外す', driver_relationship_driver_path(@ad_client.id), method: :delete %>
+	            <% else %>
+	              <%= link_to 'フォローする', driver_relationship_drivers_path(@ad_client.id), method: :POST %>
+	            <% end %>
+						<% end %>
+					<table class="table .table-borderless">
+						<tr>
+							<td>フォロー数：<%= link_to @ad_client.follower.count, followings_ad_client_path(@ad_client) %></td>
+      			  <td>フォロワー数：<%= link_to @ad_client.follower.count, followers_ad_client_path(@ad_client) %></td>
+						</tr>
+						<tr>
+							<th>会社名</th>
+							<td><%= @ad_client.company_name %></td>
+						</tr>
+						<tr>
+							<th>会社名（カナ）</th>
+							<td><%= @ad_client.company_name_kana %></td>
+						</tr>
+						<tr>
+							<th>郵便番号</th>
+							<td><%= @ad_client.postal_code %></td>
+						</tr>
+						<tr>
+							<th>住所</th>
+							<td><%= @ad_client.address %></td>
+						</tr>
+						<tr>
+							<th>メールアドレス</th>
+							<td><%= @ad_client.email %></td>
+						</tr>
+					</table>
 		</div>
-</div>
+		<div class = "col-xs-6">
+			ここに地図を掲載
+		</div>
+    <%= link_to "前の画面へ戻る", ad_clients_path %>
+  </div>
