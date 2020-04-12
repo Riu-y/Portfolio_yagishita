@@ -23,17 +23,18 @@ class AdClient < ApplicationRecord
 	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
 	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
 
-	has_many :following_ad_client, through: :follower, source: :followed #自分がフォローしているドライバー
-	has_many :follower_ad_client, through: :followed, source: :follower #自分をフォローしているドライバー
+	has_many :following_ad_client, through: :follower #source: :followed #自分がフォローしているドライバー
+	has_many :follower_ad_client, through: :followed #source: :follower #自分をフォローしているドライバー
 
-	def follow(ad_client_id)
-		follower.create(followed_id: ad_client_id)
+	def follow(driver_id)
+		follower.create(followed_id: driver_id)
 	end
-	def unfollow(ad_client_id)
-		follower.find_by(followed_id: ad_client_id).destroy
+
+	def unfollow(driver_id)
+		follower.find_by(followed_id: driver_id).destroy
 	end
-	def following?(ad_client_id)
-		follower.find_by(followed_id: ad_client_id)
+	def following?(driver_id)
+		follower.find_by(followed_id: driver_id)
 	end
 end
 

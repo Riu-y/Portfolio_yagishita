@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   	 resources :ads
   	 resources :complete_deals, only:[:index, :show, :create, :edit, :update]
     end
-    resources :relationships, only:[:create, :destroy]
+    resources :relationship_drivers, only:[:create, :destroy]
   end
 
 	resources :drivers, only:[:index, :show, :edit, :update]do
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   	  end
     resources :car_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
-    resources :relationship_drivers, only:[:create, :destroy]
+    resources :relationships, only:[:create, :destroy]
   end
 
 
