@@ -1,0 +1,2 @@
+module RelationshipAdClientsHelper
+end
