@@ -1,14 +1,15 @@
-<div class="container">
 	<div class="row">
 		<div class="col-xs-3">
 			<% if ad_client_signed_in? %>
 				<%= render 'ad_clients/profile' , ad_client: @ad_client %>
+				<%= render 'ad_clients/sidebar' , ad_client: current_ad_client %>
 			<% elsif driver_signed_in?%>
-				<%= render 'drivers/profile' , driver: @driver %>
+				<%= render 'drivers/profile' , driver: current_driver %>
+				<%= render "drivers/sidebar", driver: current_driver %>
 			<% end %>
 		</div>
 		<div class="col-xs-8">
-					<h2>ドライバー一覧</h2>
+					<h3>Driver list</h3>
 						<% i = 0 %>
 						<table class="table" id="none-border">
 							<% @drivers.each do |driver| %>
@@ -24,7 +25,11 @@
 								<% end %>
 							<% end %>
 						</table>
-					<%= link_to "トップページに戻る", dashboard_ad_client_path(current_ad_client) %>
+					<% if ad_client_signed_in? %>
+						<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+					<% elsif driver_signed_in?%>
+						<%= link_to "トップページに戻る", dashboard_driver_path(current_driver) %>
+					<% end %>
 				</div>
 		</div>
 	</div>

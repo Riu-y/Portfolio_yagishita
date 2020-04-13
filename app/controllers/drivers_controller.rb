@@ -18,7 +18,7 @@ class DriversController < ApplicationController
   	@driver = Driver.find(params[:id])
     @genres = Genre.all
     @car_informations = @driver.car_informations
-    ad_client = current_ad_client
+    @ad_client = current_ad_client
   end
 
   def edit
@@ -36,12 +36,12 @@ class DriversController < ApplicationController
 
   def followings
     @driver = Driver.find(params[:id])
-    @following = @driver.following_ad_clients
+    @followings = @driver.following_driver
   end
 
   def followers
     @driver = Driver.find(params[:id])
-    @ad_clients= @driver.follower_ad_clients
+    @followers = @driver.follower_driver
   end
 
   private
