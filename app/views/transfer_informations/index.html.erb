@@ -1,91 +1,87 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-4">
-      <h3>新規口座登録</h3>
-      <table class="table" id="none-border">
-        <tbody>
-          <%= form_for @transfer_information, url: driver_transfer_informations_path do |f| %>
-            <tr>
-              <td>
-                <%= f.label :銀行名 %>
-                <%= f.text_field :bank_name, autofocus: true, placeholder:"銀行名を入力", class: "form-control" %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= f.label :支店名 %>
-                <%= f.text_field :branch_name, autofocus: true, autocomplete:"", placeholder:"支店名を入力", class: "form-control" %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <%= f.radio_button :account_type, :ordinary %>
-                  <%= f.label "普通預金  " %>
-                  <%= f.radio_button :account_type, :checking %>
-                  <%= f.label "当座預金  " %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= f.label :口座番号 %>
-                <%= f.text_field :account_number, autofocus: true, placeholder:"口座番号を入力", class: "form-control" %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= f.label :口座名義人名（カナ） %>
-                <%= f.text_field :account_name, autofocus: true, autocomplete:"", placeholder:"カタカナで入力", class: "form-control" %>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                <%= f.submit "登 録", class: "btn btn-primary col-lg-offset-10"%>
-              </td>
-             </tr>
-           <% end %>
-         </tbody>
-       </table>
-       <%= link_to "前の画面に戻る", edit_driver_path(current_driver)  %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-     <table class="table table-bordered">
-      <h3>登録口座一覧</h3>
-      <thead>
-        <tr>
-          <td>銀行名</td>
-          <td>支店名</td>
-          <td>口座</td>
-          <td>口座番号</td>
-          <td>振込先人名</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </thead>
+<div class="row">
+  <div class="col-xs-4">
+    <h3>新規口座登録</h3>
+    <table class="table" id="none-border">
       <tbody>
-       <% @transfer_informations.each do |t| %>
-        <tr>
-          <td><%= t.bank_name %></td>
-          <td><%= t.branch_name %></td>
-           <% t.account_type %>
-           <% case t.account_type %>
-             <% when 'ordinary' %>
-                <td>普通預金</td>
-             <% when 'checking' %>
-                <td>当座預金</td>
-           <% end %></td>
-          <td><%= t.account_number %></td>
-          <td><%= t.account_name %></td>
-          <td><%= link_to "編 集",edit_driver_transfer_information_path(t.driver_id,t.id), class: "btn-sm btn-success edit_book_#{t.id}" %></td>
-          <td><%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
-        </tr>
-       <% end %>
-      </tbody>
-    </table>
+        <%= form_for @transfer_information, url: driver_transfer_informations_path do |f| %>
+          <tr>
+            <td>
+              <%= f.label :銀行名 %>
+              <%= f.text_field :bank_name, autofocus: true, placeholder:"銀行名を入力", class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :支店名 %>
+              <%= f.text_field :branch_name, autofocus: true, autocomplete:"", placeholder:"支店名を入力", class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <%= f.radio_button :account_type, :ordinary %>
+                <%= f.label "普通預金  " %>
+                <%= f.radio_button :account_type, :checking %>
+                <%= f.label "当座預金  " %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :口座番号 %>
+              <%= f.text_field :account_number, autofocus: true, placeholder:"口座番号を入力", class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label :口座名義人名（カナ） %>
+              <%= f.text_field :account_name, autofocus: true, autocomplete:"", placeholder:"カタカナで入力", class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <%= f.submit "登 録", class: "btn btn-primary col-lg-offset-10"%>
+            </td>
+           </tr>
+         <% end %>
+       </tbody>
+     </table>
+     <%= link_to "前の画面に戻る", edit_driver_path(current_driver)  %>
   </div>
 </div>
-
-
+<div class="row">
+  <div class="col-md-12">
+   <table class="table table-bordered">
+    <h3>登録口座一覧</h3>
+    <thead>
+      <tr>
+        <td>銀行名</td>
+        <td>支店名</td>
+        <td>口座</td>
+        <td>口座番号</td>
+        <td>振込先人名</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+     <% @transfer_informations.each do |t| %>
+      <tr>
+        <td><%= t.bank_name %></td>
+        <td><%= t.branch_name %></td>
+         <% t.account_type %>
+         <% case t.account_type %>
+           <% when 'ordinary' %>
+              <td>普通預金</td>
+           <% when 'checking' %>
+              <td>当座預金</td>
+         <% end %></td>
+        <td><%= t.account_number %></td>
+        <td><%= t.account_name %></td>
+        <td><%= link_to "編 集",edit_driver_transfer_information_path(t.driver_id,t.id), class: "btn-sm btn-success edit_book_#{t.id}" %></td>
+        <td><%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
 
 

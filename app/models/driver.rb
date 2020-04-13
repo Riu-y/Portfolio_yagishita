@@ -20,7 +20,7 @@ class Driver < ApplicationRecord
 
 
 	has_many :follower, class_name: "RelationshipDriver", foreign_key: "follower_id", dependent: :destroy # フォロー取得
-	has_many :followed, class_name: "RelationshipDriver", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
 
 	has_many :following_ad_client, :through => :follower, :source => :followed #自分がフォローしている広告主
 	has_many :follower_ad_client, :through => :followed, :source => :follower #自分をフォローしている広告主
