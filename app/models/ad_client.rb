@@ -23,8 +23,8 @@ class AdClient < ApplicationRecord
 	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
 	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
 
-	has_many :following_ad_client, through: :follower #source: :followed #自分がフォローしているドライバー
-	has_many :follower_ad_client, through: :followed #source: :follower #自分をフォローしているドライバー
+	has_many :following_driver, :through => :follower, :source => :followed #自分がフォローしているドライバー
+	has_many :follower_driver, :through => :followed, :source => :follower #自分をフォローしているドライバー
 
 	def follow(driver_id)
 		follower.create(followed_id: driver_id)

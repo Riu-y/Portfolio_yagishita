@@ -36,6 +36,12 @@
   transition-duration: 0.5s;
 }
 
+.image-circle{
+  width:  200px;
+  height: 190px;
+  border-radius: 50%;
+  position: center;
+}
 
 #none-border td,
 #none-border tr{

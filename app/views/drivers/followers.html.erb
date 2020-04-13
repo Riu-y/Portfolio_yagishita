@@ -2,7 +2,7 @@
 	<div class="col-lg-1">
 	</div>
 	<div class="col-lg-6">
-		<h3>  Follower Ad_clients</h3>
+		<h3>  Follower List</h3>
 		<table class="table">
 			<thead>
 				<tr>
@@ -14,13 +14,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @driver.follower_ad_clients.each do |ad_client| %>
+				<% @followers.each do |ad_client| %>
 				<tr>
-					<td><%= attachment_image_tag ad_client, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg" %></td>
+					<td><%= attachment_image_tag ad_client, :profile_image, :fill, 80, 80, fallback: "no-image-mini.jpg" %></td>
 					<td><%= ad_client.company_name %></td>
 					<td><%= link_to "Show", ad_client, class: "ad_client_#{ad_client.id}" %></td>
-					<!-- 上記rと同じ記述 -->
-					<!-- <td><%= link_to "Show", ad_client_path(ad_client) %></td> -->
 				</tr>
 			 <% end %>
 			</tbody>
