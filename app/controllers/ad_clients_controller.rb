@@ -5,7 +5,7 @@ class AdClientsController < ApplicationController
   end
 
   def index
-    # @ad_client = current_ad_client
+    @ad_client = current_ad_client
     @driver = current_driver
     @ad_clients = AdClient.all
   end
@@ -25,6 +25,11 @@ class AdClientsController < ApplicationController
   	else
   		render :edit
   	end
+  end
+
+  def followings
+    @ad_client = AdClient.find(params[:id])
+    @followings = @ad_client.following_driver
   end
 
   private
