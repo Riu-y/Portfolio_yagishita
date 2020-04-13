@@ -32,6 +32,11 @@ class AdClientsController < ApplicationController
     @followings = @ad_client.following_driver
   end
 
+  def followers
+    @ad_client = AdClient.find(params[:id])
+    @followers = @ad_client.follower_driver
+  end
+
   private
   def ad_client_params
   	params.require(:ad_client).permit(:company_name, :company_name_kana, :ceo_name, :ceo_name_kana, :postal_code, :address, :telephone_number, :profile_image, :registry_image_id)
