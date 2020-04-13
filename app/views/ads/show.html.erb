@@ -1,12 +1,13 @@
-<div class="container">
   <div class="row">
     <div class="col-md-3">
       <!-- プロフィール -->
             <!-- プロフィール -->
       <% if ad_client_signed_in? %>
-        <%= render 'ad_clients/profile' , ad_client: @ad_client %>
+        <%= render 'ad_clients/profile', ad_client: current_ad_client %>
+        <%= render 'ad_clients/sidebar', ad_client: current_ad_client %>
       <% elsif driver_signed_in?%>
-        <%= render 'drivers/profile' , driver: @driver %>
+        <%= render 'drivers/profile', driver: current_driver %>
+        <%= render "drivers/sidebar", driver: current_driver %>
       <% end %>
       <!-- ジャンル一覧 -->
       <%= render "ads/genre_templete", genres: @genres %>
@@ -55,4 +56,3 @@
         <%= link_to "前の画面に戻る", ads_path  %>
     </div>
   </div>
-</div>

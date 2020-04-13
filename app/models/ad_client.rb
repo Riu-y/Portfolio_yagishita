@@ -21,7 +21,7 @@ class AdClient < ApplicationRecord
 	has_many :ads
 
 	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
-	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+	has_many :followed, class_name: "RelationshipDriver", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
 
 	has_many :following_driver, :through => :follower, :source => :followed #自分がフォローしているドライバー
 	has_many :follower_driver, :through => :followed, :source => :follower #自分をフォローしているドライバー

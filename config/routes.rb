@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     end
     resources :relationship_drivers, only:[:create, :destroy]
   end
+  get '/search_ad_client', to: 'searchs#search_ad_client'
 
 	resources :drivers, only:[:index, :show, :edit, :update]do
   	  member do
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :relationships, only:[:create, :destroy]
   end
-
+  get '/search_driver', to: 'searchs#search_driver'
 
 	resources :deal_details, only:[:index, :create, :update]
 	resources :under_deals, only:[:index, :show, :create, :edit,:update]
