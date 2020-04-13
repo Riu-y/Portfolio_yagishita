@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-6">
+		<h3>  Follow list</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @followings.each do |ad_client| %>
+					<tr>
+						<td><%= attachment_image_tag ad_client, :profile_image, :fill, 80, 80, fallback: "no-image-mini.jpg" %></td>
+						<td><%= ad_client.company_name %></td>
+						<td><%= link_to "Show", ad_client, class: "ad_clients_#{ad_client.id}" %></td>
+					</tr>
+					<%end %>
+				</tbody>
+		</table>
+	</div>
+</div>
