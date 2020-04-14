@@ -69,3 +69,7 @@ gem 'kaminari'
 gem 'pry-byebug'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

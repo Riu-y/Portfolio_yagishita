@@ -19,6 +19,8 @@ class Driver < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 
 
+	has_many :under_deals
+
 	has_many :follower, class_name: "RelationshipDriver", foreign_key: "follower_id", dependent: :destroy # フォロー取得
 	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
 

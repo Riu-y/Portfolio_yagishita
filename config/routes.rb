@@ -55,6 +55,9 @@ Rails.application.routes.draw do
 		post :confirm, action: :confirm_new, on: :new
 	end
 	resources :chats, only: [:create]
+  resources :contacts, only:[:new, :create,:index]do
+    post :confirm, action: :confirm_new, on: :new
+  end
  	resources :ads, only:[:index, :show]do
  		member do
  		 get :genre_search
