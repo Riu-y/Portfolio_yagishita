@@ -432,6 +432,7 @@ Ad.create!(
 				title: "EMEOS期間キャンペーン",
 				heading: "新規会員キャンペーンの宣伝していただきます。別途特典有り♩",
 				content: "契約更新あり！継続的に弊社の広告業務を行っていただけるドライバーさんを探しています。広告ポスターは弊社から支給させていただきます。多くのドライバー様からのご応募をお待ちしております。",
+				heading: "新規会員キャンペーンの宣伝していただきます。<br>別途特典有り♩",
 				ad_image: File.open("./app/assets/images/ads/ads5.png"),
 				ad_fee:"4000",
 				is_active: true,

@@ -11,6 +11,7 @@ class AdsController < ApplicationController
     @driver = current_driver
     @ad_client = current_ad_client
     @under_deal = UnderDeal.new
+
   end
 
   def genre_search

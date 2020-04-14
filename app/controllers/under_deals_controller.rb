@@ -27,3 +27,4 @@ class UnderDealsController < ApplicationController
 	params.require(:under_deal).permit(:ad_id, :driver_id,)
 	end
 end
+

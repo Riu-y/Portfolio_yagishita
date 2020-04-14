@@ -51,6 +51,9 @@ Rails.application.routes.draw do
 	resources :deal_details, only:[:index, :create, :update]
 	resources :under_deals, only:[:index, :show, :create, :edit,:update]
 	resources :completed_deals, only:[:index, :show, :update]
+	resources :contacts, only:[:new, :create,:index]do
+		post :confirm, action: :confirm_new, on: :new
+	end
 	resources :chats, only: [:create]
   resources :contacts, only:[:new, :create,:index]do
     post :confirm, action: :confirm_new, on: :new
