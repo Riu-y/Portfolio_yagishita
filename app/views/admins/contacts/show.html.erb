@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>確認画面</h3>
+      <table class="table .table-hover">
+        <tr>
+          <th>問い合わせ日</th>
+          <td><%= @contact.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th>お名前</th>
+          <td><%= @contact.name %></td>
+        </tr>
+        <tr>
+          <th>会社名</th>
+          <td><%= @contact.company_name %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @contact.telephone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @contact.email  %></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ内容</th>
+          <td><%= @contact.content %></td>
+        </tr>
+      </table>
+  </div>
+</div>
+

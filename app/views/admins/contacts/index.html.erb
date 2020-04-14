@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-10">
+		<h3>問い合わせ一覧</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>問い合わせ</th>
+					<th>名前</th>
+					<th>会社名</th>
+					<th>メールアドレス</th>
+					<th>詳細画面</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @contacts.each do |contact| %>
+				<tr>
+					<td><%= contact.created_at.to_s(:datetime_jp) %></td>
+					<td><%= contact.name %></td>
+					<td><%= contact.company_name %></td>
+					<td><%= contact.email %></td>
+					<td><%= link_to "Show", admins_contact_path(contact.id) %></td>
+				</tr>
+			 <% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+

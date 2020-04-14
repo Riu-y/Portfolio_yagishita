@@ -60,6 +60,12 @@
               <li><%= link_to "マイぺージ",dashboard_driver_path(current_driver) %></li>
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
               <li><%= link_to "ログアウト",destroy_driver_session_path(current_driver) %></li>
+            <% elsif admin_signed_in?%>
+              <li><%= link_to "広告 一覧",ads_path %></li>
+              <li><%= link_to "ドライバー 一覧",drivers_path %></li>
+              <li><%= link_to "広告主 一覧",ad_clients_path %></li>
+              <li><%= link_to "問い合わせ一覧",admins_contacts_path %></li>
+              <li><%= link_to "ログアウト",destroy_admin_session_path(current_admin) %></li>
             <% else %>
               <li><%= link_to "About Ader",homes_about_path %></li>
               <li><%= link_to "ドライバーになる",new_driver_registration_path %></li>
@@ -68,24 +74,36 @@
               <li><%= link_to "広告主 ログイン",new_ad_client_session_path %></li>
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
             <% end %>
+
           </ul>
         </nav>
       </div>
     </div>
     <!-- エラーメッセージ -->
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <%= flash[:notice] %>
+    <div class="row">
+      <div class="col-xs4 col-xs-offset-1">
+        <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert alert-danger">
+            <%= flash[:alert] %>
+          </div>
+        <% elsif flash[:error] %>
+          <div class="alert alert-danger">
+            <%= flash[:error] %>
+          </div>
+        <% elsif flash[:contact] %>
+          <div class="alert alert-success">
+            <%= flash[:contact] %>
+          </div>
+        <% end %>
       </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-danger">
-        <%= flash[:alert] %>
-      </div>
-    <% elsif flash[:error] %>
-      <div class="alert alert-danger">
-        <%= flash[:error] %>
-      </div>
-    <% end %>
+ <!--      <div class="col-xs-7">
+      </div> -->
+    </div>
+    <!-- メイン -->
     <div class="container">
       <%= yield %>
 
