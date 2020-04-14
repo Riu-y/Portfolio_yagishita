@@ -13,7 +13,6 @@
       <%= render "ads/genre_templete", genres: @genres %>
     </div>
     <div class="col-xs-9">
-      <h3>広告詳細</h3>
         <%= attachment_image_tag @ad, :ad_image, :fill,760,420, fallback: "no_image.jpg", size:'200x130' %>
         <table>
          <tr>
@@ -50,9 +49,15 @@
          </tr>
          <tr>
           <td><%= @ad.genre_id %></td>
-          <td> <%= link_to "この広告に申し込む", ads_path , class: "btn btn-lg btn-primary"%></td>
+          <td></td>
          </tr>
        </table>
+       <%= form_for (@under_deal), url: under_deals_path, method: :post do |f| %>
+         <%= f.hidden_field :ad_id, :value => @ad.id %>
+         <%= f.hidden_field :driver_id, :value => current_driver.id %>
+         <%= f.submit "この広告に申し込む", class: "btn btn-lg btn-primary"%>
+       <% end %>
+       <br>
         <%= link_to "前の画面に戻る", ads_path  %>
     </div>
   </div>

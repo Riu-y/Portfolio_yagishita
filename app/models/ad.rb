@@ -3,6 +3,8 @@ class Ad < ApplicationRecord
 
 	has_many :genre
 
+	has_many :under_deals
+
 	attachment :ad_image
 	has_many :favorites, dependent: :destroy
 

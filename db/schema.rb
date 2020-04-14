@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_042850) do
+ActiveRecord::Schema.define(version: 2020_04_14_065950) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -185,7 +185,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_042850) do
 
   create_table "under_deals", force: :cascade do |t|
     t.integer "ad_id", null: false
-    t.integer "ad_client_id", null: false
     t.integer "driver_id", null: false
     t.integer "work_status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false

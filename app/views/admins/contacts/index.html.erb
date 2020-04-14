@@ -6,7 +6,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>問い合わせ</th>
+					<th>問い合わせ日</th>
 					<th>名前</th>
 					<th>会社名</th>
 					<th>メールアドレス</th>
@@ -20,7 +20,7 @@
 					<td><%= contact.name %></td>
 					<td><%= contact.company_name %></td>
 					<td><%= contact.email %></td>
-					<td><%= link_to "Show", admins_contact_path(contact.id) %></td>
+					<td><%= link_to "確認する", admins_contact_path(contact.id) %></td>
 				</tr>
 			 <% end %>
 			</tbody>
