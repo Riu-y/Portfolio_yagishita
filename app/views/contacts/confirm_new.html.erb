@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>確認画面</h3>
+      <table class="table .table-hover">
+         <tr>
+            <th>お名前</th>
+            <td><%= @contact.name %></td>
+          </tr>
+          <tr>
+            <th>会社名</th>
+            <td><%= @contact.company_name %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @contact.telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @contact.email  %></td>
+          </tr>
+          <tr>
+            <th>お問い合わせ内容</th>
+            <td><%= @contact.content %></td>
+          </tr><br>
+          <tr>
+            <td class="text-center">
+            	<%= form_with model: @contact, local: true do |f| %>
+            	  <%= f.hidden_field :name %>
+            	  <%= f.hidden_field :company_name %>
+            	  <%= f.hidden_field :telephone_number %>
+            	  <%= f.hidden_field :email %>
+            	  <%= f.hidden_field :content %>
+              <%= f.submit "戻る", name: 'back', class: "btn btn-success "%>
+              <%= f.submit "送信する", class: "btn btn-primary "%>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+  </div>
+</div>
+
