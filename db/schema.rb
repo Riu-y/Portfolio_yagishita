@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_04_14_065950) do
 
   create_table "ad_clients", force: :cascade do |t|
