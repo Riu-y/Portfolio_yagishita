@@ -58,6 +58,7 @@
          <%= f.submit "この広告に申し込む", class: "btn btn-lg btn-primary"%>
        <% end %>
        </table>
+        <br><%= link_to 'この広告のことで質問する', ad_chats_path(@ad.id), class: "btn btn-success"%><br>
         <%= link_to "前の画面に戻る", ads_path  %>
     </div>
   </div>

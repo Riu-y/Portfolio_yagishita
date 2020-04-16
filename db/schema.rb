@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_04_14_065950) do
+ActiveRecord::Schema.define(version: 2020_04_16_105420) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -166,11 +165,11 @@ ActiveRecord::Schema.define(version: 2020_04_14_065950) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "chat_id", null: false
     t.integer "ad_client_id", null: false
     t.integer "driver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ad_id"
   end
 
   create_table "transfer_informations", force: :cascade do |t|

@@ -1,6 +1,5 @@
 class Chat < ApplicationRecord
 	belongs_to :room
-	belongs_to :ad_client
-	belongs_to :driver
 
+	enum user_type: {driver: 0, ad_client: 1, admin: 3}
 end
