@@ -1,16 +1,16 @@
-<div class="message" style="width: 480px;">
+<div class="message">
 	<% @chats.each do |chat| %>
-			<%= chat.message %>
+		<% if chat.user_type == 'driver' %>
+			<p style="text-align: left;"><%= chat.message %></p>
+		<% else %>
+			<p style="text-align: right;"><%= chat.message %></p>
+		<% end %>
 	<% end %>
 </div>
 
-<%= form_with model:@chat, url: ad_chats_path do |f| %>
+<%= form_with model:@chat, url: ad_chats_path, data: {remote: true} do |f| %>
 	<%= f.text_area :message %>
-	<%= f.hidden_field :room_id  %>
-		<% if driver_signed_in? %>
-			<%= f.hidden_field :user_type, :value => 'driver' %>
-		<% elsif ad_client_signed_in? %>
-			<%= f.hidden_field :user_type, :value => 'ad_client' %>
-		<% end %>
+	<%= f.hidden_field :room_id %>
+	<%= f.hidden_field :user_type, :value => 'driver' %>
 	<%= f.submit "送信", class: "btn btn-primary" %>
 <% end %>

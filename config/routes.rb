@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   			get :followings, :followers
   		end
     scope module: :ad_clients do
-  	 resources :ads
   	 resources :complete_deals, only:[:index, :show, :create, :edit, :update]
+     resources :ads
     end
     resources :relationship_drivers, only:[:create, :destroy]
   end
@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   end
  	resources :ads, only:[:index, :show]do
     resources :chats, only: [:index, :create]
+    resources :rooms, only:[:index, :show, :create]
  		member do
  		 get :genre_search
  		 get :favorite_search

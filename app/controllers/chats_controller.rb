@@ -2,8 +2,9 @@ class ChatsController < ApplicationController
 	def index
 		@ad = Ad.find(params[:ad_id])
 		room = Room.find_by(ad_id: @ad.id,driver_id: current_driver.id)
-		if room.nil?
-			room = Room.create(ad_id: @ad.id, driver_id: current_driver.id, ad_client_id: @ad.ad_client_id)
+			if room.nil?
+				room = Room.create(ad_id: @ad.id, driver_id: current_driver.id, ad_client_id: @ad.ad_client_id)
+			end
 		end
 		@chats = room.chats
 		@chat = Chat.new(room_id: room.id)
