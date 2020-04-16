@@ -1,7 +1,9 @@
 class Ad < ApplicationRecord
 	belongs_to :ad_client
 
-	has_many :genre
+	has_many :genres
+
+	has_many :rooms
 
 	has_many :under_deals
 	attachment :ad_image

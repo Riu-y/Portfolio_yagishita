@@ -54,11 +54,12 @@ Rails.application.routes.draw do
 	resources :contacts, only:[:new, :create,:index]do
 		post :confirm, action: :confirm_new, on: :new
 	end
-	resources :chats, only: [:create]
+	
   resources :contacts, only:[:new, :create,:index]do
     post :confirm, action: :confirm_new, on: :new
   end
  	resources :ads, only:[:index, :show]do
+    resources :chats, only: [:index, :create]
  		member do
  		 get :genre_search
  		 get :favorite_search
