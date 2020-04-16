@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-10">
+		<h3>チャット一覧</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>問い合わせ日</th>
+					<th>広告ID</th>
+					<th>ドライバー</th>
+					<th>詳細</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @rooms.each do |room| %>
+				<tr>
+					<td><%= room.created_at.to_s(:datetime_jp) %></td>
+					<td><%= room.ad.title %></td>
+					<td><%= room.driver.driver_name %></td>
+					<td><%= link_to "詳細", ad_room_path(@ad.id,room.id) %></td>
+				</tr>
+			 <% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
