@@ -5,9 +5,10 @@ class RoomsController < ApplicationController
 	end
 
 	def show
-		@ad = Room.joins(:ad).find(params[:id])
-		@room = Room.find(params[:id])
-		@chats =@room.chats
+		@ad = Room.includes(ad: [:ad_client, :genre]).find(params[:id])
+		@room = Room.includes(:driver).find(params[:id])
+		@ad_client = current_ad_client
+		@chats =@room.chats.order("id DESC")
 		@chat = Chat.new(room_id: @room.id)
 	end
 
@@ -15,7 +16,6 @@ class RoomsController < ApplicationController
 	def create
 		@chat = Chat.new(chat_params)
 		@chat.save
-		redirect_to ad_room_path(params[:ad_id],params[:room_id])
 	end
 
 	private

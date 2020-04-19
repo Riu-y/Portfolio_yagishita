@@ -18,41 +18,61 @@
 	   </tr>
 	  </table>
 		<table class="table">
-		 <tr>
-		   <th>広告主</th>
-		   <th>広告作業期間</th>
-		 </tr>
-		 <tr>
-		   <td><%= @ad.ad.ad_client_id %></td>
-		   <td><%= @ad.ad.start_date %><br>&emsp;〜<%= @ad.ad.end_date %></td>
-		 </tr>
-		 <tr>
-		  <td>ジャンル</td>
-		  <td></td>
-		 </tr>
-		 <tr>
-		  <td><%= @ad.ad.genre_id %></td>
-		  <td></td>
-		 </tr>
+			<tr>
+			  <th>ジャンル</th>
+			  <th>広告主</th>
+			  <th>広告作業期間</th>
+			</tr>
+			<tr>
+				<td><%= @ad.ad.genre.genre_name %></td>
+				<td><%= @ad.ad.ad_client.company_name %></td>
+				<td><%= @ad.ad.start_date %><br>&emsp;〜<%= @ad.ad.end_date %></td>
+			</tr>
 		</table>
   </div>
 </div>
 <div class="row">
-	<div class="col-xs-12 col-offset-1">
-		<div class="message">
-			<% @chats.each do |chat| %>
-				<% if chat.user_type == 'driver' %>
-					<p style="text-align: left;"><%= chat.message %></p>
-				<% else %>
-					<p style="text-align: right;"><%= chat.message %></p>
-				<% end %>
+	<div class="col-xs-11 col-offset-1">
+		<div class="chat-area">
+			<%= form_with model:@chat, url: ad_rooms_path, data: {remote: true} do |f| %>
+				<%= f.hidden_field :room_id %>
+				<%= f.hidden_field :user_type, :value => 'ad_client' %>
+					<div id ="chat-send">
+						<%= f.text_area :message, class: "chat-message" %>
+						<%= f.submit "送信", class: "btn chat-btn" %>
+					</div>
 			<% end %>
-		</div>
-		<%= form_with model:@chat, url: ad_room_path, data: {remote: true} do |f| %>
-			<%= f.text_area :message %>
-			<%= f.hidden_field :room_id %>
-			<%= f.hidden_field :user_type, :value => 'ad_client' %>
-			<%= f.submit "送信", class: "btn btn-primary" %>
+		<% @chats.each do |chat| %>
+			<% if chat.user_type == 'driver' %>
+				<div class="message">
+				  <div class="faceicon">
+				    <%= attachment_image_tag @room.driver, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+				  </div>
+				    <div class="chatting">
+				     	<div class="says">
+				      	<p><%= chat.message %></p>
+			          <div class="say-data">
+			    				<%= chat.created_at.to_s(:datetime_jp) %>
+			    			</div>
+				  	  </div>
+				  	</div>
+				</div>
+			<% else %>
+				<div class="message2">
+				  <div class="faceicon2">
+				    <%= attachment_image_tag @ad_client, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+				  </div>
+				    <div class="chatting2">
+				     	<div class="says2">
+				      	<p style="text-align: right;"><%= chat.message %></p>
+						    <div class="say-data2">
+				    			<%= chat.created_at.to_s(:datetime_jp) %>
+				    		</div>
+				    	</div>
+				  	</div>
+				</div>
+			<% end %>
 		<% end %>
+		</div>
 	</div>
 </div>

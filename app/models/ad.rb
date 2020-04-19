@@ -1,7 +1,7 @@
 class Ad < ApplicationRecord
 	belongs_to :ad_client
 
-	has_many :genres
+	belongs_to :genre
 
 	has_many :rooms
 
