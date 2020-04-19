@@ -15,7 +15,7 @@
 			<tbody>
 				<% @rooms.each do |room| %>
 				<tr>
-					<td><%= room.created_at.to_s(:datetime_jp) %></td>
+					<td><%= room.updated_at.to_s(:datetime_jp) %></td>
 					<td><%= room.ad.title %></td>
 					<td><%= room.driver.driver_name %></td>
 					<td><%= link_to "詳細", ad_room_path(@ad.id,room.id) %></td>
