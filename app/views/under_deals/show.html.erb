@@ -2,38 +2,21 @@
 	<div class="text-center">
 		<h3>取引画面</h3><br>
 	</div>
-  <div class="col-xs-6">
-  	<%= attachment_image_tag @ad, :ad_image, :fill,1200,1000, fallback: "no_image.jpg", size:'200x130' %>
-  </div>
-  <dev class="col-xs-6">
-  		<tr>
-  			<th></th>
-	  		<td><%= @ad.title %></td><br>
-	  		<td><%= @ad.ad_fee %></td><br>
-	  		<td><%= @ad.heading %></td><br>
-	  		<td>広告主</td><br>
-	  		<td><%= @ad.ad_client_id %></td><br>
-	  		<td>広告期間</td><br>
-	  		<td><%= @ad.start_date %>〜<%= @ad.end_date %></td><br>
-	  	</tr>
-	</div>
-</div>
+	<%= render 'ad_info', ad: @ad %>
 <div class="row"><!-- チャット機能 -->
 <br>
 </div>
 <div class="row"><!-- 作業報告エリア -->
-	<div class="col-xs-10 col-xs-offset-1">
-		<table>
-			<tr>
-				<th>広告設置の証明写真をアップロードする&emsp;</th>
-				<th>作業完了報告をする&emsp;</th>
-				<th>振込完了報告をする&emsp;</th>
-			</tr>
-			<tr>
-				<td>ここに写真</td>
-				<td>ここに写真</td>
-				<td>ここに写真</td>
-			</tr>
-		</table>
+	<div class="col-xs-11 col-xs-offset-1">
+		<% if ad_client_signed_in? %>
+			<%= render 'flow_ad_client', under_deal: @under_deal %>
+		<% elsif driver_signed_in?  %>
+			<%= render 'flow_driver', under_deal: @under_deal %>
+		<% end %>
+	</div>
+</div>
+<div class="row"><!-- メッセージエリア -->
+	<div class="col-xs-11 col-offset-1">
+		<%= render 'deal_message', { under_deal: @under_deal, message: @message, messages: @messages } %>
 	</div>
 </div>

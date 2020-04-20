@@ -49,12 +49,18 @@ Rails.application.routes.draw do
   get '/search_driver', to: 'searchs#search_driver'
 
 	resources :deal_details, only:[:index, :create, :update]
-	resources :under_deals, only:[:index, :show, :create, :edit,:update]
 	resources :completed_deals, only:[:index, :show, :update]
-	resources :contacts, only:[:new, :create,:index]do
+
+  resources :under_deals, only:[:index, :show, :create, :edit,:update]do
+    resources :deal_messages, only:[:create]
+  end
+  scope module: :under_deals do
+      get :how_to_kit
+	end
+  resources :contacts, only:[:new, :create,:index]do
 		post :confirm, action: :confirm_new, on: :new
 	end
-	
+
   resources :contacts, only:[:new, :create,:index]do
     post :confirm, action: :confirm_new, on: :new
   end

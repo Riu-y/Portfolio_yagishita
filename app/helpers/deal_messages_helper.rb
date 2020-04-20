@@ -1,0 +1,2 @@
+module DealMessagesHelper
+end

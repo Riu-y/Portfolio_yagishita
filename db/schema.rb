@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_105420) do
+ActiveRecord::Schema.define(version: 2020_04_20_113233) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -115,6 +115,14 @@ ActiveRecord::Schema.define(version: 2020_04_16_105420) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "deal_messages", force: :cascade do |t|
+    t.text "message", null: false
+    t.integer "user_type", null: false
+    t.integer "under_deal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "drivers", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
@@ -189,6 +197,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_105420) do
     t.integer "work_status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "installation_image_id"
   end
 
 end
