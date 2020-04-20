@@ -1,16 +1,16 @@
 <table class="table">
-	<tr>
+	<tr id="none-border">
 		<td class="text-center">
 			<%= attachment_image_tag driver, :profile_image, :fill, 230, 170, fallback: "no_image.jpg", class: "image-circle" %>
 		</td>
 	</tr>
-	<tr>
+	<tr id="none-border">
 		<td class="text-center">
 			<%= driver.driver_name %> さん
 		</td>
 	</tr>
 	<% if current_driver == driver %>
-	<tr>
+	<tr id="none-border">
 		<td class="text-center">
 			<%= link_to 'ドライバー情報 編集',edit_driver_path(current_driver),class: "btn btn-default" %>
 		</td>

@@ -23,4 +23,7 @@ class ChatsController < ApplicationController
 	def chat_params
 		params.require(:chat).permit(:room_id, :user_type, :message)
 	end
+	def message_params
+		params.require(:deal_message).permit(:message, :user_type, :under_deal_id)
+	end
 end

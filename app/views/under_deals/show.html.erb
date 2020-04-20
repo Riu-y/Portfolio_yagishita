@@ -7,71 +7,16 @@
 <br>
 </div>
 <div class="row"><!-- 作業報告エリア -->
-	<div class="col-xs-10 col-xs-offset-1">
+	<div class="col-xs-11 col-xs-offset-1">
 		<% if ad_client_signed_in? %>
-			<% if @under_deal.work_status == 'approval_pending' %>
-				<div class="text-center">
-					<%= render 'drivers/profile' , driver: @under_deal.driver %>
-					<h3>広告に応募がありました!</h3>
-						<p><%= link_to "プロフィールを確認する",driver_path(@under_deal.driver.id), class: "btn btn-primary" %></p>
-						<p>取引承認待ちです。このドライバーと広告契約を結びますか？</p>
-						<%= form_for @under_deal, url:under_deal_path(@under_deal), method: :patch do |f| %>
-							<%= f.submit "広告を依頼する", name:'accept', class: "btn btn-primary " %>
-							<%= f.submit "お断りする",name: 'refuse', class: "btn btn-danger" %>
-						<% end %>
-				</div>
-			<% elsif @under_deal.work_status == 'refuse'%>
-				<div class="text-center">
-					<h3>ドライバーからの申し込みをお断りしました。</h3>
-					<p><%= link_to "マイページへ戻る",dashboard_ad_client_path(current_ad_client), class: "btn btn-sm btn-default" %></p>
-				</div>
-			<% elsif @under_deal.work_status == 'waiting_kit'%>
-				<h3>ドライバーへ広告キットを発送してください</h3>
-					<table>
-						<tr>
-							<th>広告キット発送連絡</th>
-							<th>作業完了報告をする&emsp;</th>
-							<th>ドライバー評価をする&emsp;</th>
-						</tr>
-						<tr>
-							<td>ここに写真
-								<%= link_to "発送連絡", @under_deal, params: :sent_kit, url: under_deal_path(@under_deal), method: :put  %>
-
-							</td>
-							<td>ここに写真</td>
-							<td>ここに写真</td>
-						</tr>
-					</table>
-			<% end %>
-		<% end %>
-		<% if driver_signed_in?  %>
-						<% if @under_deal.work_status == 'approval_pending' %>
-				<div class="text-center">
-					<h3>広告主の承認待ちです。</h3>
-				</div>
-			<% elsif @under_deal.work_status == 'refuse'%>
-				<div class="text-center">
-					<h3>誠に残念ではございますが、こちらのお申し込みは承認されませんでした。</h3>
-					<h4>別の広告を探してみましょう！</h4>
-					<p><%= link_to "マイページへ戻る",ads_path, class: "btn btn-sm btn-default" %></p>
-				</div>
-			<% elsif @under_deal.work_status == 'waiting_kit'%>
-				<h3>おめでとうございます！お申し込みが承認されました</h3>
-				<h4>広告キットの発送準備中です。<br>発送後、広告主から連絡が入ります。今しばらくお待ちください。</h4>
-					<table>
-						<tr>
-							<th>広告設置の証明写真をアップロードする&emsp;</th>
-							<th>作業完了報告をする&emsp;</th>
-							<th>広告主を評価をする&emsp;</th>
-						</tr>
-						<tr>
-							<td>ここに写真</td>
-							<td>ここに写真</td>
-							<td>ここに写真</td>
-						</tr>
-					</table>
-			<% end %>
+			<%= render 'flow_ad_client', under_deal: @under_deal %>
+		<% elsif driver_signed_in?  %>
+			<%= render 'flow_driver', under_deal: @under_deal %>
 		<% end %>
 	</div>
 </div>
-
+<div class="row"><!-- メッセージエリア -->
+	<div class="col-xs-11 col-offset-1">
+		<%= render 'deal_message', { under_deal: @under_deal, message: @message, messages: @messages } %>
+	</div>
+</div>
