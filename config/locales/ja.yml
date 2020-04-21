@@ -1,4 +1,8 @@
 ja:
+  activemodel:
+    errors:
+      message:
+        not_upload: "がアップロードされていません"
   activerecord:
     attributes:
       ad_client:

@@ -12,8 +12,12 @@ class AdClient < ApplicationRecord
 	validates :address, presence: true
 	validates :ceo_name_kana, presence: true
 	validates :telephone_number, presence: true
-	validates :registry_image, presence: true
 	validates :email, presence: true
+	validates :registry_image, presence: {
+		message: -> (rec, data){
+			I18n.t('activemodel.errors.message.not_upload')
+		}
+	}
 
 	attachment :profile_image
 	attachment :registry_image

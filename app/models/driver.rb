@@ -11,7 +11,11 @@ class Driver < ApplicationRecord
 	validates :address, presence: true
 	validates :telephone_number, presence: true
 	validates :email, presence: true
-	validates :driver_license_image, presence: true
+	validates :driver_license_image, presence: {
+		message: -> (rec, data){
+			I18n.t('activemodel.errors.message.not_upload')
+		}
+	}
 
 	attachment :profile_image
 	attachment :driver_license_image
