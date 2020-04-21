@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      ad_client:
+        company_name: 会社名
+        company_name_kana: 会社名（カナ）
+        password: パスワード
+        password_confirmation: パスワード確認
+        ceo_name: 代表取締役名
+        ceo_name_kana: 代表取締役名（カナ）
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        registry_image: 登記簿藤本の画像
+        terms: 利用規約
+
+      driver:
+        driver_name: お名前
+        driver_name_kana: お名前（カナ）
+        password: パスワード
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        driver_license_image: 運転免許証の画像
+        terms: 利用規約

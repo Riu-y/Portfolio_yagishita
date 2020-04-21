@@ -3,7 +3,7 @@
     <h3>新規口座登録</h3>
     <table class="table" id="none-border">
       <tbody>
-        <%= form_for @transfer_information, url: driver_transfer_informations_path do |f| %>
+        <%= form_for @transfer_information, url: driver_transfer_informations_path(current_driver.id), method: :post do |f| %>
           <tr>
             <td>
               <%= f.label :銀行名 %>
@@ -58,8 +58,7 @@
         <td>口座</td>
         <td>口座番号</td>
         <td>振込先人名</td>
-        <td></td>
-        <td></td>
+        <td colspan="2"></td>
       </tr>
     </thead>
     <tbody>
@@ -76,8 +75,10 @@
          <% end %></td>
         <td><%= t.account_number %></td>
         <td><%= t.account_name %></td>
-        <td><%= link_to "編 集",edit_driver_transfer_information_path(t.driver_id,t.id), class: "btn-sm btn-success edit_book_#{t.id}" %></td>
-        <td><%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
+        <td colspan="2">&emsp;
+          <%= link_to "編 集",edit_driver_transfer_information_path(t.driver_id,t.id), class: "btn-sm btn-success edit_book_#{t.id}" %>&emsp;
+          <%= link_to "削 除",driver_transfer_information_path(t.driver_id,t.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %>
+        </td>
       </tr>
      <% end %>
     </tbody>
