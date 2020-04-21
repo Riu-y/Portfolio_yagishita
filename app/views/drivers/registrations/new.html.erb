@@ -1,69 +1,65 @@
-<div class="container">
   <div class="row">
-    <dev class="col-xs-1">
-    </dev>
     <div class="col-xs-6 col-md-offset-3">
       <h2>新規ドライバー登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <table class="table" id="none-border"><tbody>
-
-        <tr>
-          <td><%= f.label :名前 %></td>
-          <td><%= f.text_field :driver_name, autofocus: true, autocomplete:"", placeholder:"お名前を入力", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :カナ %></td>
-          <td><%= f.text_field :driver_name_kana, autofocus: true, autocomplete:"", placeholder:"お名前のカナを入力", class: "form-control" %>
-          </td>
-        </tr>
-        <tr>
-          <td><%= f.label :郵便番号 %></td>
-          <td><%= f.text_field :postal_code, autofocus: true, autocomplete:"", placeholder:"ハイフンなし", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :住所 %></td>
-          <td><%= f.text_field :address,:size=>"60", autofocus: true, autocomplete:"", placeholder:"ご住所を入力", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :メールアドレス %></td>
-          <td><%= f.email_field :email, autofocus: true,:size=>"50", autocomplete:"", placeholder:"メールアドレスを入力", class: "form-control"%></td>
-        </tr>
-          <td><%= f.label :電話番号 %></td>
-          <td><%= f.text_field :telephone_number, autofocus: true, autocomplete:"",placeholder: "電話番号を入力", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :運転免許証写真 %></td>
-          <td><%= f.file_field :driver_license_image_id, id:"upload_file"%></td>
-        </tr>
-        <tr>
-          <td><%= f.label :パスワード %>
-           <% if @minimum_password_length %>
-             <em>(<%= @minimum_password_length %> characters minimum)</em>
-           <% end %></td>
-          <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :パスワード（確認用） %></td>
-          <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= link_to "ご利用規約","https://drive.google.com/open?id=1S4yUlGV0eq2iKZGOVUhfwSGGeFXSo35_"  %>  必ずご一読、ご了承の上でご登録ください<br>
-              <%= f.check_box :terms, checked:false, :as => :boolean %>利用規約に同意する</td>
-        </tr>
-
-        <tr>
-          <td><%= f.submit "新規登録", class: "btn btn-success btn-lg col-lg-offset-12" %></td>
-        </tr>
-      </tbody>
+        <table class="table" id="none-border">
+          <tbody>
+            <tr>
+              <td><%= f.label :名前 %></td>
+              <td><%= f.text_field :driver_name, autofocus: true, autocomplete:"", placeholder:"お名前を入力", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :カナ %></td>
+              <td><%= f.text_field :driver_name_kana, autofocus: true, autocomplete:"", placeholder:"お名前のカナを入力", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :郵便番号 %></td>
+              <td><%= f.text_field :postal_code, autofocus: true, autocomplete:"", placeholder:"ハイフンなし", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :住所 %></td>
+              <td><%= f.text_field :address,:size=>"60", autofocus: true, autocomplete:"", placeholder:"ご住所を入力", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :メールアドレス %></td>
+              <td><%= f.email_field :email, autofocus: true,:size=>"50", autocomplete:"", placeholder:"メールアドレスを入力", class: "form-control"%></td>
+            </tr>
+              <td><%= f.label :電話番号 %></td>
+              <td><%= f.text_field :telephone_number, autofocus: true, autocomplete:"",placeholder: "電話番号を入力", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :運転免許証写真 %></td>
+              <td><%= f.file_field :driver_license_image, id:"upload_file"%></td>
+            </tr>
+            <tr>
+              <td><%= f.label :パスワード %>
+               <% if @minimum_password_length %>
+                 <em>( <%= @minimum_password_length %>文字以上 )</em>
+               <% end %></td>
+              <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :パスワード（確認用） %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= link_to "ご利用規約","https://drive.google.com/open?id=1S4yUlGV0eq2iKZGOVUhfwSGGeFXSo35_" %><br>
+                  必ずご一読、ご了承の上でご登録ください</td>
+            </tr>
+            <tr>
+              <td><%= f.check_box :terms, checked:false, :as => :boolean %>利用規約に同意する</td>
+            </tr>
+            <tr>
+              <td><%= f.submit "新規登録", class: "btn btn-primary btn-lg col-lg-offset-12" %></td>
+            </tr>
+         </tbody>
       </table>
     <% end %>
-
-
-
-<h3>既に登録済みのドライバーは</h3>
-<div class="col-lg-offset-2">
-<%=link_to "こちら", new_driver_session_path %>からログインしてください。
-</div>
-
+  </div>
+      <div class="col-xs-3">
+      <h4>既に登録済みのドライバーは</h4>
+        <%=link_to "こちら", new_driver_session_path %>からログインしてください。
+    </div>
+  </div>

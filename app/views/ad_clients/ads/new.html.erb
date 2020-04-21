@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-6">
-    <h3>New Ads Form</h3>
+    <h3>広告依頼フォーム</h3>
       <%= form_for @ad, url: ad_client_ads_path(current_ad_client) do |f| %>
          <tr>
             <td><%= f.label :広告写真 %></td><br>
@@ -11,16 +11,14 @@
             <td><%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %></td>
           </tr>
           <tr>
-            <td><%= f.label :広告開始日 %></td>
-            <td><%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: '2020/01/01'  %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :広告開始日 %></td>
-            <td><%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: '2020/01/01'  %></td>
+            <th><%= f.label :広告開始日 %></th>
+            <td><%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
+            <th><%= f.label :広告終了日 %></th>
+            <td><%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
           </tr>
           <tr>
             <td><%= f.label :広告金額 %></td>
-            <td><%= f.text_field :ad_fee, autofocus: true, autocomplete:"", placeholder:"金額を入力", class: "form-control" %><span>円</span></td>
+            <td><%= f.text_field :ad_fee, autofocus: true, autocomplete:"", placeholder:"金額を入力", class: "form-control input-small" %></td>
               <p>※こちらの金額とは別に掲載手数料が10％発生します</p>
             </td>
           </tr>
@@ -31,7 +29,7 @@
           </tr>
           <tr>
             <td><%= f.label :内容 %></td>
-            <td><%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control" %></td>
+            <td><%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control", id:"input-area" %></td>
           </tr>
           <tr>
             <td><%= f.label :ジャンル %></td>

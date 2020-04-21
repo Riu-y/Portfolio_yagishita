@@ -11,8 +11,10 @@ class Driver < ApplicationRecord
 	validates :address, presence: true
 	validates :telephone_number, presence: true
 	validates :email, presence: true
+	validates :driver_license_image, presence: true
 
 	attachment :profile_image
+	attachment :driver_license_image
 
 	has_many :transfer_informations
 	has_many :car_informations
