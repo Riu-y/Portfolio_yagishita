@@ -1,18 +1,18 @@
-			<h3>Ad List</h3>
-				<% i = 0 %>
-				<table class="table" id="none-border">
-					<% ads.each do |ad| %>
-							<td>
-								<%= link_to edit_ad_client_ad_path(ad.ad_client.id,ad.id) do %>
-								<%= attachment_image_tag ad,:ad_image, :fill,200,150, fallback: "no_image.jpg", size:'200x160', class: "img_wrap" %><br>
-								<%= ad.title %><% end %><br>
-								<%= ad.ad_fee %><br>
-								<%= ad.heading %>
-							</td>
-							<% i = i + 1 %>
-							<% if i % 3 == 0 %>
-							<tr></tr>
-						<% end %>
-					<% end %>
-				</table>
-				<%= link_to "トップページに戻る", ad_clients_root_path(current_ad_client) %>
+<h3>Ad List</h3>
+	<% i = 0 %>
+	<table class="table" id="none-border">
+		<% ads.each do |ad| %>
+			<td>
+				<%= link_to edit_ad_client_ad_path(ad.ad_client.id,ad.id) do %>
+				<%= attachment_image_tag ad,:ad_image, :fill,200,150, fallback: "no_image.jpg", size:'200x160', class: "img_wrap" %><br>
+				<%= ad.title %><% end %><br>
+				<%= ad.ad_fee %><br>
+				<%= ad.heading %>
+			</td>
+			<% i = i + 1 %>
+				<% if i % 3 == 0 %>
+				<tr></tr>
+			<% end %>
+		<% end %>
+	</table>
+<%= link_to "トップページに戻る", ad_clients_root_path(current_ad_client) %>

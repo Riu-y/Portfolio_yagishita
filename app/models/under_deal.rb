@@ -2,6 +2,8 @@ class UnderDeal < ApplicationRecord
 	belongs_to :driver
 	belongs_to :ad
 	has_one :room
+	has_one :deal_detail
+	# accepts_nested_attributes_for :deal_detail, update_only: true
 
 	has_many :deal_messages
 

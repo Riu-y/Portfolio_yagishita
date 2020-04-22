@@ -2,4 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $(".datetimepicker").datetimepicker()
+$(document).on 'ready page:load', -> $(".datetimepicker").datetimepicker({
+    format: 'YYYY年MM月DD日',
+    locale: 'ja',
+  })

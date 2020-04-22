@@ -4,6 +4,7 @@
     <table class="table" id="none-border">
       <tbody>
         <%= form_for @transfer_information, url: driver_transfer_informations_path(current_driver.id), method: :post do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <tr>
             <td>
               <%= f.label :銀行名 %>
@@ -45,6 +46,9 @@
        </tbody>
      </table>
      <%= link_to "前の画面に戻る", edit_driver_path(current_driver)  %>
+  </div>
+  <div class="col-xs-4 col-offset-1">
+
   </div>
 </div>
 <div class="row">

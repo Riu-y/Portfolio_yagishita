@@ -23,6 +23,8 @@ class DriversController < ApplicationController
 
   def edit
   	@driver = Driver.find(params[:id])
+    @transfer_information = TransferInformation.where(params[driver_id: @driver.id]).last
+    @car_information = CarInformation.where(params[driver_id: @driver.id]).last
   end
 
   def update

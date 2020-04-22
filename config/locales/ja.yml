@@ -3,6 +3,7 @@ ja:
     errors:
       message:
         not_upload: "がアップロードされていません"
+        input_number: "数字を入力してください"
   activerecord:
     attributes:
       ad_client:
@@ -29,3 +30,21 @@ ja:
         telephone_number: 電話番号
         driver_license_image: 運転免許証の画像
         terms: 利用規約
+
+      car_information:
+        munufacturer_name: メーカー
+        car_name: 車名
+        certificate_image_id: 車検証写真
+        flame_number: 車台番号
+        license_plate: 登録番号
+
+      transfer_informations:
+        bank_name: 銀行名
+        branch_name: 支店名
+        account_type:
+            ordinary: 普通預金
+            checking: 当座預金
+        account_number: 口座番号
+        account_name: 口座人名
+
+

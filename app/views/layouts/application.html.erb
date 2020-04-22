@@ -47,19 +47,19 @@
               <li><%= link_to "お知らせ",followings_ad_client_path(current_ad_client) %></li>
               <li><%= link_to "マイぺージ",dashboard_ad_client_path(current_ad_client) %></li>
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
-              <li><%= link_to "ログアウト",destroy_ad_client_session_path(current_ad_client) %></li>
+              <li><%= link_to "ログアウト",destroy_ad_client_session_path(current_ad_client), method: :delete %></li>
             <% elsif driver_signed_in? %>
               <li><%= link_to "お気に入り",favorite_search_ad_path(current_driver) %></li>
               <li><%= link_to "お知らせ",favorite_search_ad_path(current_driver) %></li>
               <li><%= link_to "マイぺージ",dashboard_driver_path(current_driver) %></li>
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
-              <li><%= link_to "ログアウト",destroy_driver_session_path(current_driver) %></li>
+              <li><%= link_to "ログアウト",destroy_driver_session_path, method: :delete %></li>
             <% elsif admin_signed_in?%>
               <li><%= link_to "広告 一覧",ads_path %></li>
               <li><%= link_to "ドライバー 一覧",drivers_path %></li>
               <li><%= link_to "広告主 一覧",ad_clients_path %></li>
               <li><%= link_to "問い合わせ一覧",admins_contacts_path %></li>
-              <li><%= link_to "ログアウト",destroy_admin_session_path(current_admin) %></li>
+              <li><%= link_to "ログアウト",destroy_admin_session_path(current_admin), method: :delete %></li>
             <% else %>
               <li><%= link_to "About Ader",homes_about_path %></li>
               <li><%= link_to "ドライバーになる",new_driver_registration_path %></li>
@@ -107,8 +107,19 @@
   <!-- フッター -->
       <div class="row">
         <div class="col-xs-12">
-          <footer class="text-center">
+          <footer>
+            <ul class="footer-menu">
+               <li>Home</li>
+               <li>｜</li>
+               <li>About Ader</li>
+               <li>｜</li>
+               <li>service</li>
+               <li>｜</li>
+               <li>Contact Us</li>
+            </ul>
             <p>&copy;2020 Ader</p>
+            <span>Ader&emsp;<%= link_to image_tag('logo2.png',width:'70'),homes_index_path %></span>
+            </nav>
           </footer>
         </div>
       </div>

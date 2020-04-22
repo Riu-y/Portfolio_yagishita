@@ -1,4 +1,5 @@
-<div class="col-xs-11 col-xs-offset-1">
+<div class="row">
+	<div class="col-xs-11 col-xs-offset-1">
 	<% if under_deal.work_status == 'approval_pending' %>
 		<div class="text-center">
 			<h3>広告に応募がありました!</h3>
@@ -15,6 +16,7 @@
 			<h3>ドライバーからの申し込みをお断りしました。</h3>
 			<p><%= link_to "マイページへ戻る",dashboard_ad_client_path(current_ad_client), class: "btn btn-sm btn-default" %></p>
 		</div>
+	</div>
 	<% elsif under_deal.work_status == 'waiting_kit'%>
 		<h3>ドライバーへ広告キットを発送してください</h3>
 		<%= render 'report_ad_client', under_deal: under_deal %>

@@ -9,40 +9,40 @@
 			<% end %>
 		</div>
 		<div class = "col-xs-5">
-				<%= attachment_image_tag @driver, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
-						<% if ad_client_signed_in? %>
-	            <% if current_ad_client.following?(@driver) %>
-	              <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
-	            <% else %>
-	              <%= link_to 'フォローする', driver_relationships_path(@driver.id), method: :POST %>
-	            <% end %>
-						<% end %>
-					<table class="table .table-borderless">
-						<tr>
-							<td>フォロー&emsp;<%= link_to @driver.following_ad_client.count, followings_driver_path(@driver) %></td>
-      			  <td>フォロワー&emsp;<%= link_to @driver.follower_ad_client.count, followers_driver_path(@driver) %></td>
-						</tr>
-						<tr>
-							<th>名前</th>
-							<td><%= @driver.driver_name %></td>
-						</tr>
-						<tr>
-							<th>名前（カナ）</th>
-							<td><%= @driver.driver_name_kana %></td>
-						</tr>
-						<tr>
-							<th>郵便番号</th>
-							<td><%= @driver.postal_code %></td>
-						</tr>
-						<tr>
-							<th>住所</th>
-							<td><%= @driver.address %></td>
-						</tr>
-						<tr>
-							<th>メールアドレス</th>
-							<td><%= @driver.email %></td>
-						</tr>
-					</table>
+			<%= attachment_image_tag @driver, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+				<% if ad_client_signed_in? %>
+          <% if current_ad_client.following?(@driver) %>
+            <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
+          <% else %>
+            <%= link_to 'フォローする', driver_relationships_path(@driver.id), method: :POST %>
+          <% end %>
+				<% end %>
+				<table class="table .table-borderless">
+					<tr>
+						<td>フォロー&emsp;<%= link_to @driver.following_ad_client.count, followings_driver_path(@driver) %></td>
+    			  <td>フォロワー&emsp;<%= link_to @driver.follower_ad_client.count, followers_driver_path(@driver) %></td>
+					</tr>
+					<tr>
+						<th>名前</th>
+						<td><%= @driver.driver_name %></td>
+					</tr>
+					<tr>
+						<th>名前（カナ）</th>
+						<td><%= @driver.driver_name_kana %></td>
+					</tr>
+					<tr>
+						<th>郵便番号</th>
+						<td><%= @driver.postal_code %></td>
+					</tr>
+					<tr>
+						<th>住所</th>
+						<td><%= @driver.address %></td>
+					</tr>
+					<tr>
+						<th>メールアドレス</th>
+						<td><%= @driver.email %></td>
+					</tr>
+				</table>
 		</div>
 		<div class = "col-xs-4">
 			<h4>Map</h4>
