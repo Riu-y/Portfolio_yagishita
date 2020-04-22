@@ -13,9 +13,7 @@ class TransferInformationsController < ApplicationController
 	  	else
         @transfer_information = TransferInformation.new(transfer_information_params)
 	  		@transfer_informations = current_driver.transfer_informations
-        flash.now[:blank] = "未入力の項目があります"
 	  		render 'index'
-
 	  	end
   end
 

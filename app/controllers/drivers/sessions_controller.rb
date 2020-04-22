@@ -21,7 +21,7 @@ class Drivers::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_out_path_for(resource)
-      new_driver_path
+      new_driver_session_path
   end
 
   # protected

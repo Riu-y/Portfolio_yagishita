@@ -1,39 +1,63 @@
 <!-- 広告からの許可待ち画面 -->
 <% if under_deal.work_status == 'approval_pending' %>
-	<div class="text-center">
-		<h3>お申し込みが完了しました！<br>広告主の承認待ちです。</h3>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>お申し込みが完了しました！</h3>
+				<h4>広告主の承認待ちです。<br>何か質問があったら、メッセージしてみよう</h4>
+		</div>
 	</div>
 <!-- 申し込み拒否された場合の画面 -->
 <% elsif under_deal.work_status == 'refuse'%>
-	<div class="text-center">
-		<h3>誠に残念ですが、こちらのお申し込みは承認されませんでした。</h3>
-			<h4>別の広告を探してみましょう！</h4>
-			<p><%= link_to "他の広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>誠に残念ですが、こちらのお申し込みは承認されませんでした。</h3>
+				<h4>別の広告を探してみましょう！</h4>
+					<p><%= link_to "他の広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+		</div>
 	</div>
 <!-- 広告キットの発送待ちの画面 -->
 <% elsif under_deal.work_status == 'waiting_kit'%>
-	<h3>おめでとうございます！お申し込みが承認されました</h3>
-	<h4>広告キットの発送準備中です。<br>発送後、広告主から連絡が入ります。今しばらくお待ちください。</h4>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>おめでとうございます！お申し込みが承認されました</h3>
+				<h4>広告キットの発送準備中です。<br>発送後、広告主から連絡が入ります。今しばらくお待ちください。</h4>
+		</div>
+	</div>
 <!-- 広告キット発送後の画面 -->
 <% elsif under_deal.work_status == 'sent_kit'%>
-	<div class="text-center">
-		<h3>広告キットが発送されました</h3>
-			<h4>到着後、お車へ設置をお願いします。<br>設置完了後、証明写真を送ってください。</h4>
-			<h4>取り付け方法に関してはコチラをご確認ください。</h4><h5><%= link_to "広告キットの取り付けについて", how_to_kit_path %></h5>
-	<%= render 'report_driver', under_deal: under_deal %>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>広告キットが発送されました</h3>
+				<h4>到着後、お車へ設置をお願いします。<br>設置完了後、証明写真を送ってください。取り付け方法に関してはコチラをご確認ください。</h4>
+					<h5><%= link_to "広告キットの取り付けについて", how_to_kit_path %></h5>
+		</div>
 	</div>
+	<%= render 'report_driver', under_deal: under_deal %>
 <!-- 広告作業中の画面 -->
 <% elsif under_deal.work_status == 'advertising'%>
-		<h4>準備完了です！それでは契約期間内の間、ドライブを楽しみながら広告作業を行いましょう<br>広告作業完了後、作業完了の報告を送ってください。</h4>
-	<%= render 'report_driver', under_deal: under_deal %>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>準備完了です！</h3>
+				<h4>広告作業をしながらドライブを楽しみましょう。<br>広告作業が完了したら、作業完了の報告を送ってください。</h4>
+		</div>
+	</div>
+	<%= render 'report_driver', { under_deal: under_deal, deal_detail: deal_detail, driver: driver} %>
 <!-- 広告作業完了後の画面 -->
 <% elsif under_deal.work_status == 'completed'%>
-	<h3>お疲れ様でした！</h3>
-		<h4>広告作業代の振り込み完了後、広告主から連絡が入ります。最後に評価をして広告作業を完了してください。</h4>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>お疲れ様でした！</h3>
+				<h4>広告作業代の振り込み完了後、広告主から連絡が入ります。最後に評価をして広告作業を完了してください。</h4>
+		</div>
+	</div>
 	<%= render 'report_driver', under_deal: under_deal %>
 <!-- 振り込み完了連絡後の画面 -->
 <% elsif under_deal.work_status == 'deposited'%>
-	<h3>振り込み完了の連絡が来ました！</h3>
-		<h4>最後に評価をして広告作業を完了してください。</h4>
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>振り込み完了の連絡が来ました！</h3>
+				<h4>最後に評価をして広告作業を完了してください。</h4>
+		</div>
+	</div>
 	<%= render 'report_driver', under_deal: under_deal %>
 <% end %>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     registrations: 'drivers/registrations',
     sessions: 'drivers/sessions'
   }
+
   devise_for :ad_clients, controllers:{
     registrations: 'ad_clients/registrations',
     sessions: 'ad_clients/sessions'

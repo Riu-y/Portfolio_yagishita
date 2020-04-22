@@ -41,8 +41,7 @@
           <td>車名</td>
           <td>ナンバープレート</td>
           <td>車台番号</td>
-          <td></td>
-          <td></td>
+          <td colspan="2"></td>
         </tr>
       </thead>
       <tbody>
@@ -52,8 +51,10 @@
           <td><%= c.car_name %></td>
           <td><%= c.license_plate %></td>
           <td><%= c.flame_number %></td>
-          <td><%= link_to "編 集",edit_driver_car_information_path(c.driver_id,c.id), class: "btn-sm btn-success " %></td>
-          <td><%= link_to "削 除",driver_car_information_path(c.driver_id,c.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %></td>
+          <td colspan="2">&emsp;
+            <%= link_to "編 集",edit_driver_car_information_path(c.driver_id,c.id), class: "btn-sm btn-success " %>&emsp;
+            <%= link_to "削 除",driver_car_information_path(c.driver_id,c.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+           </td>
         </tr>
        <% end %>
       </tbody>

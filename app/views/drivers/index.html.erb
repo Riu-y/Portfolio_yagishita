@@ -9,6 +9,26 @@
 		<% end %>
 	</div>
 	<div class="col-xs-8">
-		<%= render 'drivers/index', drivers: @drivers %>
+		<h3>Driver list</h3>
+		<% i = 0 %>
+			<table class="table" id="none-border">
+				<% @drivers.each do |driver| %>
+						<td>
+							<%= link_to driver_path(driver.id) do %>
+							<%= attachment_image_tag driver,:profile_image, fallback: "no_image.jpg", size:'200x160',class: "img_wrap" %><br>
+							<%= driver.driver_name %><% end %><br>
+							<%= driver.driver_name_kana %><br>
+						</td>
+						<% i = i + 1 %>
+						<% if i % 3 == 0 %>
+						<tr></tr>
+					<% end %>
+				<% end %>
+			</table>
+		<% if ad_client_signed_in? %>
+			<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+		<% elsif driver_signed_in?%>
+			<%= link_to "トップページに戻る", dashboard_driver_path(current_driver) %>
+		<% end %>
 	</div>
 </div>

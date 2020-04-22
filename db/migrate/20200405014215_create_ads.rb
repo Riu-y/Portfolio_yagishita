@@ -11,7 +11,7 @@ class CreateAds < ActiveRecord::Migration[5.2]
       t.string :start_date, null: false
       t.string :end_date, null: false
       t.integer :ad_client_id,null: false
-      t.string :heading
+      t.string :heading,null: false
       t.timestamps
     end
   end
