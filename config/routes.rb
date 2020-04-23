@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     registrations: 'ad_clients/registrations',
     sessions: 'ad_clients/sessions'
   }
-
+  root :to => 'homes#index'
   get 'homes/index'
   get 'homes/about'
 

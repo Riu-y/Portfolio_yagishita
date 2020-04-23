@@ -11,7 +11,7 @@ class TransferInformationsController < ApplicationController
 	  	if @transfer_information.save
 	  		redirect_to edit_driver_path(current_driver.id)
 	  	else
-        @transfer_information = TransferInformation.new(transfer_information_params)
+     #    @transfer_information = TransferInformation.new(transfer_information_params)
 	  		@transfer_informations = current_driver.transfer_informations
 	  		render 'index'
 	  	end

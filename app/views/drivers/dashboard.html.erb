@@ -1,11 +1,15 @@
-<div class="container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-xs-2">
 			<!-- プロフィール -->
  			<%= render "drivers/profile", driver: @driver %>
  			<%= render "drivers/sidebar", driver: @driver %>
 		</div>
 		<div class="col-xs-9">
+			<%= if @under_deal != nil %>
+				<%= render 'under_deals/under_deal', { under_deal: @under_deal, ad: @ad,  message: @message, messages: @messages, deal_detail: @deal_detail } %>
+			<% else %>
+				<p>現在、取引中の広告はありません。</p>
+				<% end %>
 		</div>
 	</div>
 </div>

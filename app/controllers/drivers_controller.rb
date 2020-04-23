@@ -2,10 +2,15 @@ class DriversController < ApplicationController
   before_action :authenticate_driver!, only:[:dashboard]
 
   def dashboard
-    @driver = current_driver
+    driver = current_driver
     @genres = Genre.all
-    @car_informations = @driver.car_informations
+    @car_informations = driver.car_informations
     ad_client = current_ad_client
+    @under_deal = UnderDeal.includes(:ad).includes(:ad => :ad_client).where(driver_id: driver.id)
+  
+    @message = DealMessage.new()
+
+    @deal_detail = DealDetail.new(deal_detail_params)
   end
 
   def index
@@ -50,4 +55,13 @@ class DriversController < ApplicationController
   def driver_params
   	params.require(:driver).permit(:driver_name,:driver_name_kana, :profile_image, :postal_code, :address, :telephone_number)
   end
+
+  def message_params
+    params.require(:deal_message).permit(:message, :user_type, :under_deal_id)
+  end
+
+  def deal_detail_params
+    params.permit(:transfer_status, :bank_name, :branch_name, :account_type, :account_number, :account_name)
+  end
 end
+
