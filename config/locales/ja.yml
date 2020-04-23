@@ -32,19 +32,36 @@ ja:
         terms: 利用規約
 
       car_information:
-        munufacturer_name: メーカー
+        manufacturer_name: メーカー
         car_name: 車名
         certificate_image_id: 車検証写真
         flame_number: 車台番号
         license_plate: 登録番号
+        certificate_image: 車検証書類
 
-      transfer_informations:
+      transfer_information:
         bank_name: 銀行名
         branch_name: 支店名
-        account_type:
-            ordinary: 普通預金
-            checking: 当座預金
+        account_type: 口座種別
         account_number: 口座番号
         account_name: 口座人名
+
+      ad:
+        genre_id: ジャンル
+        title: タイトル
+        heading: 見出し
+        content: 内容
+        ad_image: 広告写真
+        ad_fee: 広告料
+        start_date: 広告開始日
+        end_date: 広告終了日
+        genre: ジャンル
+
+      contact:
+        name: お名前
+        company_name: 会社名
+        telephone_number: 電話番号
+        email: メールアドレス
+        content: 内容
 
 

@@ -30,6 +30,9 @@
           <% end %>
         <%= link_to "前の画面に戻る", edit_driver_path(current_driver)  %>
     </div>
+    <div class="col-xs-6">
+      <%= render 'layouts/error_messages', model: @car_information %>
+    </div>
   </div>
 <div class="row">
     <div class="col-md-12">
