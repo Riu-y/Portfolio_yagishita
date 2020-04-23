@@ -22,15 +22,16 @@ class UnderDealsController < ApplicationController
 
   def update
     @under_deal = UnderDeal.find(params[:id])
-    @deal_detail = 
     if params[:accept]
       @under_deal.work_status = 'waiting_kit'
       @under_deal.save
       redirect_back(fallback_location: under_deal_path(@under_deal))
-    elsif params[:refuse]
+    end
+    if params[:refuse]
       @under_deal.work_status = 'refuse'
       @under_deal.save
       redirect_back(fallback_location: under_deal_path(@under_deal))
+    end
     elsif params[:sent_kit]
       @under_deal.work_status = 'sent_kit'
       @under_deal.save
