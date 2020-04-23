@@ -1,6 +1,12 @@
 class Ad < ApplicationRecord
-
-
+	validates :genre_id, presence: true
+	validates :title, presence: true
+	validates :heading, presence: true
+	validates :content, presence: true
+	validates :ad_image, presence: true
+	validates :ad_fee, presence: true
+	validates :start_date, presence: true
+	validates :end_date, presence: true
 
 
 	def date_cannot_be_in_the_past

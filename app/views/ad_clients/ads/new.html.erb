@@ -6,36 +6,36 @@
     <h3>広告依頼フォーム</h3>
       <%= form_for @ad, url: ad_client_ads_path(current_ad_client) do |f| %>
          <tr>
-            <td><%= f.label :広告写真 %></td><br>
+            <td><%= f.label :ad_image %></td><br>
             <td><%= f.attachment_field :ad_image %></td>
           </tr>
           <tr>
-            <td><%= f.label :タイトル %></td>
+            <td><%= f.label :title %></td>
             <td><%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %></td>
           </tr>
           <tr>
-            <th><%= f.label :広告開始日 %></th>
+            <th><%= f.label :start_date %></th>
             <td><%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
-            <th><%= f.label :広告終了日 %></th>
+            <th><%= f.label :end_date %></th>
             <td><%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
           </tr>
           <tr>
-            <td><%= f.label :広告金額 %></td>
+            <td><%= f.label :ad_fee %></td>
             <td><%= f.text_field :ad_fee, autofocus: true, autocomplete:"", placeholder:"金額を入力", class: "form-control input-small" %></td>
               <p>※こちらの金額とは別に掲載手数料が10％発生します</p>
             </td>
           </tr>
           <tr>
-            <td><%= f.label :見出し %></td>
+            <td><%= f.label :heading %></td>
             <td><%= f.text_field :heading, autofocus: true, autocomplete:"", placeholder:"見出しを入力", class: "form-control" %>
             </td>
           </tr>
           <tr>
-            <td><%= f.label :内容 %></td>
+            <td><%= f.label :content %></td>
             <td><%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control", id:"input-area" %></td>
           </tr>
           <tr>
-            <td><%= f.label :ジャンル %></td>
+            <td><%= f.label :genre_id %></td>
             <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, :prompt => "選択してください") %></td>
           </tr>
           <tr>
@@ -44,10 +44,11 @@
             </td>
            </tr>
          <% end %>
-      <%= link_to "前の画面に戻る", ad_client_ads_path  %>
+      <%= link_to "前の画面に戻る", dashboard_ad_client_path(current_ad_client)  %>
   </div>
   <div class = "col-xs-6">
-    <h3>商品画像プレビュー</h3>
+    <%= render 'layouts/error_messages', model: @ad %><!-- フォーム用のエラーメッセージ -->
+      <h3>商品画像プレビュー</h3>
       <%= attachment_image_tag @ads, :ad_image, :fill,400,300, fallback: "no_image.jpg", size:'400x300' %>
   </div>
 </div>
