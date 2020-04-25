@@ -11,6 +11,6 @@ class TransferInformation < ApplicationRecord
 	enum account_type:{ ordinary: 0, checking: 1 }
 
 	def full_info
-		bank_name + branch_name + account_type + account_number.to_s + account_name
+		bank_name + "銀行 " + branch_name + "支店 " + account_type_i18n + account_number.to_s + account_name
 	end
 end

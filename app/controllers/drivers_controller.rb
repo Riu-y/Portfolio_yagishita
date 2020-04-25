@@ -2,15 +2,16 @@ class DriversController < ApplicationController
   before_action :authenticate_driver!, only:[:dashboard]
 
   def dashboard
-    driver = current_driver
-    @genres = Genre.all
-    @car_informations = driver.car_informations
-    ad_client = current_ad_client
-    @under_deal = UnderDeal.includes(:ad).includes(:ad => :ad_client).where(driver_id: driver.id)
-  
-    @message = DealMessage.new()
-
-    @deal_detail = DealDetail.new(deal_detail_params)
+    @driver = current_driver
+    @under_deals = UnderDeal.includes(:ad,:deal_messages).references(:ad,:deal_messages).where(driver_id: @driver.id)
+    @under_deal = @under_deals.includes(:ad,:deal_messages).references(:ad,:deal_messages).where.not(work_status: 'finished').first
+    @finish_deals = @under_deals.includes(:ad,:deal_messages).includes(:ad => :ad_client).references(:ad,:deal_messages,:ad_client).where(work_status: 'finished')
+     if @under_deal.present?
+      @ad = @under_deal.ad
+      @messages = @under_deal.deal_messages
+      @message = DealMessage.new()
+      @deal_detail = DealDetail.new(deal_detail_params)
+    end
   end
 
   def index

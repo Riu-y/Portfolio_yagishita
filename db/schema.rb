@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_094750) do
   create_table "deal_details", force: :cascade do |t|
     t.integer "under_deal_id", null: false
     t.integer "payment_amount"
-    t.integer "transfer_status", limit: 1, default: 0, null: false
+    t.integer "transfer_status", default: 0, null: false
     t.string "bank_name", null: false
     t.string "branch_name", null: false
     t.integer "account_type", null: false

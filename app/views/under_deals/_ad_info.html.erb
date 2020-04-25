@@ -1,18 +1,20 @@
-<div id="ad-area">
-	<div class="col-xs-6">
-		<div class="image-center">
-			<%= attachment_image_tag ad, :ad_image, :fill,400,280, fallback: "no_image.jpg", size:'400x280' %>
+<div class="row">
+	<div id="ad-area">
+		<div class="col-xs-6">
+			<div class="image-center">
+				<%= attachment_image_tag ad, :ad_image, :fill,400,280, fallback: "no_image.jpg", size:'400x280' %>
+			</div>
 		</div>
-	</div>
-	<div class="col-xs-6">
-			<tr>
-				<th><h4><%= ad.title %></h4></th>
-	  		<td><h4><%= ad.ad_fee %>円</h4></td>
-	  		<td><%= ad.heading %></td><br>
-	  		<td id="tag" >&emsp;広告主</td><br>
-	  		<td><%= ad.ad_client.company_name %></td><br>
-	  		<td id="tag" >&emsp;広告期間</td><br>
-	  		<td><%= ad.start_date %>〜<%= ad.end_date %></td><br>
-	  	</tr>
+		<div class="col-xs-5 col-xs-offset-1">
+				<tr>
+					<th><h4><%= ad.title %></h4></th>
+		  		<td><h4><%= ad.ad_fee %>円</h4></td>
+		  		<td><%= ad.heading %></td><br>
+		  		<td id="tag" >&emsp;広告主</td><br>
+		  		<td><%= ad.ad_client.company_name %></td><br>
+		  		<td id="tag" >&emsp;広告期間</td><br>
+		  		<td><%= ad.start_date %>〜<%= ad.end_date %></td><br>
+		  	</tr>
+		</div>
 	</div>
 </div>

@@ -1,4 +1,21 @@
 ja:
+  enums:
+    under_deal:
+      work_status:
+        approval_pending: 返答待ち
+        refuse: 契約見送り
+        waiting_kit: 広告キット発送待ち
+        sent_kit: 広告キット発送済
+        advertising: 広告作業中
+        completed: 広告料振り込み待ち
+        deposited: 振り込み完了
+        rated: 評価待ち
+        finished: 取引完了
+
+    transfer_information:
+      account_type:
+        ordinary: 普通預金
+        checking: 当座預金
   activemodel:
     errors:
       message:

@@ -1,56 +1,96 @@
-<div class="row"><!-- 広告詳細 -->
-	<div class="text-center">
-		<h3>取引画面</h3>
+<div class="row">
+	<div class="col-xs-2">
+	<!-- プロフィール -->
+		<%= render 'ad_clients/profile' , ad_client: current_ad_client %><br><!-- プロフィール -->
+		<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), data: {"turbolinks" => false }, class: "btn btn-lg btn-info " %><br>
+		<%= render 'ad_clients/sidebar', ad_client: current_ad_client %><!-- サイドバー -->
 	</div>
-	<%= render 'ad_info', ad: @ad %>
-<!-- 作業報告エリア -->
-	<% if ad_client_signed_in? %>
-		<%= render 'flow_ad_client', under_deal: @under_deal %>
-	<% elsif driver_signed_in?  %>
-		<%= render 'flow_driver', { under_deal: @under_deal, deal_detail: @deal_detail, driver: @driver } %>
-	<% end %>
-	</div>
-</div>
-<div class="row"><!-- メッセージエリア -->
-	<div class="col-xs-10 col-xs-offset-1">
-		<div id="chat-templete" class="chat-area">
-			<%= form_for (@message), url: under_deal_deal_messages_path(@under_deal) do |f| %>
-				<div id ="chat-send">
-					<%= f.text_area :message, placeholder: "メッセージを入力してください。", class: "chat-message" %>
-					<%= f.submit "送信",  class: "btn chat-btn" %>
-				</div>
-			<% end %>
-			<% @messages.each do |message| %>
-				<% if message.user_type == 'driver' %>
-					<div class="message">
-					  <div id="icon" class="faceicon">
-					    <%= attachment_image_tag @under_deal.driver, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
-					  </div>
-					    <div class="chatting">
-					     	<div class="says">
-					      	<p><%= message.message %></p>
-				          <div class="say-data">
-				    				<%= message.created_at.to_s(:datetime_jp) %>
-				    			</div>
-					  	  </div>
-					  	</div>
-					</div>
-				<% else %>
-					<div class="message2">
-					  <div class="faceicon2">
-					    <%= attachment_image_tag @under_deal.ad.ad_client, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
-					  </div>
-					    <div class="chatting2">
-					     	<div class="says2">
-					      	<p><%= message.message %></p>
-							    <div class="say-data2">
-					    			<%= message.created_at.to_s(:datetime_jp) %>
-					    		</div>
-					    	</div>
-					  	</div>
+	<div class="col-xs-9 col-xs-offset-1">
+		<h4>取引中の広告詳細</h4>
+		<%= render 'under_deals/ad_info', ad: @ad %>
+		<%= render 'under_deals/flow_ad_client', under_deal: @under_deal %>
+			<!-- メッセージエリア -->
+			<div id="chat-templete" class="chat-area">
+				<%= form_for (@message), url: under_deal_deal_messages_path(@under_deal) do |f| %>
+					<div id ="chat-send">
+						<%= f.text_area :message, placeholder: "メッセージを入力してください。", class: "chat-message" %>
+						<%= f.submit "送信",  class: "btn chat-btn" %>
 					</div>
 				<% end %>
-			<% end %>
-		</div>
+				<% @messages.each do |message| %>
+					<% if message.user_type == 'driver' %>
+						<div class="message">
+						  <div id="icon" class="faceicon">
+						    <%= attachment_image_tag @under_deal.driver, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+						  </div>
+						    <div class="chatting">
+						     	<div class="says">
+						      	<p><%= message.message %></p>
+					          <div class="say-data">
+					    				<%= message.created_at.to_s(:datetime_jp) %>
+					    			</div>
+						  	  </div>
+						  	</div>
+						</div>
+					<% else %>
+						<div class="message2">
+						  <div class="faceicon2">
+						    <%= attachment_image_tag @under_deal.ad.ad_client, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+						  </div>
+						    <div class="chatting2">
+						     	<div class="says2">
+						      	<p><%= message.message %></p>
+								    <div class="say-data2">
+						    			<%= message.created_at.to_s(:datetime_jp) %>
+						    		</div>
+						    	</div>
+						  	</div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+	</div>
+		<div class="col-xs-9 col-xs-offset-1">
+		<h4>過去の広告詳細</h4>
+		<%= render 'under_deals/ad_info', ad: @ad %>
+		<%= render 'under_deals/flow_driver', under_deal: @under_deal %>
+			<!-- メッセージエリア -->
+			<div id="chat-templete" class="chat-area">
+				<h4>メッセージ記録</h4><br>
+					<% if @messages.blank? %>
+						<h4 class="alert">メッセージはありません</h4>
+					<% end %>
+				<% @messages.each do |message| %>
+					<% if message.user_type == 'driver' %>
+						<div class="message">
+						  <div id="icon" class="faceicon">
+						    <%= attachment_image_tag @under_deal.driver, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+						  </div>
+						    <div class="chatting">
+						     	<div class="says">
+						      	<p><%= message.message %></p>
+					          <div class="say-data">
+					    				<%= message.created_at.to_s(:datetime_jp) %>
+					    			</div>
+						  	  </div>
+						  	</div>
+						</div>
+					<% else %>
+						<div class="message2">
+						  <div class="faceicon2">
+						    <%= attachment_image_tag @under_deal.ad.ad_client, :profile_image, :fill,90,90, fallback: "no_image.jpg", size:'90X90' %>
+						  </div>
+						    <div class="chatting2">
+						     	<div class="says2">
+						      	<p><%= message.message %></p>
+								    <div class="say-data2">
+						    			<%= message.created_at.to_s(:datetime_jp) %>
+						    		</div>
+						    	</div>
+						  	</div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
 	</div>
 </div>
