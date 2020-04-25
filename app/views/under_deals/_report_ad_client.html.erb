@@ -1,28 +1,23 @@
 <div class="row">
 	<div id="report-area">
+		<p class="title">やることリスト</p>
 		<div class="col-xs-3">
 			<table>
 				<tr>
 					<th>広告取付け完了写真</th>
 				</tr>
 				<tr>
-					<td><%= attachment_image_tag @under_deal, :installation_image, :fill, 180, 140, fallback: "no_image.jpg", size: '180x140' %></td>
+					<td><%= attachment_image_tag @under_deal, :installation_image, :fill, 170, 140, fallback: "no_image.jpg", size: '160x120' %></td>
 				</tr>
 			</table>
 		</div>
-		<div class="col-xs-8 col-xs-offset-1">
-			<table class="todo-list">
+		<div class="col-xs-3">
+			<table>
 				<tr>
-					<th colspan="3">やることリスト</th>
-				</tr>
-				<tr id="deal-box">
 					<th>広告キット発送連絡</th>
-					<th>振り込み完了報告&emsp;</th>
-					<th>ドライバー評価をする&emsp;</th>
 				</tr>
 				<tr>
 					<td>
-						<%# link_to '発送連絡', @under_deal, url: under_deal_path(@under_deal), :key => "sent_kit" , method: :patch  %> 
 					<% if under_deal.work_status == 'waiting_kit' %>
 						<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 							<%= f.submit "発送連絡", name:'sent_kit', class: "btn btn-primary " %>
@@ -31,27 +26,47 @@
 						<p class="btn btn-default" disabled="disabled">発送完了</p>
 					<% end %>
 					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-3">
+			<table>
+				<tr>
+					<th>振り込み完了報告</th>
+				</tr>
+				<tr>
 					<td>
-						<% if under_deal.work_status == 'completed' %>
-							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-								<%= f.submit "振込み報告をする", name:'deposited', class: "btn btn-primary " %>
-							<% end %>
-						<% elsif %>
-							<p class="btn btn-default" disabled="disabled">振込み報告済み</p>
-						<% else %>
-							<p class="btn btn-default" disabled="disabled">振込み報告をする</p>
+					<% if under_deal.work_status == 'completed' %>
+						<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
+							<%= f.submit "振込み報告", name:'transferred', class: "btn btn-primary " %>
 						<% end %>
+					<% elsif %>
+						<p class="btn btn-default" disabled="disabled">振込み報告済み</p>
+					<% else %>
+						<p class="btn btn-default" disabled="disabled">振込み報告</p>
+					<% end %>
 					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-3">
+			<table>
+				<tr>
+					<th>評価</th>
+				</tr>
+				<tr>
 					<td>
-						<% if under_deal.work_status == 'deposited' %>
+						<% if under_deal.work_status == 'rated' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-								良い 普通 悪い<br>
-								<%= f.submit "ドライバーを評価する", name:'finish', class: "btn btn-primary " %>
+								<br>
+								<%= f.submit "ドライバーを評価", name:'finished', class: "btn btn-primary " %>
 							<% end %>
 						<% elsif under_deal.work_status == 'completed' %>
 							<p class="btn btn-default" disabled="disabled">振込み待ち</p>
+						<% elsif under_deal.work_status == 'finished' %>
+							<p class="btn btn-default" disabled="disabled">評価済み</p>
 						<% else %>
-							<p class="btn btn-default" disabled="disabled">ドライバーを評価する</p>
+							<p class="btn btn-default" disabled="disabled">ドライバーを評価</p>
 						<% end %>
 					</td>
 				</tr>

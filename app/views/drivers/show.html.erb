@@ -78,6 +78,10 @@
 		       <% end %>
 		      </tbody>
 	      </table>
-	    <%= link_to "前の画面へ戻る", drivers_path %>
+	    <%= if params[:driver_check] %>
+	   		<%= link_to "取引画面へ戻る", drivers_path %>
+   		<% else %>
+	    	<%= link_to "前の画面へ戻る", drivers_path %>
+	    <% end %>
 	  </div>
 	</div>

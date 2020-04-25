@@ -53,6 +53,9 @@ Rails.application.routes.draw do
 	resources :completed_deals, only:[:index, :show, :update]
 
   resources :under_deals, only:[:index, :show, :create, :edit,:update]do
+      member do
+        get :show_driver
+      end
     resources :deal_messages, only:[:create]
   end
   scope module: :under_deals do

@@ -4,4 +4,6 @@
 		<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), data: {"turbolinks" => false }, class: "btn btn-lg btn-info " %><br>
 		<%= render 'ad_clients/sidebar', ad_client: current_ad_client %><!-- サイドバー -->
 	</div>
+		<%= render 'under_deals/index',under_deals: @under_deals, finish_deals: @finish_deals %>
 </div>
+

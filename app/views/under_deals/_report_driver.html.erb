@@ -4,10 +4,10 @@
 		<div class="col-xs-3">
 			<table>
 				<tr>
-					<th>広告取付け完了写真</th>
+					<th>広告設置写真</th>
 				</tr>
 				<tr>
-					<td><%= attachment_image_tag under_deal, :installation_image, :fill, 160, 120, fallback: "no_image.jpg", size: '160x120' %></td>
+					<td><%= attachment_image_tag under_deal, :installation_image, :fill, 170, 140, fallback: "no_image.jpg", size: '160x120' %></td>
 				</tr>
 			</table>
 		</div>
@@ -21,10 +21,10 @@
 						<% if under_deal.work_status == 'sent_kit' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<%= f.attachment_field :installation_image %>
-								<%= f.submit "設置完了写真をアップロードする", name:'advertising', class: "btn btn-primary " %>
+								<%= f.submit "写真をアップロード", name:'advertising', class: "btn btn-primary" %>
 							<% end %>
 						<% else %>
-							<p class="btn btn-default" disabled="disabled">証明写真のアップロード済み</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">証明写真のアップロード済み</p>
 						<% end %>
 					</td>
 				</tr>
@@ -43,16 +43,21 @@
 									<%= d.label :transfer_informations, "振込先の銀行口座を指定する" %>
 									<%= collection_select(:detail, :transfer_information_id, driver.transfer_informations.order("id DESC"),:id,:full_info) %>
 								<% end %>
-							<%= f.submit "広告作業の完了報告をする", name:'completed', class: "btn btn-primary " %>
+							<%= f.submit "広告作業の完了報告", name:'completed', class: "btn btn-primary " %>
 							<% end %>
 						<% elsif under_deal.work_status == 'sent_kit' %>
-							<p class="btn btn-default" disabled="disabled">広告作業の完了報告をする</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">広告作業の完了報告をする</p>
 						<% else %>
-							<p class="btn btn-default" disabled="disabled">作業の完了報告済み</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">作業の完了報告済み</p>
 						<% end %>
 					</td>
 				</tr>
 			</table>
+			<% if under_deal.work_status == 'advertising' %>
+				<% if driver.transfer_informations == nil %>
+					<p class="notice">口座情報が未登録です。<br>「ドライバー情報 編集」<br>登録してください。</p>
+				<% end %>
+			<% end %>
 		</div>
 		<div class="col-xs-3">
 			<table>
@@ -61,13 +66,14 @@
 				</tr>
 				<tr>
 					<td>
-						<% if under_deal.work_status == 'deposited' %>
+						<% if under_deal.work_status == 'transferred' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-							良い 普通 悪い<br>
-								<%= f.submit "広告主を評価する", name:'finish', class: "btn btn-primary " %>
+								<%= f.submit "広告主を評価", name:'rated', class: "btn btn-primary " %>
 							<% end %>
+						<% elsif under_deal.work_status == 'rated' %>
+							<p class="btn btn-default report-cart-down" disabled="disabled">評価済み</p>
 						<% else %>
-							<p class="btn btn-default" disabled="disabled">振り込み待ち</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">振り込み待ち</p>
 						<% end %>
 					</td>
 				</tr>

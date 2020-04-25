@@ -16,14 +16,13 @@ class Ad < ApplicationRecord
 	end
 
 	belongs_to :ad_client
-
 	belongs_to :genre
 
 	has_many :rooms
-
 	has_many :under_deals
-	attachment :ad_image
 	has_many :favorites, dependent: :destroy
+
+	attachment :ad_image
 
 	def favorited_by?(driver)
 		favorites.where(driver_id: driver.id).exists?
