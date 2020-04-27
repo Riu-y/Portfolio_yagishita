@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>新規 お知らせ作成</h3>
+      <%= form_for @information, url: informations_path do |f| %>
+         <tr>
+            <td><%= f.label :タイトル %></td><br>
+            <td><%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :閲覧者タイプ %></td><br>
+            <td>
+              <%= f.radio_button :viewer_type, :both %>
+              <%= f.label "全て  " %>
+              <%= f.radio_button :viewer_type, :ad_client %>
+              <%= f.label "広告主  " %>
+              <%= f.radio_button :viewer_type, :driver %>
+              <%= f.label "ドライバー  " %></td>
+          </tr> <br>
+          <tr>
+            <td><%= f.label :内容 %></td>
+            <td><%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control",:size => "60x10" %></td>
+          </tr><br>
+          <tr>
+            <td class="text-center">
+              <%= f.submit "お知らせ投稿", class: "btn btn-primary "%>
+            </td>
+          </tr>
+      <% end %>
+    </div>
+    <div class="col-xs-6">
+      <%= render 'layouts/error_messages', model: @information %>
+    </div>
+  </div>
+</div>

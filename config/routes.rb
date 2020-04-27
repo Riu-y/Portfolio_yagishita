@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'informations/index'
+  get 'informations/new'
+  get 'informations/show'
   devise_for :admins, controllers:{
     registrations: 'admins/registrations',
     sessions: 'admins/sessions'
@@ -51,6 +54,7 @@ Rails.application.routes.draw do
 
 	resources :deal_details, only:[:index, :create, :update]
 	resources :completed_deals, only:[:index, :show, :update]
+  resources :informations, only:[:index, :show, :new, :create, :edit, :destroy]
 
   resources :under_deals, only:[:index, :show, :create, :edit,:update]do
       member do

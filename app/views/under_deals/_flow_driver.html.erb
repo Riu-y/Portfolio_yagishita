@@ -88,3 +88,15 @@
 </div>
 	<%= render 'under_deals/report_driver', under_deal: under_deal %>
 <% end %>
+<% if under_deal.work_status == 'finished'%>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2">
+		<div class="message-box">
+			<h3>この取引きは完了しています。</h3>
+				<h4>さぁ次の広告を探しにいきましょう！</h4>
+					<p><%= link_to "広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+		</div>
+	</div>
+</div>
+	<%= render 'under_deals/report_driver', under_deal: under_deal %>
+<% end %>
