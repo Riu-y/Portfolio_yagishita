@@ -43,9 +43,39 @@ ul.footer-menu li  {
   display: inline;
 }
 
+/* サイドバー */
+.sidebar-area{
+  text-align: center;
+}
+.sidebar {
+  width: 90%;
+  margin-left: 10px;
+  padding: 0;
+  list-style-type: none;
+  background-color: #eeeeee;
+}
+.side-menu a{
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #000000;
+  margin:5px;
+}
+.side-menu {
+  text-align: center;
+}
+.side-menu a.active {
+  color: #ffffff;
+  background-color: #da3c41;
+}
+.side-menu a:hover:not(.active) {
+  color: #ffffff;
+  background-color: #1b2538;
+}
+
 
 /* 検索フィーム*/
-
 
 
 /* 見出しの下の間隔を開ける */
@@ -61,6 +91,10 @@ thead,{
 /* テーブルの間隔を開ける */
 th, tr, td {
   margin-bottom: 17px;
+}
+
+/* リンク用のボタン */
+.link-button{
 }
 
 /* イメージhover時の動作 */
@@ -127,7 +161,7 @@ th, tr, td {
   border-radius: 12px;
   color: #333;/*テキストを黒にする*/
   background: #fff;
-  border: 2px solid #13178E;
+  border: 2px solid #1b2538;
 }
 .says:after {
   content: "";
@@ -136,7 +170,7 @@ th, tr, td {
   top: 18px;
   left: -24px;
   border: 12px solid transparent;
-  border-right: 12px solid #13178E;
+  border-right: 12px solid #1b2538;
 }
 .say-data {
   float: left;
@@ -177,7 +211,7 @@ th, tr, td {
   padding: 17px 13px;
   border-radius: 12px;
   color: #fff;
-  background: #13178E;
+  background: #1b2538;
 }
 .says2:after {
   content: "";
@@ -186,7 +220,7 @@ th, tr, td {
   top: 18px;
   right: -24px;
   border: 12px solid transparent;
-  border-left: 12px solid #13178E;
+  border-left: 12px solid #1b2538;
 }
 .say-data2 {
   float: right;
@@ -225,7 +259,7 @@ th, tr, td {
   border-radius: 4px;
 }
 .chat-btn:hover {
-  background: #13178E;
+  background: #1b2538;
   color: #fff;
   cursor: pointer;
 }
@@ -281,14 +315,19 @@ th, tr, td {
   margin-bottom:30px
 }
 
+/* 新規広告ボタン*/
+.ad-button-area{
+  text-align: center;
+  margin-bottom:20px;
+}
+
 /* Submitボタン */
 $thick : 3px;
 $pad : 0.7em;
 $extra : calc(#{$pad} * 1.2);
 $color : #f26522;
 
-
-.portfolio-experiment {
+.entry {
   background: #2d2d2d;
   
   a {
@@ -305,6 +344,8 @@ $color : #f26522;
       // padding: 0 0.3em;
       font-family: proxima-nova, monospace;
       transform: translate3d(0,$pad,0);
+      color: white;
+      background: #2d2d2d;
       display: block;
       transition: transform 0.4s cubic-bezier(.2,0,0,1) 0.4s;
     }
@@ -414,9 +455,145 @@ $color : #f26522;
         transform-origin: left;
       }
     }
-
   }
 }
 
+/* 質問ボタン */
+$thick : 3px;
+$pad : 0.7em;
+$extra : calc(#{$pad} * 1.2);
+$color : #f26522;
 
+
+.question {
+  background: #2d2d2d;
+
+  b {
+    color: white;
+    padding: $pad $extra;
+    display: inline-block;
+    border: $thick solid transparent;
+    position: relative;
+    font-size: 1.5em;
+    cursor: pointer;
+    letter-spacing: 0.07em;
+
+    .text {
+      // padding: 0 0.3em;
+      font-family: proxima-nova, monospace;
+      transform: translate3d(0,$pad,0);
+      font-color: #fff;
+      font-size: 18px;
+      background: #2d2d2d;
+      display: block;
+      transition: transform 0.4s cubic-bezier(.2,0,0,1) 0.4s;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: -$thick;
+      left: $extra;
+      right: $extra;
+      height: $thick;
+      background: $color;
+      // z-index: -1;
+      transition: 
+        transform 0.8s cubic-bezier(1,0,.37,1) 0.2s,
+        right 0.2s cubic-bezier(.04,.48,0,1) 0.6s,
+        left 0.4s cubic-bezier(.04,.48,0,1) 0.6s;
+      transform-origin: left;
+    }
+
+  }
+
+  .line {
+    position: absolute;
+    background: $color;
+
+    &.-right,
+    &.-left {
+      width: $thick;
+      bottom: -$thick;
+      top: -$thick;
+      transform: scale3d(1,0,1);
+    }  
+
+    &.-top,
+    &.-bottom {
+      height: $thick;
+      left: -$thick;
+      right: -$thick;
+      transform: scale3d(0,1,1);
+    }
+
+    &.-right {
+      right: -$thick;
+      transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.23s;
+      transform-origin: top;
+    }
+
+    &.-top {
+      top: -$thick;
+      transition: transform 0.08s linear 0.43s;
+      transform-origin: left;
+    }
+
+    &.-left {
+      left: -$thick;
+      transition: transform 0.08s linear 0.51s;
+      transform-origin: bottom;
+    }
+
+    &.-bottom {
+      bottom: -$thick;
+      transition: transform 0.3s cubic-bezier(1,0,.65,1.01);
+      transform-origin: right;
+    }  
+  }
+
+  b:hover,
+  b:active {
+
+    .text {
+      transform: translate3d(0,0,0);
+      transition: transform 0.6s cubic-bezier(.2,0,0,1) 0.4s;
+    }
+
+    &:after {
+      transform: scale3d(0,1,1);
+      right: -$thick;
+      left: -$thick;
+      transform-origin: right;
+      transition: 
+        transform 0.2s cubic-bezier(1,0,.65,1.01) 0.17s,
+        right 0.2s cubic-bezier(1,0,.65,1.01),
+        left 0s 0.3s;
+    }
+
+    .line {
+      transform: scale3d(1,1,1);
+
+      &.-right {
+        transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.2s;
+        transform-origin: bottom;
+      }
+
+      &.-top {
+        transition: transform 0.08s linear 0.4s;
+        transform-origin: right;
+      }
+
+      &.-left {
+        transition: transform 0.08s linear 0.48s;
+        transform-origin: top;
+      }
+
+      &.-bottom {
+        transition: transform 0.5s cubic-bezier(0,.53,.29,1) 0.56s;
+        transform-origin: left;
+      }
+    }
+  }
+}
 

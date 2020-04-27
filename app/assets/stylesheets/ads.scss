@@ -1,3 +1,20 @@
 // Place all the styles related to the ads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ad-area{
+	width: 100%;
+	heigth: 700px;
+	padding: 30px;
+	background: #2d2d2d;
+}
+
+.ad-card{
+	background: white;
+	padding: 20px;
+	margin-bottom:15px;
+}
+
+td{
+	width: 30%;
+}

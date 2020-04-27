@@ -6,7 +6,7 @@ class AdsController < ApplicationController
     @ad_client = current_ad_client
   end
   def show
-    @ad = Ad.find(params[:id])
+    @ad = Ad.includes(:genre,:ad_client).find(params[:id])
     @genres = Genre.all
     @driver = current_driver
     @ad_client = current_ad_client
@@ -26,6 +26,4 @@ class AdsController < ApplicationController
      @favorited_ads = Ad.joins(:favorites).where(favorites: { driver: @driver })
   end
 
-  def apply
-  end
 end

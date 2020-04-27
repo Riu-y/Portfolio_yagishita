@@ -70,7 +70,7 @@
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<%= f.submit "広告主を評価", name:'rated', class: "btn btn-primary " %>
 							<% end %>
-						<% elsif under_deal.work_status == 'rated' %>
+						<% elsif under_deal.work_status == 'rated' or 'finished' %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">評価済み</p>
 						<% else %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">振り込み待ち</p>

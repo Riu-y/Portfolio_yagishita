@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2">
+		<table class="table table-hover">
+			<h3>お知らせ詳細</h3>
+			  <tbody>
+			  	<tr>
+			  		<th>タイトル</th>
+			  		<td><%= @information.title %></td>
+			  	</tr>
+			  	<tr>
+			  		 <th>日時</th>
+			  		 <td><%= @information.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+			  	</tr>
+			  	<tr>
+			  		<th>お知らせ内容</th>
+			  		<td><%= @information.content %></td>
+			  	</tr>
+			  </tbody>
+		</table>
+	</div>
+</div>

@@ -1,73 +1,82 @@
-  <div class="row">
-    <div class="col-md-3">
-      <!-- プロフィール -->
-            <!-- プロフィール -->
-      <% if ad_client_signed_in? %>
-        <%= render 'ad_clients/profile', ad_client: current_ad_client %>
-        <%= render 'ad_clients/sidebar', ad_client: current_ad_client %>
-      <% elsif driver_signed_in?%>
-        <%= render 'drivers/profile', driver: current_driver %>
-        <%= render "drivers/sidebar", driver: current_driver %>
-      <% end %>
-      <!-- ジャンル一覧 -->
-      <%= render "ads/genre_templete", genres: @genres %>
-    </div>
-    <div class="col-xs-9">
+<div class="row">
+  <div class="col-xs-3">
+    <!-- プロフィール -->
+    <% if ad_client_signed_in? %>
+      <%= render 'ad_clients/profile', ad_client: current_ad_client %>
+      <%= render 'ad_clients/sidebar', ad_client: current_ad_client %>
+    <% elsif driver_signed_in?%>
+      <%= render 'drivers/profile', driver: current_driver %>
+      <%= render "drivers/sidebar", driver: current_driver %>
+    <% end %>
+    <!-- ジャンル一覧 -->
+    <%= render "ads/genre_templete", genres: @genres %>
+  </div>
+  <div class="col-xs-9">
+    <div class="ad-area">
+      <div class="ad-card">
         <%= attachment_image_tag @ad, :ad_image, :fill,760,420, fallback: "no_image.jpg", size:'200x130' %>
-        <table>
-         <tr>
-           <th><h4><%= @ad.title %></h4></th>
-           <th>
-              <div id="favorites_buttons_<%= @ad.id %>">
-                <%= render partial: 'favorites/favorite',locals: { ad: @ad } %>
-              </div>
-
-           </th>
-         </tr>
-         <tr>
-           <td><h3><%= @ad.ad_fee %>円</h3></td>
-         </tr>
-         <tr>
-           <td><h4><%= @ad.heading %></h4></td>
-         </tr>
-         <tr>
-           <td><p><%= @ad.content %></p></td>
-         </tr>
-       </table>
-       <table class="table">
-         <tr>
-           <th>広告主</th>
-           <th>広告作業期間</th>
-         </tr>
-         <tr>
-           <td><%= @ad.ad_client_id %></td>
-           <td><%= @ad.start_date %><br>&emsp;〜<%= @ad.end_date %></td>
-         </tr>
-         <tr>
-          <td>ジャンル</td>
-          <td></td>
-         </tr>
-         <tr>
-          <td><%= @ad.genre_id %></td>
-          <td></td>
-         </tr>
-       </table>
-       <%= form_for (@under_deal), url: under_deals_path, method: :post do |f| %>
-         <%= f.hidden_field :ad_id, :value => @ad.id %>
-         <%= f.hidden_field :driver_id, :value => current_driver.id %>
-         <%= f.submit "この広告に申し込む", class: "btn btn-lg btn-primary"%>
-       <% end %>
- <section class="portfolio-experiment">
-  <a>
-    <span class="text">Hover me</span>
-    <span class="line -right"></span>
-    <span class="line -top"></span>
-    <span class="line -left"></span>
-    <span class="line -bottom"></span>
-  </a>
-</section>
-       </table>
-        <br><%= link_to 'この広告のことで質問する', ad_chats_path(@ad.id), class: "btn btn-success"%><br>
-        <%= link_to "前の画面に戻る", ads_path  %>
+          <table>
+           <tr>
+             <th><h4><%= @ad.title %></h4></th>
+             <th>
+                <div id="favorites_buttons_<%= @ad.id %>">
+                  <%= render partial: 'favorites/favorite',locals: { ad: @ad } %>
+                </div>
+             </th>
+           </tr>
+           <tr>
+             <td><h3><%= @ad.ad_fee %>円</h3></td>
+           </tr>
+           <tr>
+             <td><h4><%= @ad.heading %></h4></td>
+           </tr>
+           <tr>
+             <td><p><%= @ad.content %></p></td>
+           </tr>
+         </table>
+         <table class="table">
+           <tr>
+             <th>広告主</th>
+             <th>広告作業期間</th>
+           </tr>
+           <tr>
+             <td><%= @ad.ad_client.company_name %></td>
+             <td><%= @ad.start_date %><br>&emsp;〜<%= @ad.end_date %></td>
+           </tr>
+           <tr>
+            <th>ジャンル</th>
+           </tr>
+           <tr>
+            <td><%= @ad.genre.genre_name %></td>
+           </tr>
+         </table>
+      </div>
+         <%= form_for (@under_deal), url: under_deals_path, method: :post do |f| %>
+           <%= f.hidden_field :ad_id, :value => @ad.id %>
+           <%= f.hidden_field :driver_id, :value => current_driver.id %>
+            <section class="entry">
+              <a>
+                <%= f.submit "この広告に申し込む", :class => "text" %>
+                <span class="line -right"></span>
+                <span class="line -top"></span>
+                <span class="line -left"></span>
+                <span class="line -bottom"></span>
+              </a>
+            </section>
+         <% end %><br>
+          <section class="question">
+              <b>
+                <div class="text">
+                <%= link_to 'この広告のことで質問する', ad_chats_path(@ad.id) %>
+                </div>
+                <span class="line -right"></span>
+                <span class="line -top"></span>
+                <span class="line -left"></span>
+                <span class="line -bottom"></span>
+              </b>
+           </section>
+          <br>
     </div>
   </div>
+    <span class="link-button" ><%= link_to "前の画面に戻る", ads_path  %>
+</div>

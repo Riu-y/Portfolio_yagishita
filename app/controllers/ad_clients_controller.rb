@@ -3,8 +3,9 @@ class AdClientsController < ApplicationController
   def dashboard
     @ad_client = current_ad_client
     @driver = current_driver
-    @under_deals = UnderDeal.includes(:ad).where(ads: {ad_client_id: current_ad_client.id} )
-    @finish_deals = @under_deals.includes(:ad,:deal_messages,:driver).references(:ad,:deal_messages,:driver).where(work_status: 'finished')
+    deal_all = UnderDeal.includes(:ad).where(ads: {ad_client_id: current_ad_client.id} )
+    @under_deals = deal_all.includes(:ad).where.not(work_status: 'finished')
+    @finish_deals = deal_all.includes(:ad,:deal_messages,:driver).references(:ad,:deal_messages,:driver).where(work_status: 'finished')
   end
   # ユーザーから見た広告主一覧
   def index

@@ -69,12 +69,12 @@
 						</tr>
 						<tr>
 							<th></th>
-							<td><%= link_to "編集する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary" %></td>
+							<td><%= link_to "編集する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
 						</tr>
 					</table>
 				<% else %>
 					<p>口座情報が登録されていません。</p>
-						<%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary" %>
+						<%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
 				<% end %><br>
 			<h3>登録車情報</h3>
 				<% if @car_information != nil  %>
@@ -89,12 +89,12 @@
 						</tr>
 						<tr>
 							<th></th>
-							<td><%= link_to "編集する", driver_car_informations_path(@driver.id) , class: "btn btn-primary" %></td>
-						</tr>s
+							<td><%= link_to "編集する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
+						</tr>
 					</table>
 				<% else %>
 					<p>車両情報が登録されていません。</p>
-						<%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary" %></td>
+						<%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
 				<% end %>
 		</div>
 		<!-- エラーメッセージ表示-->
