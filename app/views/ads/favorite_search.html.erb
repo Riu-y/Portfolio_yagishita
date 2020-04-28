@@ -18,7 +18,7 @@
 					<% @favorited_ads.each do |ad| %>
 							<td>
 								<%= link_to ad_path(ad.id) do %>
-								<%= attachment_image_tag ad,:ad_image, :fill,200,160, fallback: "no_image.jpg", size:'200x160',class: "img_wrap" %><br>
+								<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap", size:'200x160' %><br>
 								<%= ad.title %><% end %>&emsp;
 								<% if ad.favorited_by?(current_driver)  %>
 		               <%= link_to ad_favorites_path(ad),method: :delete do %>

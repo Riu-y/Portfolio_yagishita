@@ -7,14 +7,14 @@
     <% elsif driver_signed_in?%>
       <%= render 'drivers/profile', driver: current_driver %>
       <%= render "drivers/sidebar", driver: current_driver %>
-    <% end %>
+    <% end %><br>
     <!-- ジャンル一覧 -->
     <%= render "ads/genre_templete", genres: @genres %>
   </div>
   <div class="col-xs-9">
     <div class="ad-area">
       <div class="ad-card">
-        <%= attachment_image_tag @ad, :ad_image, :fill,760,420, fallback: "no_image.jpg", size:'200x130' %>
+        <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'560x420' %>
           <table>
            <tr>
              <th><h4><%= @ad.title %></h4></th>

@@ -9,7 +9,7 @@
 			<% end %><br>
 		</div>
 		<div class = "col-xs-5">
-				<%= attachment_image_tag @ad_client, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+				<%= attachment_image_tag @ad_client, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
 						<% if driver_signed_in? %> <!-- currentか引数を定義するか後で統一 -->
 	            <% if current_driver.following?(@ad_client) %>
 	              <%= link_to 'フォローを外す', ad_client_relationship_driver_path(@ad_client.id), method: :delete %>

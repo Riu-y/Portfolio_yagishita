@@ -44,7 +44,7 @@
     </div>
     <div class = "col-xs-6">
       <h3>商品画像プレビュー</h3>
-        <%= attachment_image_tag @ad, :ad_image, :fill,400,300, fallback: "no_image.jpg", size:'400x300' %>
+        <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'400x300' %>
     </div>
 
   </div>

@@ -1,7 +1,7 @@
 	<div class="row">
 		<div class = "col-xs-6">
 			<%= form_for(@driver) do |f| %>
-				<%= attachment_image_tag @driver, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+				<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
 					<%= f.attachment_field :profile_image %><br>
 
 					<table class="table .table-borderless">

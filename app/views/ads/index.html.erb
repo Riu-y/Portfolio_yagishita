@@ -15,10 +15,10 @@
 			<h2>広告一覧</h2>
 				<% i = 0 %>
 				<table class="table" id="none-border">
-					<% @ads.each do |ad| %>
-						<td>
+						<% @ads.each do |ad| %>
+						<td class="ad-index">
 							<%= link_to ad_path(ad.id) do %>
-							<%= attachment_image_tag ad,:ad_image, :fill,200,160, fallback: "no_image.jpg", size:'200x160',class: "img_wrap" %><br>
+								<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap",size:'200x160' %><br>
 							<%= ad.title %><% end %>&emsp;
 							<div id="favorites_buttons_<%= ad.id %>">
 								<%= render partial:'favorites/favorite', locals: { ad: ad} %>
@@ -26,11 +26,11 @@
 							<%= ad.ad_fee %><br>
 							<%= ad.heading %>
 						</td>
-							<% i = i + 1 %>
+						<% i = i + 1 %>
 							<% if i % 3 == 0 %>
-							<tr></tr>
+								<tr></tr>
 							<% end %>
-					<% end %>
+						<% end %>
 				</table>
 			<% if ad_client_signed_in? %>
 				<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>

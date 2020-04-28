@@ -7,7 +7,7 @@
 					<th>広告設置写真</th>
 				</tr>
 				<tr>
-					<td><%= attachment_image_tag under_deal, :installation_image, :fill, 170, 140, fallback: "no_image.jpg", size: '160x120' %></td>
+					<td><%= attachment_image_tag under_deal, :installation_image, fallback: "no_image.jpg", size: '160x120' %></td>
 				</tr>
 			</table>
 		</div>
@@ -24,7 +24,7 @@
 								<%= f.submit "写真をアップロード", name:'advertising', class: "btn btn-primary" %>
 							<% end %>
 						<% else %>
-							<p class="btn btn-default report-cart-down" disabled="disabled">証明写真のアップロード済み</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">アップロード済み</p>
 						<% end %>
 					</td>
 				</tr>
@@ -54,8 +54,8 @@
 				</tr>
 			</table>
 			<% if under_deal.work_status == 'advertising' %>
-				<% if driver.transfer_informations == nil %>
-					<p class="notice">口座情報が未登録です。<br>「ドライバー情報 編集」<br>登録してください。</p>
+				<% if driver.transfer_informations.blank? %>
+					<p class="notice">口座情報が未登録です。<br>「ドライバー情報 編集」から登録してください。</p>
 				<% end %>
 			<% end %>
 		</div>

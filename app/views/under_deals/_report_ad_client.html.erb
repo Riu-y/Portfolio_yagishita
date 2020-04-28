@@ -7,7 +7,7 @@
 					<th>広告取付け完了写真</th>
 				</tr>
 				<tr>
-					<td><%= attachment_image_tag @under_deal, :installation_image, :fill, 170, 140, fallback: "no_image.jpg", size: '160x120' %></td>
+					<td><%= attachment_image_tag @under_deal, :installation_image, fallback: "no_image.jpg", size: '160x120' %></td>
 				</tr>
 			</table>
 		</div>
