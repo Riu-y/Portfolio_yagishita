@@ -9,7 +9,7 @@
 			<% end %>
 		</div>
 		<div class = "col-xs-5">
-			<%= attachment_image_tag @driver, :profile_image,:fill, 230, 170, fallback: "no_image.jpg", size:'230x170'  %><br>
+			<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
 				<% if ad_client_signed_in? %>
           <% if current_ad_client.following?(@driver) %>
             <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
@@ -78,10 +78,5 @@
 		       <% end %>
 		      </tbody>
 	      </table>
-	    <%= if params[:driver_check] %>
-	   		<%= link_to "取引画面へ戻る", drivers_path %>
-   		<% else %>
-	    	<%= link_to "前の画面へ戻る", drivers_path %>
-	    <% end %>
 	  </div>
 	</div>

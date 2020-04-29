@@ -2,7 +2,7 @@ class DriversController < ApplicationController
   before_action :authenticate_driver!, only:[:dashboard]
 
   def dashboard
-    @driver = current_driver
+    @driver = Driver.find(params[:id])
     @under_deals = UnderDeal.includes(:ad,:deal_messages).references(:ad,:deal_messages).where(driver_id: @driver.id)
     @under_deal = @under_deals.includes(:ad,:deal_messages).references(:ad,:deal_messages).where.not(work_status: 'finished').first
     @finish_deals = @under_deals.includes(:ad,:deal_messages).includes(:ad => :ad_client).references(:ad,:deal_messages,:ad_client).where(work_status: 'finished')
