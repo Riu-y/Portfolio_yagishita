@@ -109,16 +109,15 @@
         <div class="col-xs-12">
           <footer>
             <ul class="footer-menu">
-               <li>Home</li>
+               <li><%= link_to "Home", root_path,:style =>"color:white;" %></li>
                <li>｜</li>
-               <li>About Ader</li>
+               <li><%= link_to "About Ader",homes_about_path, :style =>"color:white;" %></li>
                <li>｜</li>
                <li>service</li>
                <li>｜</li>
-               <li>Contact Us</li>
+               <li><%= link_to "Contact Us",new_contact_path,:style =>"color:white;" %></li>
             </ul>
-            <p>&copy;2020 Ader</p>
-            <span>Ader&emsp;<%= link_to image_tag('logo2.png',width:'70'),homes_index_path %></span>
+            <p>&copy;2020 Ader&emsp;<%= link_to image_tag('logo2.png',width:'70'),homes_index_path %></span>
             </nav>
           </footer>
         </div>
