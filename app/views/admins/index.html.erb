@@ -1,20 +1,83 @@
-<div class="container">
+<h3>アドミンページ</h3>
 	<div class="row">
-		<div class="col-xs-8">
-			<h3>アドミントップページ</h3>
-			</div>
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>お知らせ管理</th>
+						<th></th>
+					</tr>
+				</thead>
+					<tbody>
+					<tr>
+						<td><%= link_to "新規作成",new_information_path %></td>
+						<td><%= link_to "お知らせ一覧",informations_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>お問い合わせ管理</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>新規お問い合わせ</td>
+						<td>対応中</td>
+						<td>過去</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>広告主管理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to "広告主 一覧へ", ad_clients_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>ドライバー管理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to "ドライバー 一覧へ", drivers_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>広告管理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to "広告 一覧へ", ads_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-	<table>
-		<th>お知らせ管理</th>
-		<th>広告主管理</th>
-		<th>ドライバー管理</th>
-		<th>お問い合わせ管理</th>
-
-		<td><%= link_to "新規作成",new_information_path %> <%= link_to "お知らせ一覧",informations_path %></td>
-		<td>広告主一覧へ</td>
-		<td>ドライバー一覧へ</td>
-		<td>新規お問い合わせ　対応中　過去</td>
-
-	</table>

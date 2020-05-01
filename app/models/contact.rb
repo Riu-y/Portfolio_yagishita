@@ -7,4 +7,6 @@ class Contact < ApplicationRecord
 				I18n.t('activemodel.errors.message.input_number')
 			}
 		}
+
+	 enum work_status: { new_inquiry: 0, working_inquiry: 1, past_inquiry: 2 }
 end

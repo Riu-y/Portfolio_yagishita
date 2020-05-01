@@ -14,7 +14,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-      admins_root_path
+      admins_path
   end
   # GET /resource/edit
   # def edit

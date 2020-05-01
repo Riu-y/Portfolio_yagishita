@@ -18,11 +18,11 @@ class InformationsController < ApplicationController
   end
 
   def edit
-  	@information = Information.new(information_params)
+  	@information = Information.find(params[:id])
   end
 
   def update
-  	@information = Information.new(information_params)
+  	@information = Information.find(params[:id])
   	@information.update
   	redirect_to informations_path
   end
@@ -30,6 +30,6 @@ class InformationsController < ApplicationController
 
   private
   def information_params
-  	params.require(:information).permit(:title, :viewer_type, :content)
+  	params.permit(:title, :viewer_type, :content)
   end
 end

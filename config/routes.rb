@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
 	resources :deal_details, only:[:index, :create, :update]
 	resources :completed_deals, only:[:index, :show, :update]
-  resources :informations, only:[:index, :show, :new, :create, :edit, :destroy]
+  resources :informations
 
   resources :under_deals, only:[:index, :show, :create, :edit,:update]do
       member do
@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   resources :contacts, only:[:new, :create,:index]do
 		post :confirm, action: :confirm_new, on: :new
 	end
+  get '/sent_form', to: 'contacts#sent_form'
 
   resources :contacts, only:[:new, :create,:index]do
     post :confirm, action: :confirm_new, on: :new
