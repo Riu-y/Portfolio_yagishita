@@ -83,6 +83,11 @@ h3{
   margin-bottom:30px;
 }
 
+/* 運営側からのメッセージ */
+.notice{
+  color: red;
+}
+
 /* テーブルの先頭の色を変更 */
 thead,{
   background-color: #dcdcdc;
@@ -264,14 +269,16 @@ th, tr, td {
   color: #fff;
   cursor: pointer;
 }
+/* 黒色のタグ */
+
 .tag {
- background:#ffe0ef;
- color:#666;
+ background:#000;
+ color:#fff;
  padding:6px;
- margin:3px;
+ margin-bottom: 30px;
  border-radius:20px;
  text-decoration:none;
- font-size:12px;
+ font-size:13px;
 }
 
 /* フォームサイズ */
@@ -302,6 +309,7 @@ th, tr, td {
   color:#262626; 
   background:#FFEBE8;
   border:2px solid #990000;
+  margin:10px 0px;
   padding:12px; font-weight:850;
   }
 

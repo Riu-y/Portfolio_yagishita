@@ -1,37 +1,35 @@
-<div class="col-xs-9">
-	<div class="current-deal">
-		<table class="table table-hover">
-			<h3>取引中の広告一覧</h3>
-			  <thead>
-			    <tr>
-			      <td>広告名</td>
-			      <td>ドライバー</td>
-			      <td>広告期間</td>
-			      <td>ステータス</td>
-			      <td colspan="2">詳細画面</td>
-			    </tr>
-			  </thead>
-			  <tbody>
-			   <% under_deals.each do |u| %>
-			    <tr>
-			      <td><%= u.ad.title %></td>
-			      <td><%= u.driver.driver_name %></td>
-			      <td><%= u.ad.start_date %>〜<%= u.ad.end_date %></td>
-			      <td><%= u.work_status_i18n %></td>
-			      <td colspan="2">
-			        <%= link_to "詳細", under_deal_path(u.id), class: "btn-sm btn-success" %></td>
-			    </tr>
-			   <% end %>
-			  </tbody>
-		</table>
+<div class="current-deal">
+	<table class="table table-hover">
+		<h3>取引中の広告一覧</h3>
+		  <thead>
+		    <tr>
+		      <td>広告名</td>
+		      <td>ドライバー</td>
+		      <td>広告期間</td>
+		      <td>ステータス</td>
+		      <td colspan="2">詳細画面</td>
+		    </tr>
+		  </thead>
+		  <tbody>
+		   <% under_deals.each do |u| %>
+		    <tr>
+		      <td><%= u.ad.title %></td>
+		      <td><%= u.driver.driver_name %></td>
+		      <td><%= u.ad.start_date %>〜<%= u.ad.end_date %></td>
+		      <td><%= u.work_status_i18n %></td>
+		      <td colspan="2">
+		        <%= link_to "詳細", under_deal_path(u.id), class: "btn-sm btn-success" %></td>
+		    </tr>
+		   <% end %>
+		  </tbody>
+	</table>
+<% if under_deals.blank? %>
+	<div class="message-box">
+		<h4>現在、取引中の広告はありません。</h4>
+			<h5>広告を依頼してみましょう！！  <%= link_to"▶︎ 広告依頼ページへ", new_ad_client_ad_path(current_ad_client) %></h5>
 	</div>
-	<% if under_deals == nil %>
-		<div class="message-box">
-			<h4>現在、取引中の広告はありません。</h4>
-				<h5>広告を依頼してみましょう！！  <%= link_to"▶︎ 広告依頼ページへ", new_ad_client_ad_path(current_ad_client) %></h5>
-		</div>
-	<% end %>
-	<!-- 取引一覧 -->
+<% end %>
+<!-- 取引一覧 -->
 	<div class="past-deal">
 		<table class="table table-hover">
 			<h4>過去取引一覧</h4>

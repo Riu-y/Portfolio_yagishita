@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_074646) do
+ActiveRecord::Schema.define(version: 2020_05_01_162402) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_074646) do
     t.boolean "terms", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_active", default: true, null: false
+    t.integer "user_status", default: 0, null: false
     t.index ["email"], name: "index_ad_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_ad_clients_on_reset_password_token", unique: true
   end
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_074646) do
     t.boolean "terms", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_status", default: 0, null: false
     t.index ["email"], name: "index_drivers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end

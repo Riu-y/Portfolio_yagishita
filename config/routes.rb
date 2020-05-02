@@ -65,14 +65,15 @@ Rails.application.routes.draw do
   scope module: :under_deals do
       get :how_to_kit
 	end
-  resources :contacts, only:[:new, :create,:index]do
+  resources :contacts, only:[:new, :create,:index,:show,:update]do
 		post :confirm, action: :confirm_new, on: :new
 	end
-  get '/sent_form', to: 'contacts#sent_form'
-
-  resources :contacts, only:[:new, :create,:index]do
-    post :confirm, action: :confirm_new, on: :new
+  scope module: :contacts do
+    get :new_inquiry
+    get :working_inquiry
+    get :past_inquiry
   end
+
  	resources :ads, only:[:index, :show]do
     resources :chats, only: [:index, :create]
     resources :rooms, only:[:index, :show, :create]

@@ -1,27 +1,26 @@
 <h2>広告一覧</h2>
-				<% i = 0 %>
-				<table class="table" id="none-border">
-						<% ads.each do |ad| %>
-						<td class="ad-index">
-							<%= link_to ad_path(ad.id) do %>
-								<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap",size:'200x160' %><br>
-							<%= ad.title %><% end %>&emsp;
-							<div id="favorites_buttons_<%= ad.id %>">
-								<%= render partial:'favorites/favorite', locals: { ad: ad} %>
-							</div><br>
-							<%= ad.ad_fee %><br>
-							<%= ad.heading %>
-						</td>
-						<% i = i + 1 %>
-							<% if i % 3 == 0 %>
-								<tr></tr>
-							<% end %>
-						<% end %>
-				</table>
-			<% if ad_client_signed_in? %>
-				<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
-			<% elsif driver_signed_in?%>
-				<%= link_to "マイページに戻る", dashboard_driver_path(current_driver) %>
+	<% i = 0 %>
+	<table class="table" id="none-border">
+		<% ads.each do |ad| %>
+			<td class="ad-index">
+				<%= link_to ad_path(ad.id) do %>
+					<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap",size:'200x160' %><br>
+				<%= ad.title %><% end %>&emsp;
+			<div id="favorites_buttons_<%= ad.id %>">
+					<%= render partial:'favorites/favorite', locals: { ad: ad} %>
+			</div>
+				<%= convert_fee(ad.ad_fee) %><br>
+				<%= ad.heading %>
+			</td>
+			<% i = i + 1 %>
+				<% if i % 3 == 0 %>
+					<tr></tr>
+				<% end %>
 			<% end %>
-		</div>
-	</div>
+	</table>
+<% if ad_client_signed_in? %>
+	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+<% elsif driver_signed_in?%>
+	<%= link_to "マイページに戻る", dashboard_driver_path(current_driver) %>
+<% end %>
+

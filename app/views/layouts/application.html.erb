@@ -55,10 +55,10 @@
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
               <li><%= link_to "ログアウト",destroy_driver_session_path, method: :delete %></li>
             <% elsif admin_signed_in?%>
+              <li><%= link_to "ダッシュボード",admins_path %></li>
               <li><%= link_to "広告 一覧",ads_path %></li>
               <li><%= link_to "ドライバー 一覧",drivers_path %></li>
               <li><%= link_to "広告主 一覧",ad_clients_path %></li>
-              <li><%= link_to "問い合わせ一覧",admins_contacts_path %></li>
               <li><%= link_to "ログアウト",destroy_admin_session_path  , method: :delete %></li>
             <% else %>
               <li><%= link_to "About Ader",homes_about_path %></li>

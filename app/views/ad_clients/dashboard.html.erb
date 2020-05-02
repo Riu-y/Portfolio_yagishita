@@ -6,6 +6,9 @@
 	  </div>
 		<%= render 'ad_clients/sidebar', ad_client: current_ad_client %><!-- サイドバー -->
 	</div>
+	<div class="col-xs-9">
+		<%= render 'layouts/message_from_admin', ad_client: @ad_client %>
 		<%= render 'under_deals/index',under_deals: @under_deals, finish_deals: @finish_deals %>
+	</div>
 </div>
 

@@ -32,7 +32,7 @@ class DriversController < ApplicationController
     @transfer_information = TransferInformation.where(params[driver_id: @driver.id]).last
     @car_information = CarInformation.where(params[driver_id: @driver.id]).last
   end
-
+  #ドライバー側の編集アップロード & アドミンのステータスアップデートに使用
   def update
   	@driver = Driver.find(params[:id])
   	if @driver.update(driver_params)
@@ -54,7 +54,7 @@ class DriversController < ApplicationController
 
   private
   def driver_params
-  	params.require(:driver).permit(:driver_name,:driver_name_kana, :profile_image, :postal_code, :address, :telephone_number)
+  	params.require(:driver).permit(:driver_name,:driver_name_kana, :profile_image, :postal_code, :address, :telephone_number,  :is_active)
   end
 
   def message_params
