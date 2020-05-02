@@ -42,6 +42,20 @@
 						<th>メールアドレス</th>
 						<td><%= @driver.email %></td>
 					</tr>
+					<% if admin_signed_in? %>
+					<tr>
+						<th>ユーザーステータス</th>
+						<td>
+								<%= form_for @driver, url: driver_path(@driver), method: :patch do |f| %>
+									<%= f.radio_button :is_active, :true, checed:true %>
+									<%= f.label :有効 %>
+									<%= f.radio_button :is_active, :false %>
+									<%= f.label :無効 %>
+									<%= f.submit "更新", class: "btn btn-primary",style: "margin-left:13px"%>
+								<% end %>
+								</td>
+					</tr>
+					<% end %>
 				</table>
 		</div>
 		<div class = "col-xs-4">

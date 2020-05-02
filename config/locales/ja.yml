@@ -11,11 +11,23 @@ ja:
         deposited: 振り込み完了
         rated: 評価待ち
         finished: 取引完了
+    contact:
+      work_status:
+        new_inquiry: 新規問い合わせ
+        working_inquiry: 対応中
+        past_inquiry: 対応済み
 
     transfer_information:
       account_type:
         ordinary: 普通預金
         checking: 当座預金
+
+    driver:
+      user_status:
+        not_check: 本人証明未確認
+        checked_indentification: 本人確認済
+        checked_car_indentification: 車両情報確認済
+
   activemodel:
     errors:
       message:
@@ -47,6 +59,7 @@ ja:
         telephone_number: 電話番号
         driver_license_image: 運転免許証の画像
         terms: 利用規約
+        user_status: ステータス
 
       car_information:
         manufacturer_name: メーカー

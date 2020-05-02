@@ -1,0 +1,31 @@
+<div class="col-xs-9">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>問い合わせ日</td>
+          <td>名前</td>
+          <td>会社名</td>
+          <td>内容</td>
+          <td colspan="2">詳細画面</td>
+        </tr>
+      </thead>
+      <tbody>
+       <% contacts.each do |c| %>
+        <tr>
+          <td><%= c.created_at.strftime("%Y-%m-%d") %></td>
+          <td><%= c.name %></td>
+          <td><%= c.company_name %></td>
+          <td><%= c.content %></td>
+          <td colspan="2">
+            <%= link_to "詳細", contact_path(c.id), class: "btn-sm btn-success" %></td>
+        </tr>
+       <% end %>
+      </tbody>
+  </table>
+    <% if contacts.blank? %>
+      <div class="message-box">
+        <h4>現在、該当の問い合わせはありません。</h4>
+      </div>
+    <% end %>
+  <h5><%= link_to"▶︎ 前のページへ", admins_path %></h5>
+</div>

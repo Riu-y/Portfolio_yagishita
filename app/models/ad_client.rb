@@ -32,6 +32,9 @@ class AdClient < ApplicationRecord
 	has_many :following_driver, :through => :follower, :source => :followed #自分がフォローしているドライバー
 	has_many :follower_driver, :through => :followed, :source => :follower #自分をフォローしているドライバー
 
+	enum user_status: {not_check: 0, checked_indentification: 1}
+	# not_check: 未確認, checked_indentification: 本人確認済み
+
 	def follow(driver_id)
 		follower.create(followed_id: driver_id)
 	end

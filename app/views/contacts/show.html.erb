@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>問い合わせ詳細</h3>
+      <table class="table table-hover ">
+         <tr>
+            <th class="active">名前</th>
+            <td><%= @contact.name %></td>
+          </tr>
+        </th>
+        <tr>
+          <th class="active">会社名</th>
+          <td><%= @contact.company_name %></td>
+        </th>
+        <tr>
+          <th class="active">問い合わせ日</th>
+          <td><%= @contact.created_at.strftime("%Y-%m-%d") %></td>
+        </th>
+        <tr>
+          <th class="active">ステータス</th>
+          <td>
+            <%= form_for @contact, url: contact_path(@contact), method: :patch do |f| %>
+              <%= f.select :work_status, Contact.work_statuses.keys.map{|k| [I18n.t("enums.contact.work_status.#{k}"),k]} %>
+              <%= f.submit "更新" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th class="active">内容</th>
+          <td><%= @contact.content %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-xs-6">
+      <%= render 'layouts/error_messages', model: @contact %>
+    </div>
+  </div>
+</div>

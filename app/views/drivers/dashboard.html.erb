@@ -1,20 +1,15 @@
-	<div class="row">
-		<div class="col-xs-3">
-			<!-- プロフィール -->
- 			<%= render "drivers/profile", driver: @driver %>
- 			<%= render "drivers/sidebar", driver: @driver %>
-		</div>
-		<div class="col-xs-8 col-xs-offset-1">
-			<!-- 運営からのメッセージ -->
-			<div class="says">
-			<% if @driver.transfer_informations.blank? %>
-					<p class="notice">口座情報が未登録です。<br>お取引を始める前に「ドライバー情報 編集」から登録してください。</p>
-				<% end %>
-			<% if @driver.car_informations.blank? %>
-					<p class="notice">車両情報が未登録です。<br>お取引を始める前に「ドライバー情報 編集」から登録してください。</p>
-			<% end %>
-		</div>
-			<!-- 取引広告の情報 -->
+<div class="row">
+	<div class="col-xs-3">
+		<!-- プロフィール -->
+			<%= render "drivers/profile", driver: @driver %>
+			<%= render "drivers/sidebar", driver: @driver %>
+	</div>
+	<div class="col-xs-9">
+		<!-- 運営からのメッセージ -->
+						<%= render 'layouts/message_from_admin', driver: @driver %>
+
+		<!-- 取引広告の情報 -->
+		<div class="deal-area">
 			<h3>取引中の広告</h3>
 			<% if @under_deal.present? %>
 				<!-- 作業報告エリア -->
@@ -93,3 +88,4 @@
 			</div>
 		</div>
 	</div>
+</div>

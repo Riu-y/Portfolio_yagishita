@@ -21,11 +21,11 @@ class AdClientsController < ApplicationController
   def edit
   	@ad_client = AdClient.find(params[:id])
   end
-   # 広告主側の編集アップロード
+   # 広告主側の編集アップロード & アドミンのステータスアップデートに使用
   def update
   	@ad_client = AdClient.find(params[:id])
   	if @ad_client.update(ad_client_params)
-  		redirect_to ad_clients_root_path(@ad_client)
+  		redirect_to ad_clients_path
   	else
   		render :edit
   	end
@@ -43,7 +43,7 @@ class AdClientsController < ApplicationController
 
   private
   def ad_client_params
-  	params.require(:ad_client).permit(:company_name, :company_name_kana, :ceo_name, :ceo_name_kana, :postal_code, :address, :telephone_number, :profile_image, :registry_image_id)
+  	params.require(:ad_client).permit(:company_name, :company_name_kana, :ceo_name, :ceo_name_kana, :postal_code, :address, :telephone_number, :profile_image, :registry_image_id, :is_active)
   end
   def message_params
     params.require(:deal_message).permit(:message, :user_type, :under_deal_id)

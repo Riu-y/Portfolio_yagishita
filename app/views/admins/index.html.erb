@@ -27,9 +27,9 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>新規お問い合わせ</td>
-						<td>対応中</td>
-						<td>過去</td>
+						<td><%= link_to "新規お問い合わせ", new_inquiry_path %></td>
+						<td><%= link_to "対応中", working_inquiry_path %></td>
+						<td><%= link_to "過去一覧", past_inquiry_path %></td>
 					</tr>
 				</tbody>
 			</table>
@@ -76,6 +76,21 @@
 				<tbody>
 					<tr>
 						<td><%= link_to "広告 一覧へ", ads_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row">
+		<div class="col-xs-5 col-xs-offset-1">
+			<table class="table table-hover " id="index-table">
+				<thead class="thead-dark">
+					<tr>
+						<th>ジャンル管理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to "ジャンル 画面へ", admins_genres_path %></td>
 					</tr>
 				</tbody>
 			</table>
