@@ -35,6 +35,9 @@ class AdClient < ApplicationRecord
 	enum user_status: {not_check: 0, checked_indentification: 1}
 	# not_check: 未確認, checked_indentification: 本人確認済み
 
+	geocoded_by :address
+	after_validation :geocode
+
 	def follow(driver_id)
 		follower.create(followed_id: driver_id)
 	end
