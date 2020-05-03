@@ -60,6 +60,7 @@ ja:
         driver_license_image: 運転免許証の画像
         terms: 利用規約
         user_status: ステータス
+        activity_area: 活動地域
 
       car_information:
         manufacturer_name: メーカー

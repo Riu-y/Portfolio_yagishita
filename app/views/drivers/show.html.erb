@@ -8,75 +8,85 @@
 				<%= render "drivers/sidebar", driver: current_driver %>
 			<% end %>
 		</div>
-		<div class = "col-xs-5">
-			<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
-				<% if ad_client_signed_in? %>
-          <% if current_ad_client.following?(@driver) %>
-            <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
-          <% else %>
-            <%= link_to 'フォローする', driver_relationships_path(@driver.id), method: :POST %>
-          <% end %>
-				<% end %>
-				<table class="table .table-borderless">
-					<tr>
-						<td>フォロー&emsp;<%= link_to @driver.following_ad_client.count, followings_driver_path(@driver) %></td>
-    			  <td>フォロワー&emsp;<%= link_to @driver.follower_ad_client.count, followers_driver_path(@driver) %></td>
-					</tr>
-					<tr>
-						<th>名前</th>
-						<td><%= @driver.driver_name %></td>
-					</tr>
-					<tr>
-						<th>名前（カナ）</th>
-						<td><%= @driver.driver_name_kana %></td>
-					</tr>
-					<tr>
-						<th>郵便番号</th>
-						<td><%= @driver.postal_code %></td>
-					</tr>
-					<tr>
-						<th>住所</th>
-						<td><%= @driver.address %></td>
-					</tr>
-					<tr>
-						<th>メールアドレス</th>
-						<td><%= @driver.email %></td>
-					</tr>
-					<% if admin_signed_in? %>
-					<tr>
-						<th>ユーザーステータス</th>
-						<td>
-								<%= form_for @driver, url: driver_path(@driver), method: :patch do |f| %>
-									<%= f.radio_button :is_active, :true, checed:true %>
-									<%= f.label :有効 %>
-									<%= f.radio_button :is_active, :false %>
-									<%= f.label :無効 %>
-									<%= f.submit "更新", class: "btn btn-primary",style: "margin-left:13px"%>
-								<% end %>
-								</td>
-					</tr>
-					<% end %>
-				</table>
-		</div>
-		<div class = "col-xs-4">
-			<h4>Map</h4>
-			ここに地図を載せる
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3">
-		</div>
 		<div class="col-xs-9">
+			<div class="row">
+				<div class = "col-xs-6">
+				<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
+					<% if ad_client_signed_in? %>
+	          <% if current_ad_client.following?(@driver) %>
+	            <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
+	          <% else %>
+	            <%= link_to 'フォローする', driver_relationships_path(@driver.id), method: :POST %>
+	          <% end %>
+					<% end %>
+					<table class="table .table-borderless">
+						<tr>
+							<td>フォロー&emsp;<%= link_to @driver.following_ad_client.count, followings_driver_path(@driver) %></td>
+	    			  <td>フォロワー&emsp;<%= link_to @driver.follower_ad_client.count, followers_driver_path(@driver) %></td>
+						</tr>
+						<tr>
+							<th>名前</th>
+							<td><%= @driver.driver_name %></td>
+						</tr>
+						<tr>
+							<th>名前（カナ）</th>
+							<td><%= @driver.driver_name_kana %></td>
+						</tr>
+						<tr>
+							<th>広告活動地域</th>
+							<td><%= @driver.activity_area %></td>
+						</tr>
+						<tr>
+							<th>メールアドレス</th>
+							<td><%= @driver.email %></td>
+						</tr>
+						<% if admin_signed_in? %>
+						<tr>
+							<th>ユーザーステータス</th>
+							<td>
+									<%= form_for @driver, url: driver_path(@driver), method: :patch do |f| %>
+										<%= f.radio_button :is_active, :true, checed:true %>
+										<%= f.label :有効 %>
+										<%= f.radio_button :is_active, :false %>
+										<%= f.label :無効 %>
+										<%= f.submit "更新", class: "btn btn-primary",style: "margin-left:13px"%>
+									<% end %>
+									</td>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+				<div class = "col-xs-6">
+					<h4>広告活動地域</h4>
+						<div id ="map"></div>
+							<script>
+								var map;
+								function initMap(){
+									var lat_lng ={ lat: <%= @driver.latitude %>, lng: <%= @driver.longitude %>}
+
+									map = new google.maps.Map(document.getElementById('map'), {
+										center: lat_lng,
+										zoom: 12,
+									});
+									marker = new google.map.Marker({
+										position: lat_lng,
+										map: map
+									});
+								}
+							</script>
+							<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap", async: true, defer: true)) ></script>
+				</div>
+			</div>
+
+		<div class="col-xs-12">
 			<table class="table">
 		     <h3>Car infomartion</h3>
 		      <thead>
 		        <tr>
-		          <td>メーカー名</td>
+		          <td>メーカー</td>
 		          <td>車名</td>
 		          <td>ナンバープレート</td>
 		          <td>車台番号</td>
-		          <td>広告活動地域</td>
-		          <td>広告掲載場所</td>
 		        </tr>
 		      </thead>
 		      <tbody>
@@ -86,8 +96,6 @@
 		          <td><%= c.car_name %></td>
 		          <td><%= c.license_plate %></td>
 		          <td><%= c.flame_number %></td>
-		          <td>住所から半径100km</td>
-		          <td>車両側部&emsp;リアゲート</td>
 		        </tr>
 		       <% end %>
 		      </tbody>

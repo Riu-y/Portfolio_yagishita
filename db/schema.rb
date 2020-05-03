@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_162402) do
+ActiveRecord::Schema.define(version: 2020_05_02_154447) do
 
   create_table "ad_clients", force: :cascade do |t|
     t.string "email", null: false
@@ -74,6 +74,11 @@ ActiveRecord::Schema.define(version: 2020_05_01_162402) do
     t.string "license_plate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "paste_place"
+    t.string "prefecture_name"
+    t.string "city_name"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -134,6 +139,9 @@ ActiveRecord::Schema.define(version: 2020_05_01_162402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_status", default: 0, null: false
+    t.string "activity_area"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_drivers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
