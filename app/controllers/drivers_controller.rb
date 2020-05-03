@@ -28,9 +28,9 @@ class DriversController < ApplicationController
   end
 
   def edit
-  	@driver = Driver.find(params[:id])
-    @transfer_information = TransferInformation.where(params[driver_id: @driver.id]).last
-    @car_information = CarInformation.where(params[driver_id: @driver.id]).last
+  	@driver = Driver.includes(:transfer_informations, :car_informations).find(params[:id])
+    # @transfer_information = TransferInformation.where(params[driver_id: @driver.id]).last
+    # @car_information = CarInformation.where(params[driver_id: @driver.id]).last
   end
   #ドライバー側の編集アップロード & アドミンのステータスアップデートに使用
   def update

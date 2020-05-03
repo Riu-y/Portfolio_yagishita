@@ -177,6 +177,7 @@ Driver.create!(
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
 				terms: true,
+				activity_area: "神奈川県小田原市"
 				password: "driver1",
 				password_confirmation: "driver1",
 				)
@@ -191,6 +192,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver2.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都港区"
 				terms: true,
 				password: "driver2",
 				password_confirmation: "driver2",
@@ -206,6 +208,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver3.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都中野区"
 				terms: true,
 				password: "driver3",
 				password_confirmation: "driver3",
@@ -221,6 +224,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver4.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都八王子市"
 				terms: true,
 				password: "driver4",
 				password_confirmation: "driver4",
@@ -236,6 +240,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver5.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "神奈川県川崎市"
 				terms: true,
 				password: "driver5",
 				password_confirmation: "driver5",
@@ -251,6 +256,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver6.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "神奈川県横浜市中区"
 				terms: true,
 				password: "driver6",
 				password_confirmation: "driver6",
@@ -266,6 +272,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver7.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都品川区"
 				terms: true,
 				password: "driver7",
 				password_confirmation: "driver7",
@@ -281,6 +288,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver8.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都世田谷区"
 				terms: true,
 				password: "driver8",
 				password_confirmation: "driver8",
@@ -296,6 +304,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver9.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "神奈川県鎌倉市"
 				terms: true,
 				password: "driver9",
 				password_confirmation: "driver9",
@@ -311,6 +320,7 @@ Driver.create!(
 				profile_image: File.open("./app/assets/images/drivers/driver10.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
+				activity_area: "東京都渋谷区"
 				terms: true,
 				password: "driver10",
 				password_confirmation: "driver10",

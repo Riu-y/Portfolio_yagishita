@@ -11,6 +11,8 @@ class Driver < ApplicationRecord
 	validates :address, presence: true
 	validates :telephone_number, presence: true
 	validates :email, presence: true
+	validates :activity_area, presence: true
+
 	validates :driver_license_image, presence: {
 		message: -> (rec, data){
 			I18n.t('activemodel.errors.message.not_upload')
@@ -37,6 +39,10 @@ class Driver < ApplicationRecord
 
 	enum user_status: {not_check: 0, checked_indentification: 1, checked_car_indentification: 2,}
 	# not_check: 未確認, checked_indentification: 本人確認済み, checked_car_indentification: 車両情報確認済み
+
+
+	geocoded_by :activity_area
+	after_validation :geocode
 
 	 def follow(ad_client_id)
 	 	follower.create(followed_id: ad_client_id)

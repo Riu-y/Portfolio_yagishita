@@ -1,5 +1,6 @@
 	<div class="row">
 		<div class = "col-xs-6">
+			<h4>プロフィール情報</h4>
 			<%= form_for(@driver) do |f| %>
 				<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
 					<%= f.attachment_field :profile_image %><br>
@@ -30,6 +31,10 @@
 							<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
 						</tr>
 						<tr>
+              <th><%= f.label :activity_area %></th>
+              <td>(例)東京都港区<%= f.text_field :activity_area, autofocus: true, placeholder:"都道府県と市町村名までを入力", class: "form-control"%></td>
+            </tr>
+						<tr>
 							<th></th>
 							<td class="text-center"><%= f.submit "更新する",class: "btn btn-primary" %></td>
 						</tr>
@@ -37,65 +42,44 @@
 					</table>
 		</div>
 		<div class = "col-xs-6">
-			<h3>振込先情報</h3>
-			<% if  @transfer_information != nil  %>
-				<p>最新の1件を表示しています。</p>
-					<table class="table .table-borderless">
-						<tr>
-							<th>銀行名</th>
-							<td><%= @transfer_information.bank_name %></td>
-						</tr>
-						<tr>
-							<th>支店名</th>
-							<td><%= @transfer_information.branch_name %></td>
-						</tr>
-						<tr>
-							<th>口座種別</th>
-								<% @transfer_information.account_type %>
-									<% case @transfer_information.account_type %>
-										<% when 'ordinary' %>
-											<td>普通預金</td>
-										<% when 'checking' %>
-											<td>当座預金</td>
-									<% end %>
-						</tr>
-						<tr>
-							<th>口座</th>
-							<td><%= @transfer_information.account_number %></td>
-						</tr>
-						<tr>
-							<th>振込先人名</th>
-							<td><%= @transfer_information.account_name %></td>
-						</tr>
-						<tr>
-							<th></th>
+			<h4>広告活動地域</h4>
+				<div id="map"></div>
+				<script>
+					var map;
+						function initMap(){
+							var lat_lng ={ lat: <%= @driver.latitude %>, lng: <%= @driver.longitude %>}
+
+							map = new google.maps.Map(document.getElementById('map'), {
+								center: lat_lng,
+								zoom: 12,
+							});
+							marker = new google.map.Marker({
+								position: lat_lng,
+								map: map
+							})
+						}
+					</script>
+				<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap", async: true, defer: true)) ></script>
+			<table class="table .table-borderless">
+				<tr>
+					<th>振込先情報</th>
+						<% if  @driver.transfer_informations.present?  %>
 							<td><%= link_to "編集する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
-						</tr>
-					</table>
-				<% else %>
-					<p>口座情報が登録されていません。</p>
-						<%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
-				<% end %><br>
-			<h3>登録車情報</h3>
-				<% if @car_information != nil  %>
-					<table class="table .table-borderless">
-						<tr>
-							<th>メーカー名</th>
-							<td><%= @car_information.manufacturer_name %></td>
-						</tr>
-						<tr>
-							<th>車名</th>
-							<td><%= @car_information.car_name %></td>
-						</tr>
-						<tr>
-							<th></th>
+						<% else %>
+							<td><%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
+									<p class="alert">口座情報が登録されていません。</p></td>
+						<% end %>
+				</tr>
+				<tr>
+					<th>登録車情報</th>
+						<% if @driver.car_informations.present?  %>
 							<td><%= link_to "編集する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
-						</tr>
-					</table>
-				<% else %>
-					<p>車両情報が登録されていません。</p>
-						<%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
-				<% end %>
+						<% else %>
+							<td><%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
+									<p class="alert">車両情報が登録されていません。</p></td>
+					<% end %>
+				</tr>
+			</table>
 		</div>
 		<!-- エラーメッセージ表示-->
 		<div class="row">

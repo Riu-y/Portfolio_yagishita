@@ -7,34 +7,38 @@
         <table class="table" id="none-border">
           <tbody>
             <tr>
-              <td><%= f.label :名前 %></td>
+              <td><%= f.label :driver_name %></td>
               <td><%= f.text_field :driver_name, autofocus: true, autocomplete:"", placeholder:"お名前を入力", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :カナ %></td>
+              <td><%= f.label :driver_name_kana %></td>
               <td><%= f.text_field :driver_name_kana, autofocus: true, autocomplete:"", placeholder:"お名前のカナを入力", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :郵便番号 %></td>
+              <td><%= f.label :postal_code %></td>
               <td><%= f.text_field :postal_code, autofocus: true, autocomplete:"", placeholder:"ハイフンなし", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :住所 %></td>
+              <td><%= f.label :address %></td>
               <td><%= f.text_field :address,:size=>"60", autofocus: true, autocomplete:"", placeholder:"ご住所を入力", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :メールアドレス %></td>
+              <td><%= f.label :email %></td>
               <td><%= f.email_field :email, autofocus: true,:size=>"50", autocomplete:"", placeholder:"メールアドレスを入力", class: "form-control"%></td>
             </tr>
-              <td><%= f.label :電話番号 %></td>
+              <td><%= f.label :telephone_number %></td>
               <td><%= f.text_field :telephone_number, autofocus: true, autocomplete:"",placeholder: "電話番号を入力", class: "form-control" %></td>
             </tr>
             <tr>
-              <td><%= f.label :運転免許証写真 %></td>
+              <td><%= f.label :activity_area %></td>
+              <td>(例)東京都港区<%= f.text_field :activity_area, autofocus: true, placeholder:"都道府県と市町村名までを入力", class: "form-control"%></td>
+            </tr>
+            <tr>
+              <td><%= f.label :driver_license_image %></td>
               <td><%= f.file_field :driver_license_image, id:"upload_file"%></td>
             </tr>
             <tr>
-              <td><%= f.label :パスワード %>
+              <td><%= f.label :password %>
                <% if @minimum_password_length %>
                  <em>( <%= @minimum_password_length %>文字以上 )</em>
                <% end %></td>

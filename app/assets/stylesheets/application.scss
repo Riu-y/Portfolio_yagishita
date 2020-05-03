@@ -127,7 +127,12 @@ th, tr, td {
   position: center;
   filter: drop-shadow(2px 2px 2px #aaa);
 }
-
+/* Google Map*/
+#map {
+  width:420px;
+  height:350px;
+  margin-bottom:20px;
+}
 
 /* テーブルのボーダー削除 */
 #none-border td,

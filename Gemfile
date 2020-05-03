@@ -78,6 +78,7 @@ end
   gem 'enum_help'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'geocoder'
 
 group :production do
   gem 'mysql2'
