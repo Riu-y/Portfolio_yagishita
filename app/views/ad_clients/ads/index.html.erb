@@ -7,23 +7,6 @@
  			<%= render "ads/genre_templete", genres: @genres %>
  		</div>
  		<div class="col-xs-8">
- 			<h4>広告 一覧</h4>
-				<% i = 0 %>
-				<table class="table" id="none-border">
-					<% @ads.each do |ad| %>
-						<td>
-							<%= link_to edit_ad_client_ad_path(ad.ad_client.id,ad.id) do %>
-							<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap", size:'200x160' %><br>
-							<%= ad.title %><% end %><br>
-							<%= convert_fee(ad.ad_fee) %><br>
-							<%= ad.heading %>
-						</td>
-						<% i = i + 1 %>
-							<% if i % 3 == 0 %>
-							<tr></tr>
-						<% end %>
-					<% end %>
-				</table>
-			<%= link_to "トップページに戻る", dashboard_ad_client_path(current_ad_client) %>
+			<%= render 'ads/index', ads: @ads %>
  		</div>
 	</div>

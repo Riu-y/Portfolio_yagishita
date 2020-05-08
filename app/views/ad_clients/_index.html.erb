@@ -1,24 +1,22 @@
-<div class="col-xs-8 col-xs-offset-1">
-		<h3>広告主 一覧</h3>
-			<% i = 0 %>
-			<table class="table" id="none-border">
-				<% ad_clients.each do |ad_client| %>
-						<td>
-							<%= link_to ad_client_path(ad_client.id) do %>
-							<%= attachment_image_tag ad_client,:profile_image, fallback: "no_image.jpg" ,class: "img_wrap", size:'200x160' %><br>
-							<%= ad_client.company_name %><% end %><br>
-							<%= ad_client.company_name_kana %><br>
-						</td>
-						<% i = i + 1 %>
-						<% if i % 3 == 0 %>
-						<tr></tr>
-					<% end %>
+<h3>広告主 一覧</h3>
+	<% i = 0 %>
+		<table class="table" id="none-border">
+			<% ad_clients.each do |ad_client| %>
+					<td>
+						<%= link_to ad_client_path(ad_client.id) do %>
+						<%= attachment_image_tag ad_client,:profile_image, fallback: "no_image.jpg" ,class: "img_wrap", size:'200x160' %><br>
+						<%= ad_client.company_name %><% end %><br>
+						<%= ad_client.company_name_kana %><br>
+					</td>
+					<% i = i + 1 %>
+					<% if i % 3 == 0 %>
+					<tr></tr>
 				<% end %>
-			</table>
-			<div class="text-center"><%= paginate ad_clients, class: "paginate" %></div>
-		<% if ad_client_signed_in? %>
-			<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
-		<% elsif driver_signed_in?%>
-			<%= link_to "トップページに戻る", dashboard_driver_path(current_driver) %>
-		<% end %>
-</div>
+			<% end %>
+		</table>
+	<div class="text-center"><%= paginate ad_clients, class: "paginate" %></div>
+<% if ad_client_signed_in? %>
+	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+<% elsif driver_signed_in?%>
+	<%= link_to "トップページに戻る", dashboard_driver_path(current_driver) %>
+<% end %>
