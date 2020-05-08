@@ -27,12 +27,20 @@ ja:
         not_check: 本人証明未確認
         checked_indentification: 本人確認済
         checked_car_indentification: 車両情報確認済
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      trauncate: "..."
 
   activemodel:
     errors:
       message:
         not_upload: "がアップロードされていません"
         input_number: "数字を入力してください"
+
   activerecord:
     attributes:
       ad_client:

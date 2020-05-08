@@ -39,6 +39,7 @@ footer{
 .footer-menu {
   padding-top: 15px;
 }
+
 .footer-menu li {
   display: inline;
 }
@@ -47,6 +48,7 @@ footer{
 .sidebar-area{
   text-align: center;
 }
+
 .sidebar {
   width: 90%;
   margin-left: 10px;
@@ -54,6 +56,7 @@ footer{
   list-style-type: none;
   background-color: #eeeeee;
 }
+
 .side-menu a{
   display: block;
   padding: 8px 16px;
@@ -65,10 +68,12 @@ footer{
 .side-menu {
   text-align: center;
 }
+
 .side-menu a.active {
   color: #ffffff;
   background-color: #da3c41;
 }
+
 .side-menu a:hover:not(.active) {
   color: #ffffff;
   background-color: #1b2538;
@@ -109,10 +114,12 @@ th, tr, td {
   margin: 20px auto 0;
   transition-duration: 0.5s;
 }
+
 .img_wrap img{
   width: 100%;
   cursor: pointer;
 }
+
 .img_wrap:hover{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
   transform: translateY(-5px);
@@ -127,6 +134,7 @@ th, tr, td {
   position: center;
   filter: drop-shadow(2px 2px 2px #aaa);
 }
+
 /* Google Map*/
 #map {
   width:420px;
@@ -610,5 +618,20 @@ $color : #f26522;
       }
     }
   }
+}
+
+/*ページネーション*/
+.pagination li a {
+  border: none;
+  color: #5c5c5c;
+  margin: 0px 3px;
+}
+
+.pagination .active a{
+  background: #93c9ff;
+  border-radius:15px;
+}
+.pagination li a:hover{
+  border-radius: 15px;
 }
 

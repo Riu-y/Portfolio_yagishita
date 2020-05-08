@@ -9,7 +9,7 @@
 		<% end %>
 	</div>
 	<div class="col-xs-8">
-		<h3>Driver list</h3>
+		<h3>ドライバー 一覧</h3>
 		<% i = 0 %>
 			<table class="table" id="none-border">
 				<% @drivers.each do |driver| %>
@@ -25,6 +25,7 @@
 					<% end %>
 				<% end %>
 			</table>
+			<div class="text-center"><%= paginate @drivers,class: "paginate" %></div>
 		<% if ad_client_signed_in? %>
 			<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
 		<% elsif driver_signed_in?%>
