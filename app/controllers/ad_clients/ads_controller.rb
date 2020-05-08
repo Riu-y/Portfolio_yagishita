@@ -33,7 +33,7 @@ class AdClients::AdsController < ApplicationController
 
   private
   def ad_params
-    params.require(:ad).permit(:ad_client_id,:genre_id, :title, :ad_image, :ad_fee, :is_active, :ad_priod,:heading,:content)
+    params.require(:ad).permit(:ad_client_id,:genre_id, :title, :ad_image, :ad_fee, :is_active, :start_date,:end_date,:heading,:content)
   end
 end
 
