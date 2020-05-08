@@ -13,10 +13,13 @@
 			<td class="side-menu"><%= link_to "掲載広告一覧", ad_client_ads_path(current_ad_client)  %></td>
 		</tr>
 		<tr>
+			<td class="side-menu"><%= link_to "広告一覧", ads_path(current_ad_client)  %></td>
+		</tr>
+		<tr>
 			<td class="side-menu"><%= link_to "取引一覧", dashboard_ad_client_path(current_ad_client)  %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "問い合せ", new_contact_path  %></td>
+			<td class="side-menu"><%= link_to "お問い合わせ", new_contact_path  %></td>
 		</tr>
 	</table>
 </div>

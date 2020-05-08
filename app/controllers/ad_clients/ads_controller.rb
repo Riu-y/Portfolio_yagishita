@@ -2,7 +2,7 @@ class AdClients::AdsController < ApplicationController
   
   def index
     ad_client = current_ad_client
-    @ads = ad_client.ads
+    @ads = ad_client.ads.page(params[:page]).per(9)
     @genres = Genre.all
   end
 
