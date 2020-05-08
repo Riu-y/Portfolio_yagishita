@@ -4,7 +4,7 @@
 			<td class="side-menu"><%= link_to "フォロードライバー", followings_ad_client_path(current_ad_client)  %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to  "ドライバーを探す", drivers_path   %></td>
+			<td class="side-menu"><%= link_to  "ドライバー 一覧", drivers_path   %></td>
 		</tr>
 		<tr>
 			<td class="side-menu"><%= link_to  "広告主一覧", ad_clients_path   %></td>
@@ -13,7 +13,7 @@
 			<td class="side-menu"><%= link_to "掲載広告一覧", ad_client_ads_path(current_ad_client)  %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "取引一覧", ads_path  %></td>
+			<td class="side-menu"><%= link_to "取引一覧", dashboard_ad_client_path(current_ad_client)  %></td>
 		</tr>
 		<tr>
 			<td class="side-menu"><%= link_to "問い合せ", new_contact_path  %></td>

@@ -11,7 +11,7 @@ class AdClientsController < ApplicationController
   def index
     @ad_client = current_ad_client
     @driver = current_driver
-    @ad_clients = AdClient.all
+    @ad_clients = AdClient.page(params[:page]).per(9)
   end
   # ユーザーから見た広告主詳細
   def show
@@ -30,12 +30,11 @@ class AdClientsController < ApplicationController
   		render :edit
   	end
   end
-
+  # フォロー機能
   def followings
     @ad_client = AdClient.find(params[:id])
     @followings = @ad_client.following_driver
   end
-
   def followers
     @ad_client = AdClient.find(params[:id])
     @followers = @ad_client.follower_driver
