@@ -6,19 +6,19 @@
 			</div>
 		</div>
 		<div class="col-xs-5 col-xs-offset-1">
-				<tr>
-					<th><h4><%= ad.title %></h4></th>
-		  		<td><h4><%= convert_fee(ad.ad_fee) %></h4></td>
-		  		<td><%= ad.heading %></td><br>
-		  		<br>
-		  		<td><span class="tag">広告主</span></td><br>
-		  		<br>
-		  		<td ><%= ad.ad_client.company_name %></td><br>
-		  		<br>
-		  		<td><span class="tag">広告期間</span></td><br>
-		  		<br>
-		  		<td><%= ad.start_date %>〜<%= ad.end_date %></td><br>
-		  	</tr>
+			<tr>
+				<th><h4><%= ad.title %></h4></th>
+	  		<td><h4><%= convert_fee(ad.ad_fee) %></h4></td>
+	  		<td><%= ad.heading %></td><br>
+	  		<br>
+	  		<td><span class="tag">広告主</span></td><br>
+	  		<br>
+	  		<td ><%= ad.ad_client.company_name %></td><br>
+	  		<br>
+	  		<td><span class="tag">広告期間</span></td><br>
+	  		<br>
+	  		<td><%= ad.start_date %>〜<%= ad.end_date %></td><br>
+	  	</tr>
 		</div>
 	</div>
 </div>
