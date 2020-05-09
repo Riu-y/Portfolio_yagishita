@@ -1,0 +1,7 @@
+<% if ad_client_signed_in? %>
+  <% if current_ad_client.following?(driver) %>
+    <%= link_to 'フォローを外す', driver_relationship_path(driver.id), method: :delete, remote: true %>
+  <% else %>
+    <%= link_to 'フォローする', driver_relationships_path(driver.id), method: :POST, remote: true %>
+  <% end %>
+<% end %>

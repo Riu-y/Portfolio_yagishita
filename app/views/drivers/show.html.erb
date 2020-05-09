@@ -12,49 +12,41 @@
 			<div class="row">
 				<div class = "col-xs-6">
 				<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
-					<% if ad_client_signed_in? %>
-	          <% if current_ad_client.following?(@driver) %>
-	            <%= link_to 'フォローを外す', driver_relationship_path(@driver.id), method: :delete %>
-	          <% else %>
-	            <%= link_to 'フォローする', driver_relationships_path(@driver.id), method: :POST %>
-	          <% end %>
-					<% end %>
-					<table class="table .table-borderless">
-						<tr>
-							<td>フォロー&emsp;<%= link_to @driver.following_ad_client.count, followings_driver_path(@driver) %></td>
-	    			  <td>フォロワー&emsp;<%= link_to @driver.follower_ad_client.count, followers_driver_path(@driver) %></td>
-						</tr>
-						<tr>
-							<th>名前</th>
-							<td><%= @driver.driver_name %></td>
-						</tr>
-						<tr>
-							<th>名前（カナ）</th>
-							<td><%= @driver.driver_name_kana %></td>
-						</tr>
-						<tr>
-							<th>広告活動地域</th>
-							<td><%= @driver.activity_area %></td>
-						</tr>
-						<tr>
-							<th>メールアドレス</th>
-							<td><%= @driver.email %></td>
-						</tr>
-						<% if admin_signed_in? %>
-						<tr>
-							<th>ユーザーステータス</th>
-							<td>
+					<div id="follow_driver_<%= @driver.id %>"><%= render "relationships/follow_driver", driver: @driver %></div>
+						<table class="table .table-borderless">
+							<tr id="follow_count_<%= @driver.id %>">
+								<%= render "relationships/follow_count", driver: @driver %>
+							</tr>
+							<tr>
+								<th>名前</th>
+								<td><%= @driver.driver_name %></td>
+							</tr>
+							<tr>
+								<th>名前（カナ）</th>
+								<td><%= @driver.driver_name_kana %></td>
+							</tr>
+							<tr>
+								<th>広告活動地域</th>
+								<td><%= @driver.activity_area %></td>
+							</tr>
+							<tr>
+								<th>メールアドレス</th>
+								<td><%= @driver.email %></td>
+							</tr>
+							<% if admin_signed_in? %>
+							<tr>
+								<th>ユーザーステータス</th>
+								<td>
 									<%= form_for @driver, url: driver_path(@driver), method: :patch do |f| %>
 										<%= f.radio_button :is_active, :true, checed:true %>
 										<%= f.label :有効 %>
 										<%= f.radio_button :is_active, :false %>
 										<%= f.label :無効 %>
 										<%= f.submit "更新", class: "btn btn-primary",style: "margin-left:13px"%>
-									<% end %>
-									</td>
-						</tr>
-						<% end %>
-					</table>
+									<% end %></td>
+							</tr>
+							<% end %>
+						</table>
 				</div>
 				<div class = "col-xs-6">
 					<h4>広告活動地域</h4>
