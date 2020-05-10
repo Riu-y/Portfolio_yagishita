@@ -10,25 +10,33 @@ class AdClients::AdsController < ApplicationController
     @ad = Ad.new
    end
 
-   def create
+  def create
     @ad = Ad.new(ad_params)
     @ad.ad_client_id = current_ad_client.id
     if @ad.save
-      redirect_to ad_client_ads_path
+      tags = Vision.get_image_data(@ad.ad_image)
+      tags.each do |tag|
+        @ad.tags.create(name: tag)
+      end
+      redirect_to ad_client_ad_path(@ad.ad_client_id,@ad.id)
     else
       render 'new'
     end
-   end
+  end
 
-   def edit
+  def show
+    @ad = Ad.find(params[:id])
+  end
+
+  def edit
    	@ad = Ad.find(params[:id])
-   end
+  end
 
-   def update
+  def update
    	@ad = Ad.find(params[:id])
    	@ad.update(ad_params)
    	redirect_to ad_client_ads_path
-   end
+  end
 
 
   private

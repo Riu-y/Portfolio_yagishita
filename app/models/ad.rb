@@ -19,6 +19,7 @@ class Ad < ApplicationRecord
 	has_many :rooms
 	has_many :under_deals
 	has_many :favorites, dependent: :destroy
+	has_many :tags, dependent: :destroy
 
 	attachment :ad_image
 
