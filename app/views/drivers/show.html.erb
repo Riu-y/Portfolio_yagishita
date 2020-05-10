@@ -54,7 +54,7 @@
 							<script>
 								var map;
 								function initMap(){
-									var lat_lng ={ lat: 1111, lng: 1111 }
+									var lat_lng ={ lat: <%= @driver.latitude %>, lng: <%= @driver.longitude %>}
 
 									map = new google.maps.Map(document.getElementById('map'), {
 										center: lat_lng,
