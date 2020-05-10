@@ -50,24 +50,7 @@
 				</div>
 				<div class = "col-xs-6">
 					<h4>広告活動地域</h4>
-						<div id ="map"></div>
-							<script>
-								var map;
-								function initMap(){
-									var lat_lng ={ lat: <%= @driver.latitude %>, lng: <%= @driver.longitude %>}
-
-									map = new google.maps.Map(document.getElementById('map'), {
-										center: lat_lng,
-										zoom: 12,
-									});
-									marker = new google.map.Marker({
-										position: lat_lng,
-										map: map
-									});
-								}
-							</script>
-							<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap", async: true, defer: true)) ></script>
-				</div>
+						
 			</div>
 
 		<div class="col-xs-12">
