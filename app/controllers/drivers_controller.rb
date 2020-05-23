@@ -27,7 +27,7 @@ class DriversController < ApplicationController
     @car_informations = @driver.car_informations
     @ad_client = current_ad_client
   end
-
+  #ドライバー側の編集ページ表示
   def edit
   	@driver = Driver.includes(:transfer_informations, :car_informations).find(params[:id])
   end

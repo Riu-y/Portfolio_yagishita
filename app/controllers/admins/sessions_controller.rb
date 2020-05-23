@@ -7,6 +7,9 @@ class Admins::SessionsController < Devise::SessionsController
   # def new
   #   super
   # end
+  def after_sign_in_path_for(resource)
+      admins_path
+  end
 
   # POST /resource/sign_in
   # def create
@@ -17,7 +20,9 @@ class Admins::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
+  def after_sign_out_path_for(resource)
+      new_admin_session_path
+  end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

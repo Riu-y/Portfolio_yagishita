@@ -16,68 +16,44 @@
       <div class="ad-card">
         <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'560x420' %>
           <table>
-           <tr>
-             <th><h4><%= @ad.title %></h4></th>
-           </tr>
-           <tr>
-             <td><span class="ad-fee"><%= convert_fee(@ad.ad_fee) %></span>
+            <tr>
+              <th><h4><%= @ad.title %></h4></th>
+            </tr>
+            <tr>
+              <td><span class="ad-fee"><%= convert_fee(@ad.ad_fee) %></span>
                  <div id="favorites_buttons_<%= @ad.id %>"><%= render partial: 'favorites/favorite',locals: { ad: @ad } %></div>
-             </td>
-           </tr>
-           <tr>
-             <td><h4><%= @ad.heading %></h4></td>
-           </tr>
-           <tr>
-             <td><p><%= @ad.content %></p></td>
-           </tr>
-         </table>
-         <table class="table">
-           <tr>
-             <th>広告主</th>
-             <th>広告作業期間</th>
-           </tr>
-           <tr>
-             <td><%= @ad.ad_client.company_name %></td>
-             <td><%= @ad.start_date %><br>&emsp;〜<%= @ad.end_date %></td>
-           </tr>
-           <tr>
-            <th>ジャンル</th>
-            <th>AIタグ</th>
-           </tr>
-           <tr>
-            <td><%= @ad.genre.genre_name %></td>
-            <td> <% @ad.tags.each do |tag| %>
+              </td>
+            </tr>
+            <tr>
+              <td><h4><%= @ad.heading %></h4></td>
+            </tr>
+            <tr>
+              <td><p><%= @ad.content %></p></td>
+             </tr>
+          </table>
+          <table class="table">
+            <tr>
+              <th>広告主</th>
+              <th>広告作業期間</th>
+            </tr>
+            <tr>
+              <td><%= @ad.ad_client.company_name %></td>
+              <td><%= @ad.start_date %><br>&emsp;〜<%= @ad.end_date %></td>
+            </tr>
+            <tr>
+              <th>ジャンル</th>
+              <th>AIタグ</th>
+            </tr>
+            <tr>
+              <td><%= @ad.genre.genre_name %></td>
+              <td> <% @ad.tags.each do |tag| %>
                 <span class="ai-label"><%= tag.name %></span>
               <% end %>
             </td>
            </tr>
          </table>
       </div>
-       <%= form_for (@under_deal), url: under_deals_path, method: :post do |f| %>
-         <%= f.hidden_field :ad_id, :value => @ad.id %>
-         <%= f.hidden_field :driver_id, :value => current_driver.id %>
-          <section class="entry">
-            <a>
-              <%= f.submit "この広告に申し込む", :class => "text" %>
-              <span class="line -right"></span>
-              <span class="line -top"></span>
-              <span class="line -left"></span>
-              <span class="line -bottom"></span>
-            </a>
-          </section>
-       <% end %><br>
-        <section class="question">
-            <b>
-              <div class="text">
-              <%= link_to 'この広告のことで質問する', ad_chats_path(@ad.id) %>
-              </div>
-              <span class="line -right"></span>
-              <span class="line -top"></span>
-              <span class="line -left"></span>
-              <span class="line -bottom"></span>
-            </b>
-         </section>
-        <br>
+      <%= render "under_deals/apply_ad", under_deal: @under_deal, ad: @ad %>
     </div>
     <span class="link-button" ><%= link_to "前の画面に戻る", ads_path  %>
   </div>
