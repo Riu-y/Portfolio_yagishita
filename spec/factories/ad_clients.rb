@@ -7,9 +7,13 @@ FactoryBot.define do
 		ceo_name "山田 三郎"
 		ceo_name_kana "ヤマダ サブロウ"
 		telephone_number "012000111"
-		sequence(:email) { |n| "tester#{n}@rspec.com" }
+		sequence(:email) { |n| "tester_cleint#{n}@rspec.com" }
 		password "yamada1"
 		registry_image_id "image"
 		terms "true"
+
+		trait :with_ads do
+			after(:create) { create_list(:ad, 5) }
+		end
   end
 end
