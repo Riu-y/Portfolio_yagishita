@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+	before_action :authenticate_driver!
 	def create
 		@ad = Ad.find(params[:ad_id])
 		favorite = current_driver.favorites.new(ad_id: @ad.id)

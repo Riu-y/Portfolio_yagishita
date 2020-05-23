@@ -55,8 +55,9 @@ RSpec.describe AdClient, type: :model do
 	  expect(ad_client.errors[:email]).to_not include("使用されています")
 	end
 
-	it "ドライバーの名前がstring型であるかテスト" do
+	it "広告主の名前がstring型であるかテスト" do
 		ad_client = FactoryBot.build(:ad_client, company_name: "山田一郎")
 		expect(ad_client.company_name).to eq "山田一郎"
 	end
+
 end
