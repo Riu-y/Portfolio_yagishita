@@ -1,4 +1,6 @@
 class AdClientsController < ApplicationController
+  before_action :authenticate_ad_client!, only:[:dashboard, :edit, :update]
+
   # 広告主ダッシュボード
   def dashboard
     @ad_client = current_ad_client
@@ -7,13 +9,13 @@ class AdClientsController < ApplicationController
     @under_deals = deal_all.includes(:ad).where.not(work_status: 'finished')
     @finish_deals = deal_all.includes(:ad,:deal_messages,:driver).references(:ad,:deal_messages,:driver).where(work_status: 'finished')
   end
-  # ユーザーから見た広告主一覧
+  # 非ログインユーザー/ドライバーから見た広告主一覧
   def index
     @ad_client = current_ad_client
     @driver = current_driver
     @ad_clients = AdClient.page(params[:page]).per(9)
   end
-  # ユーザーから見た広告主詳細
+  # 非ログインユーザー/ドライバーから見た広告主詳細
   def show
   	@ad_client = AdClient.find(params[:id])
   end

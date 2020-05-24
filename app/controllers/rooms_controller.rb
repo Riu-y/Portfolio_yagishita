@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  def index
+	#広告質問用 チャット
+	def index
 		@ad = Ad.find(params[:ad_id])
 		@rooms = Room.joins(:driver, :ad).where(ad_id: @ad.id, ad_client_id: current_ad_client.id)
 	end
@@ -11,7 +12,6 @@ class RoomsController < ApplicationController
 		@chats =@room.chats.order("id DESC")
 		@chat = Chat.new(room_id: @room.id)
 	end
-
 
 	def create
 		@chat = Chat.new(chat_params)

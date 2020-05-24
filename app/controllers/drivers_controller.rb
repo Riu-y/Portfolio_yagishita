@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :authenticate_driver!, only:[:dashboard]
+  before_action :authenticate_driver!, only:[:dashboard, :edit, :update]
 
   # ドライバー用のダッシュボード画面
   def dashboard
@@ -14,25 +14,25 @@ class DriversController < ApplicationController
       @deal_detail = DealDetail.new(deal_detail_params)
     end
   end
-  # 広告主から見るドライバー一覧画面
+  # 非ログインユーザー/広告主から見るドライバー一覧画面
   def index
     @ad_client = current_ad_client
     @driver = current_driver
     @drivers = Driver.page(params[:page]).per(9)
   end
-  # 広告主から見るドライバー詳細画面
+  # 非ログインユーザー/広告主から見るドライバー詳細画面
   def show
   	@driver = Driver.find(params[:id])
     @genres = Genre.all
     @car_informations = @driver.car_informations
     @ad_client = current_ad_client
   end
-
+  #ドライバー側の編集ページ
   def edit
   	@driver = Driver.includes(:transfer_informations, :car_informations).find(params[:id])
   end
 
-  #ドライバー側の編集アップロード & アドミンのステータスアップデート
+  #ドライバー側の編集アップロード
   def update
   	@driver = Driver.find(params[:id])
   	if @driver.update(driver_params)
@@ -41,7 +41,6 @@ class DriversController < ApplicationController
   		render :edit
   	end
   end
-
   # フォロー機能
   def followings
     @driver = Driver.find(params[:id])
