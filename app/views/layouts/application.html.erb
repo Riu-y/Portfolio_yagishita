@@ -15,9 +15,8 @@
   <header>
     <div class="row">
       <div class="col-xs-2 col-xs-offset-1">
-         <nav class="nav navbar-nav ">
-           <h3><%= link_to image_tag('logo.png',width:'70'),homes_index_path %>&emsp;Ader</h3>
-          </nav>
+        <h3><%= link_to image_tag('logo.png',width:'70'),homes_index_path %>&emsp;Ader</h3>
+      </nav>
       </div>
       <div class="col-xs-3">
         <% if ad_client_signed_in? %>
@@ -69,7 +68,6 @@
               <li><%= link_to "広告主 ログイン",new_ad_client_session_path %></li>
               <li><%= link_to "お問い合わせ",new_contact_path %></li>
             <% end %>
-
           </ul>
         </nav>
       </div>
