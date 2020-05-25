@@ -1,4 +1,6 @@
 class ChatsController < ApplicationController
+	#取引広告用のメッセージ機能
+	#こちらはAjaxにて非同期化
 	def index
 		@ad = Ad.includes(:ad_client).find(params[:ad_id])
 		room = Room.find_by(ad_id: @ad.id,driver_id: current_driver.id)
@@ -16,14 +18,13 @@ class ChatsController < ApplicationController
 	def create
 		@chat = Chat.new(chat_params)
 		@chat.save
-		redirect_to ad_chats_path(params[:ad_id])
+		# binding.pry
+		redirect_back(fallback_location: root_path)
 	end
+
 
 	private
 	def chat_params
 		params.require(:chat).permit(:room_id, :user_type, :message)
-	end
-	def message_params
-		params.require(:deal_message).permit(:message, :user_type, :under_deal_id)
 	end
 end
