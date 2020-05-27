@@ -33,16 +33,23 @@
 </div>
 
 <p>Action Cable</p>
-<div id='messages'>
-  <%= render 'chats/chat', chats: @chats %>
-</div>
+		<% if driver_signed_in? %>
+			<input type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>">
+		<% else %>
+			<input type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
+		<% end %>
+
+
+	<div id="chats">
+		<%= render "chat", collection: @chats %>
+	</div>
 
 
 <div class="row">
 	<div class="col-xs-11 col-offset-1">
 		<div id="chat-templete" class="chat-area">
 			<%= form_with model:@chat, url: ad_chats_path do |f| %>
-				<%= f.hidden_field :room_id %>
+				<%= f.hidden_field :@room_id %>
 					<% if driver_signed_in? %>
 						<%= f.hidden_field :user_type, :value => 'driver' %>
 					<% else %>
