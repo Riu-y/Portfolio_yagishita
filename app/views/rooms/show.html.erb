@@ -31,66 +31,15 @@
 		</table>
   </div>
 </div>
-
-<p>Action Cable</p>
-		<% if driver_signed_in? %>
-			<input type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>">
-		<% else %>
-			<input type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
-		<% end %>
-
-
-	<div id="chats">
-		<%= render "chat", collection: @chats %>
-	</div>
-
-
 <div class="row">
 	<div class="col-xs-11 col-offset-1">
-		<div id="chat-templete" class="chat-area">
-			<%= form_with model:@chat, url: ad_chats_path do |f| %>
-				<%= f.hidden_field :@room_id %>
-					<% if driver_signed_in? %>
-						<%= f.hidden_field :user_type, :value => 'driver' %>
-					<% else %>
-						<%= f.hidden_field :user_type, :value => 'ad_client' %>
-					<% end %>
-				<div id ="chat-send">
-					<%= f.text_area :message, class: "chat-message" %>
-					<%= f.submit "送信", class: "btn chat-btn" %>
-				</div>
-			<% end %>
-		<% @chats.each do |chat| %>
-			<% if chat.user_type == 'driver' %>
-				<div class="message">
-				  <div id="icon" class="faceicon">
-				    <%= attachment_image_tag @driver.driver, :profile_image, fallback: "no_image.jpg", size:'90X90' %>
-				  </div>
-				    <div class="chatting">
-				     	<div class="says">
-				      	<p><%= chat.message %>これはドライバー</p>
-			          <div class="say-data">
-			    				<%= chat.created_at.to_s(:datetime_jp) %>
-			    			</div>
-				  	  </div>
-				  	</div>
-				</div>
+		<h4>チャットボックス</h4>
+			<% if driver_signed_in? %>
+				<input type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>" >
 			<% else %>
-				<div class="message2">
-				  <div class="faceicon2">
-				    <%= attachment_image_tag @ad.ad_client, :profile_image, fallback: "no_image.jpg", size:'90X90' %>
-				  </div>
-				    <div class="chatting2">
-				     	<div class="says2">
-				      	<p><%= chat.message %></p>
-						    <div class="say-data2">
-				    			<%= chat.created_at.to_s(:datetime_jp) %>
-				    		</div>
-				    	</div>
-				  	</div>
-				</div>
+				<input type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
 			<% end %>
-		<% end %>
+			<%= render "chat", collection: @chats %>
 		</div>
 	</div>
 </div>
