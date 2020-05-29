@@ -12,16 +12,15 @@ class RoomsController < ApplicationController
 		@driver = Room.includes(:driver).find(params[:id])
 		gon.driver_name = @driver.driver.driver_name
 		gon.driver_profile_image = @driver.driver.profile_image_id
-		if driver_signed_in?
-			@room = Room.find_by(ad_id: @ad.id,driver_id: current_driver.id)
-				if @room.nil?
-					@room = Room.create(ad_id: @ad.id, driver_id: current_driver.id, ad_client_id: @ad.ad_client_id)
-				end
-		elsif ad_client_signed_in?
-			@room = Room.find_by(ad_id: @ad.id,ad_client_id: current_ad_client.id)
-		end
+		@room = Room.find_by(ad_id: @ad.id,driver_id: current_driver.id)
 		@chats = @room.chats.order("id DESC")
 		@chat = Chat.new(room_id: @room.id)
+	end
+
+	def create
+		@ad = Ad.find(params[:ad_id])
+		@room = Room.create(ad_id: @ad.id, driver_id: current_driver.id, ad_client_id: @ad.ad_client_id)
+		redirect_to ad_room_path(@ad.id,@room.id)
 	end
 end
 
