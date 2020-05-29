@@ -9,7 +9,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     	if data["user_type"] == "0"
-     		$('#chats').prepend("#{gon.driver_profile_image"+"<span class='says'>"+"#{gon.driver_name}<br>"+data["message"]+"</span><br>");
+     		$('#chats').prepend("<span class='says'>"+"#{gon.driver_name}<br>"+data["message"]+"</span><br>");
      	else
      		$('#chats').prepend("<span class='says2'>"+"広告主<br>"+data["message"]+"</span><br>");
 
