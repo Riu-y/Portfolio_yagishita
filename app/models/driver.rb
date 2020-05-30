@@ -44,13 +44,13 @@ class Driver < ApplicationRecord
 	geocoded_by :activity_area
 	after_validation :geocode
 
-	 def follow(ad_client_id)
-	 	follower.create(followed_id: ad_client_id)
-	 end
-	 def unfollow(ad_client_id)
-	 	follower.find_by(followed_id: ad_client_id).destroy
-	 end
-	 def following?(ad_client_id)
-	 	follower.find_by(followed_id: ad_client_id)
-	 end
+	def follow(ad_client_id)
+		follower.create(followed_id: ad_client_id)
+	end
+	def unfollow(ad_client_id)
+		follower.find_by(followed_id: ad_client_id).destroy
+	end
+	def following(ad_client_id)
+		follower.find_by(followed_id: ad_client_id)
+	end
 end

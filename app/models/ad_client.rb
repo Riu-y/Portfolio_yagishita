@@ -45,7 +45,7 @@ class AdClient < ApplicationRecord
 	def unfollow(driver_id)
 		follower.find_by(followed_id: driver_id).destroy
 	end
-	def following?(driver_id)
+	def following(driver_id)
 		follower.find_by(followed_id: driver_id)
 	end
 end
