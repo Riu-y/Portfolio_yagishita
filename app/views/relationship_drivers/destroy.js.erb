@@ -1,2 +1,2 @@
-$('#follow_driver_<%= @ad_client.id %>').html("<%= j(render 'relationship_drivers/follow_ad_client', ad_client: @ad_client) %>");
+$('#follow_ad_client_<%= @ad_client.id %>').html("<%= j(render 'relationship_drivers/follow_ad_client', ad_client: @ad_client) %>");
 $('#follow_count_<%= @ad_client.id %>').html("<%= j(render partial: 'relationship_drivers/follow_count_ad_client', ad_client: @ad_client) %>");

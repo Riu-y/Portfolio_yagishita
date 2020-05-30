@@ -12,7 +12,9 @@
 			<div class="row">
 				<div class = "col-xs-6">
 				<%= attachment_image_tag @driver, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
-					<div id="follow_driver_<%= @driver.id %>"><%= render "relationships/follow_driver", driver: @driver %></div>
+					<div id="follow_driver_<%= @driver.id %>">
+						<%= render "relationships/follow_driver", driver: @driver %>
+					</div>
 						<table class="table .table-borderless">
 							<tr id="follow_count_<%= @driver.id %>">
 								<%= render "relationships/follow_count_driver", driver: @driver %>
