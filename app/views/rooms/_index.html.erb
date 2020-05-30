@@ -1,0 +1,32 @@
+<div class="current-deal">
+	<div class="row">
+		<div class="col-lg-1">
+		</div>
+		<div class="col-lg-10">
+			<h3>お問い合わせ一覧</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<td>問い合わせ日</td>
+						<td>タイトル</td>
+						<td>ドライバー</td>
+						<td></td>
+						<td>詳細</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% rooms.each do |room| %>
+					<tr>
+						<td><%= room.updated_at.to_s(:datetime_jp) %></td>
+						<td><%= room.ad.title %></td>
+						<td><%= room.driver.driver_name %></td>
+						<td></td>
+						<td><%= link_to "詳細", ad_room_path(room.ad_id,room.id) %></td>
+					</tr>
+				 <% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
