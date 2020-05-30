@@ -35,9 +35,9 @@
 	<div class="col-xs-11 col-offset-1">
 		<h4>チャットボックス</h4>
 			<% if driver_signed_in? %>
-				<input type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>" >
+				<input name="chat" type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>" >
 			<% else %>
-				<input type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
+				<input name="chat" type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
 			<% end %>
 			<%= render "chat", collection: @chats %>
 		</div>
