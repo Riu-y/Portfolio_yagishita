@@ -88,5 +88,6 @@ Rails.application.routes.draw do
  		end
  		resource :favorites, only: [:create, :destroy]
  	end
+  #アクションケーブル
   mount ActionCable.server => '/cable'
 end
