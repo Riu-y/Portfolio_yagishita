@@ -33,13 +33,18 @@
 </div>
 <div class="row">
 	<div class="col-xs-11 col-offset-1">
-		<h4>チャットボックス</h4>
-			<% if driver_signed_in? %>
-				<input name="chat" type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>" >
-			<% else %>
-				<input name="chat" type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
-			<% end %>
-			<%= render "chat", collection: @chats %>
+		<% if driver_signed_in? %>
+			<div class="text-left">
+				<h4>チャットボックス</h4>
+					<input name="chat" type="text" data-behavior="room_speaker" data-user="0" data-room="<%= @room.id %>" >
+				</div>
+		<% else %>
+			<div class="text-right">
+				<h4>チャットボックス</h4>
+					<input name="chat" type="text" data-behavior="room_speaker" data-user="1" data-room="<%= @room.id %>">
+				</div>
+			<% end %><br>
+		<%= render "chat", collection: @chats %>
 		</div>
 	</div>
 </div>

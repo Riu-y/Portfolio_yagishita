@@ -2,9 +2,6 @@
 	<% @chats.each do |chat| %>
 		<% if chat.user_type == 'driver' %>
 			<div class="message">
-			  <div id="icon" class="faceicon">
-			    <%= attachment_image_tag @driver.driver, :profile_image, fallback: "no_image.jpg", size:'90X90' %>
-			  </div>
 			    <div class="chatting">
 			     	<div class="says">
 			      	<p><%= chat.message %></p>
@@ -16,9 +13,6 @@
 			</div>
 		<% else %>
 			<div class="message2">
-			  <div class="faceicon2">
-			    <%= attachment_image_tag @ad.ad_client, :profile_image, fallback: "no_image.jpg", size:'90X90' %>
-			  </div>
 			    <div class="chatting2">
 			     	<div class="says2">
 			      	<p><%= chat.message %></p>

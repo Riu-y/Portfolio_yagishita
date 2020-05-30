@@ -8,12 +8,15 @@ class RoomsController < ApplicationController
 
 	def show
 		@ad = Ad.includes(:ad_client).find(params[:ad_id])
-		gon.ad_client_name = @ad.ad_client.company_name
 		@driver = Room.includes(:driver).find(params[:id])
-		gon.driver_name = @driver.driver.driver_name
-		gon.driver_profile_image = @driver.driver.profile_image_id
-		@room = Room.find_by(ad_id: @ad.id,driver_id: current_driver.id)
+		if driver_signed_in?
+			@room = Room.find_by(ad_id: @ad.id,driver_id: @driver.driver.id)
+		else
+			@room = Room.find_by(ad_id: @ad.id,driver_id: @driver.driver.id, ad_client_id: current_ad_client.id)
+		end
+
 		@chats = @room.chats.order("id DESC")
+
 		@chat = Chat.new(room_id: @room.id)
 	end
 

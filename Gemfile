@@ -82,7 +82,6 @@ end
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
   gem 'geocoder'
-  gem 'gon'
 
 group :production do
   gem 'mysql2'

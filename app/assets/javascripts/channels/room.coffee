@@ -9,9 +9,9 @@ $ ->
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel'
       if data["user_type"] == "0"
-     	  $('#chats').prepend("<span class='says'>"+"#{gon.driver_name}<br>"+data["message"]+"<br>"+data["created_at"]+"</span><br>");
+     	  $('#chats').prepend("<span class='says'>"+data["message"]+"<br>"+"<br>"+data["created_at"]+"</span><br>");
       else
-        $('#chats').prepend("<span class='says2'>"+"広告主<br>"+data["message"]+"</span><br>");
+        $('#chats').prepend("<span class='says2'>"+data["message"]+"<br>"+"<br>"+data["created_at"]+"</span><br>");
 
     speak: (message) ->
       @perform 'speak', message: message

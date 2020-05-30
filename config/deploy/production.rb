@@ -37,7 +37,7 @@
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
 # limited set of options, consult the Net::SSH documentation.
-# http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
+# http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-sc-start
 #
 # Global options
 # --------------
@@ -45,6 +45,7 @@
 #    keys: %w(/home/user_name/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
+config.action_cable.allowed_request_origins = [ 'http://yagishita-ryusuke.work/', /http:\/\/yagishita-ryusuke.work*/ ]
 #  }
 #
 # The server-based syntax can be used to override options:
