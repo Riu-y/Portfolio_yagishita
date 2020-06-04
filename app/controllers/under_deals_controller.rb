@@ -85,6 +85,10 @@ class UnderDealsController < ApplicationController
       @under_deal.work_status = 'finished'
       @under_deal.save
       redirect_back(fallback_location: under_deal_path(@under_deal))
+    elsif params[:checked_refuse]
+      @under_deal.work_status = 'checked_refuse'
+      @under_deal.save
+      redirect_to ads_path
     end
   end
 

@@ -12,16 +12,13 @@ td {
 
 /* 1列目 広告情報 */
 #ad-area {
-	width: 100%;
+	width: 90%;
 	height: 350px;
 	background: #f5f5f5;
 	margin: 30px 0px;
+	margin-left:10px;
 	padding: 30px;
 	overflow: hidden;
-}
-
-.image-center {
-	text-align: center;
 }
 
 /* Aderからのメッセージ */
@@ -48,10 +45,10 @@ td {
 
 /* 3列目レポートエリア */
 #report-area {
-	width: 100%;
+	width: 95%;
 	height: 280px;
 	background: #f5f5f5;
-	margin: 30px 0px;
+	margin: 30px auto;
 	padding: 10px;
 	overflow: hidden;
 	border-radius: 8px;
@@ -83,8 +80,8 @@ td {
 	height: 180px;
 	overflow: hidden;
 	border-radius: 8px;
-	border-left: solid 1px #ddd; 
-  border-right: solid 1px #ddd; 
+	border-left: solid 1px #ddd;
+  border-right: solid 1px #ddd;
   border-bottom: solid 5px #888;
 }
 .report-cart-down{
@@ -101,13 +98,5 @@ td {
 	box-shadow: 0 4px 15px rgba(0,0,0,.2);
 }
 
-/* 過去取引一覧 */
-.past-deal{
-	witdh:100%;
-	height:100%;
-	padding:5px 20px 20px 20px;
-	background:#f5f5f5;
-	margin:50px 0px;
-}
 
 

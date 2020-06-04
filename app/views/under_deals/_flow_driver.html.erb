@@ -11,9 +11,11 @@
 <% if under_deal.work_status == 'refuse'%>
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
-			<h3>誠に残念ですが、こちらのお申し込みは承認されませんでした。</h3>
+			<h3>誠に残念ですが、こちらのお申し込みは広告主から承認されませんでした。</h3>
 				<h4>別の広告を探してみましょう！</h4>
-					<p><%= link_to "他の広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+					<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
+						<%= f.submit "了承して、別の広告を探す", name: 'checked_refuse',class: "btn btn-sm btn-default" %>
+					<% end %>
 		</div>
 	</div>
 <% end %>	

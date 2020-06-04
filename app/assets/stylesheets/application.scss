@@ -256,6 +256,27 @@ th, tr, td {
   padding: 0;
 }
 
+ /* Action Cable用 チャット レイアウト */
+.says3 {
+  display: inline-block;
+  position: relative;
+  margin-bottom:5px;
+  margin-left:70%;
+  padding: 17px 13px;
+  border-radius: 12px;
+  color: #fff;
+  background: #1b2538;
+}
+.says3:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: -24px;
+  border: 12px solid transparent;
+  border-left: 12px solid #1b2538;
+}
+
 /* チャットレイアウト メッセージエリア */
 .chat-message {
   width: calc(100% - 75px);/*常に送信ボタンの横幅を引いたサイズに動的に計算*/

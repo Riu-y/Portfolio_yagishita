@@ -11,7 +11,8 @@ $ ->
       if data["user_type"] == "0"
      	  $('#chats').prepend("<span class='says'>"+data["message"]+"<br>"+"<br>"+data["created_at"]+"</span><br>");
       else
-        $('#chats').prepend("<span class='says2'>"+data["message"]+"<br>"+"<br>"+data["created_at"]+"</span><br>");
+        $('#chats').prepend("<span class='says3'>"+data["message"]+"<br>"+"<br>"+data["created_at"]+"</span><br>");
+      end
 
     speak: (message) ->
       @perform 'speak', message: message
