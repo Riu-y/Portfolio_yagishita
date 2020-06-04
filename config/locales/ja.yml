@@ -11,6 +11,7 @@ ja:
         deposited: 振り込み完了
         rated: 評価待ち
         finished: 取引完了
+        checked_refuse: 契約見送り
     contact:
       work_status:
         new_inquiry: 新規問い合わせ

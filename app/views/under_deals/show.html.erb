@@ -7,7 +7,8 @@
 			</div>
 		<%= render 'ad_clients/sidebar', ad_client: current_ad_client %><!-- サイドバー -->
 	</div>
-	<div class="col-xs-8 col-xs-offset-1">
+	<div class="col-xs-9">
+		<div class="deal-area">
 		<% if @under_deal.work_status == 'finished'%>
 			<h4>過去の取引詳細</h4>
 		<% else %>
@@ -55,5 +56,6 @@
 					<% end %>
 				<% end %>
 			</div>
+		</div>
 	</div>
 </div>
