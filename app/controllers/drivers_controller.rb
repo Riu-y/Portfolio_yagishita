@@ -5,10 +5,9 @@ class DriversController < ApplicationController
   def dashboard
     @driver = Driver.find(params[:id])
     @under_deals = UnderDeal.includes(:ad,:deal_messages).references(:ad,:deal_messages).where(driver_id: @driver.id)
-    @under_deal = @under_deals.includes(:ad,:deal_messages).references(:ad,:deal_messages).where.not(work_status: 'finished',work_status: 'checked_refuse').first
-    @finish_deals = @under_deals.includes(:ad,:deal_messages).includes(:ad => :ad_client).references(:ad,:deal_messages,:ad_client).where(work_status: 'finished',work_status: 'checked_refuse')
-
-     if @under_deal.present?
+    @under_deal = @under_deals.includes(:ad,:deal_messages).references(:ad,:deal_messages).where.not(work_status: 'finished').where.not(work_status:'checked_refuse').first
+    @finish_deals = @under_deals.where(work_status: 'finished').or(@under_deals.where(work_status:'checked_refuse'))
+    if @under_deal.present?
       @ad = @under_deal.ad
       @messages = @under_deal.deal_messages
       @message = DealMessage.new()

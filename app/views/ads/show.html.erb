@@ -17,7 +17,7 @@
         <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'560x420' %>
           <table>
             <tr>
-              <th><h4><%= @ad.title %>aaaa</h4></th>
+              <th><h4><%= @ad.title %></h4></th>
             </tr>
             <tr>
               <td><span class="ad-fee"><%= convert_fee(@ad.ad_fee) %></span>
