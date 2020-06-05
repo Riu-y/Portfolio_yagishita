@@ -35,16 +35,16 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * VirtualBox(CentOS)
 
 本番環境/デプロイ  
-DB server
-* RDS(MySQL)  
-Web server
-* Nginx  
-AP server
-* Puma  
-デプロイ 
-* capistrano  
-その他
-* https  
+* DB server
+** RDS(MySQL)
+* Web server
+** Nginx
+* AP server
+** Puma
+* デプロイ
+** capistrano
+* その他
+** https
 
 ## 設計書
 _ER図_  
