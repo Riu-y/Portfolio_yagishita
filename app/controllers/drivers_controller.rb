@@ -53,7 +53,7 @@ class DriversController < ApplicationController
 
   private
   def driver_params
-  	params.require(:driver).permit(:driver_name,:driver_name_kana, :profile_image, :postal_code, :address, :telephone_number,  :is_active)
+  	params.require(:driver).permit(:driver_name,:driver_name_kana, :profile_image, :postal_code, :address, :telephone_number,  :is_active, :activity_area)
   end
 
   def message_params
