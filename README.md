@@ -2,7 +2,7 @@
 ### URL
 https://yagishita-ryusuke.work/
 
-### サイト概要
+## サイト概要
 <strong>自動車広告マッチングアプリ</strong>
 aderはドライバーが移動している時間や空間を有効活用することを目的としています。
 自動車に貼り付けが可能な特殊シートを活用して、広告主の企業は一般ユーザーに広域に様々な時間帯でオフラインでの広告宣伝業務を委託できます。
@@ -27,24 +27,24 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 
 ### 環境一覧　(Version list)
 使用言語/フレームワーク
-*ruby-2.5.7
-*Rails 5.2.4.2
+* ruby-2.5.7
+* Rails 5.2.4.2
 
 開発環境
-*Vagrant 2.2.6
-*VirtualBox(CentOS)
+* Vagrant 2.2.6
+* VirtualBox(CentOS)
 
 本番環境/デプロイ
 DB　server
-*RDS(MySQL)
+* RDS(MySQL)
 Web server
-*Nginx
+* Nginx
 AP server
-*Puma
+* Puma
 デプロイ
-*capistrano
+* capistrano
 その他
-*https
+* https
 
 EIP(固定IP設定)
 DB_server
