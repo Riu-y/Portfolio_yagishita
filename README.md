@@ -3,7 +3,7 @@
 https://yagishita-ryusuke.work/
 
 ## サイト概要
-<strong>自動車広告マッチングアプリ</strong>
+<strong>自動車広告マッチングアプリ</strong>  
 aderはドライバーが移動している時間や空間を有効活用することを目的としています。
 自動車に貼り付けが可能な特殊シートを活用して、広告主の企業は一般ユーザーに広域に様々な時間帯でオフラインでの広告宣伝業務を委託できます。
 ユーザーは自動車をただの移動手段として使用するのではなく移動中も、広告宣伝費を稼ぐことができます。
@@ -25,7 +25,7 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 *Uberドライバーがさらに収入を得たいと考える時
 *企業がオフラインでの広告宣伝を行いたいと考える時
 
-### 環境一覧　(Version list)
+## 環境一覧　(Version list)
 使用言語/フレームワーク
 * ruby-2.5.7
 * Rails 5.2.4.2
@@ -53,10 +53,8 @@ https://drive.google.com/file/d/1ybc6V10TkKdHOrbCgb5uxZYYzFKSa7Ud/view?usp=shari
 アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1FpO8Si4C8R5dYYFnbp4onVUah0XwpZHkNH4lzFA5htk/edit?usp=sharing
 
-
 テーブル定義書
 https://docs.google.com/spreadsheets/d/1FG-5Dv7FckFC7-nKcCCjL0W-uWmJQka-/edit#gid=861866377
-
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEqA_8/edit?usp=sharing
