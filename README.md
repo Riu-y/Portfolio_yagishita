@@ -36,15 +36,15 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 
 本番環境/デプロイ  
 * DB server
-** RDS(MySQL)
+  * RDS(MySQL)
 * Web server
-** Nginx
+  * Nginx
 * AP server
-** Puma
+  * Puma
 * デプロイ
-** capistrano
+  * capistrano
 * その他
-** https
+  * https
 
 ## 設計書
 _ER図_  
