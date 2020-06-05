@@ -1,6 +1,5 @@
 ## Ader
-### URL
-https://yagishita-ryusuke.work/
+### URLhttps://yagishita-ryusuke.work/
 
 ## サイト概要
 <strong>自動車広告マッチングアプリ</strong>  
