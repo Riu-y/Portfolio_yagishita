@@ -34,16 +34,16 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * Vagrant 2.2.6
 * VirtualBox(CentOS)
 
-本番環境/デプロイ
-DB　server  
+本番環境/デプロイ  
+DB　server
 * RDS(MySQL)  
-Web server  
+Web server
 * Nginx  
-AP server  
+AP server
 * Puma  
-デプロイ   
+デプロイ 
 * capistrano  
-その他  
+その他
 * https  
 
 ## 設計書
