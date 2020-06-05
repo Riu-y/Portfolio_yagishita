@@ -47,10 +47,10 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
   * https
 
 ## 設計書
-*ER図*  
+_ER図_  
 https://drive.google.com/file/d/1ybc6V10TkKdHOrbCgb5uxZYYzFKSa7Ud/view?usp=sharing
 
-アプリケーション詳細設計書_    
+_アプリケーション詳細設計書_    
 https://docs.google.com/spreadsheets/d/1FpO8Si4C8R5dYYFnbp4onVUah0XwpZHkNH4lzFA5htk/edit?usp=sharing
 
 _テーブル定義書_  
