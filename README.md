@@ -35,7 +35,7 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * VirtualBox(CentOS)
 
 本番環境/デプロイ  
-DB　server
+DB server
 * RDS(MySQL)  
 Web server
 * Nginx  
