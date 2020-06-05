@@ -46,12 +46,6 @@ AP server
 その他
 * https
 
-EIP(固定IP設定)
-DB_server
-Route53(AWS)
-MySQL(DB用ミドルウェア)
-
-
 ## 設計書
 ER図
 https://drive.google.com/file/d/1ybc6V10TkKdHOrbCgb5uxZYYzFKSa7Ud/view?usp=sharing
