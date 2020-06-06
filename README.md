@@ -1,8 +1,6 @@
 ## Ader
 ### URL : https://yagishita-ryusuke.work/
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dsGRxo2xPhc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## サイト概要
 <strong>自動車広告マッチングアプリ</strong>  
 Aderはドライバーが移動している時間や空間を有効活用することを目的としています。  
@@ -62,4 +60,47 @@ https://docs.google.com/spreadsheets/d/1FG-5Dv7FckFC7-nKcCCjL0W-uWmJQka-/edit#gi
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEqA_8/edit?usp=sharing
+
+### 管理者機能
+* ドライバーの一覧、利用ステータスの有効、無効化
+* 広告主の一覧、利用ステータスの有効、無効化
+* 広告の一覧、掲載ステータスの有効、無効化
+* お知らせ投稿機能 
+* 
+*
+
+### 広告機能
+* 広告投稿機能（広告主側の画面）
+* 検索機能
+* ジャンル検索機能
+* お気に入り機能（Ajaxによる非同期通信）
+* チャット機能（Action Cableによるリアルタイム通信）
+* コメント機能（Ajaxによる非同期通信）
+* タグ機能（Vision APIを利用したAI自動検索）
+
+### ドライバー機能
+* 宣伝作業申し込み機能
+* プロフィール機能
+* 口座情報登録機能
+* 登録者登録機能
+ * 活動地域の地図表示機能（Google Map API）
+* ダッシュボード機能
+ * 取引管理機能
+* 
+
+### ドライバー機能
+* 宣伝作業申し込み機能
+* プロフィール機能
+  *登録住所の地図表示機能（Google Map API）
+* ダッシュボード機能
+ * 取引管理機能
+ 
+### その他
+* 登録認証機能
+* 検索機能
+* ジャンル検索機能
+* お気に入り機能（ドライバー側の画面）
+* チャット機能（リアルタイム通信）
+* タグ機能（Vision APIを利用したAI自動検索）
+* 
 
