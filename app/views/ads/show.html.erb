@@ -12,7 +12,7 @@
     <%= render "ads/genre_templete", genres: @genres %>
   </div>
   <div class="col-xs-9">
-    <div class="deal-area">
+    <div class="ad-area">
       <div class="ad-card">
         <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'560x420' %>
           <table>
@@ -57,5 +57,4 @@
     </div>
     <span class="link-button" ><%= link_to "前の画面に戻る", ads_path  %></span>
   </div>
-</div>
 </div>

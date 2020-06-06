@@ -44,6 +44,25 @@ footer{
   display: inline;
 }
 
+/* 各種会員登録画面 */
+
+.registration {
+  width: 100%;
+  height:100%;
+  background-color: #CCCCCC;
+}
+
+.registration-input {
+  width:100%;
+  height:100%;
+  padding:20px 30px;
+  background:#EEE;
+  margin:30px 0px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  border-radius:15px;
+}
+
+
 /* サイドバー */
 .sidebar-area{
   text-align: center;
@@ -91,6 +110,7 @@ h3{
 /* 運営側からのメッセージ */
 .notice{
   color: red;
+  margin-top: 15px;
 }
 
 /* テーブルの先頭の色を変更 */
@@ -377,7 +397,6 @@ $color : #f26522;
 
 .entry {
   background: #2d2d2d;
-  
   a {
     color: white;
     padding: $pad $extra;

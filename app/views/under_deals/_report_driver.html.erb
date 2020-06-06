@@ -38,12 +38,16 @@
 				<tr>
 					<td>
 						<% if under_deal.work_status == 'advertising' %>
-							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-								<%= fields_for deal_detail, url:under_deal_path(under_deal), method: :patch do |d| %>
-									<%= d.label :transfer_informations, "振込先の銀行口座を指定する" %>
-									<%= collection_select(:detail, :transfer_information_id, driver.transfer_informations.order("id DESC"),:id,:full_info) %>
+							<% if driver.transfer_informations.blank? %>
+								<p class="notice">口座情報が未登録です。<br>「ドライバー情報 編集」から登録してください。</p>
+							<% else %>
+								<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
+									<%= fields_for deal_detail, url:under_deal_path(under_deal), method: :patch do |d| %>
+										<%= d.label :transfer_informations, "振込先の銀行口座を指定する" %>
+										<%= collection_select(:detail, :transfer_information_id, driver.transfer_informations.order("id DESC"),:id,:full_info) %>
+									<% end %>
+									<%= f.submit "広告作業の完了報告", name:'completed', class: "btn btn-primary " %>
 								<% end %>
-							<%= f.submit "広告作業の完了報告", name:'completed', class: "btn btn-primary " %>
 							<% end %>
 						<% elsif under_deal.work_status == 'sent_kit' %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">広告作業の完了報告をする</p>
@@ -53,11 +57,6 @@
 					</td>
 				</tr>
 			</table>
-			<% if under_deal.work_status == 'advertising' %>
-				<% if driver.transfer_informations.blank? %>
-					<p class="notice">口座情報が未登録です。<br>「ドライバー情報 編集」から登録してください。</p>
-				<% end %>
-			<% end %>
 		</div>
 		<div class="col-xs-3">
 			<table>
@@ -70,10 +69,12 @@
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<%= f.submit "広告主を評価", name:'rated', class: "btn btn-primary " %>
 							<% end %>
-						<% elsif under_deal.work_status == 'rated' or 'finished' %>
+						<% elsif under_deal.work_status == 'rated' %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">評価済み</p>
+						<% elsif under_deal.work_status == 'finished' %>
+							<p class="btn btn-default report-cart-down" disabled="disabled">作業報告待ち</p>
 						<% else %>
-							<p class="btn btn-default report-cart-down" disabled="disabled">振り込み待ち</p>
+							<p class="btn btn-default report-cart-down" disabled="disabled">入金連絡待ち</p>
 						<% end %>
 					</td>
 				</tr>

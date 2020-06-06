@@ -7,7 +7,7 @@ class AdClientsController < ApplicationController
     @driver = current_driver
     deal_all = UnderDeal.includes(:ad).where(ads: {ad_client_id: current_ad_client.id} )
     @under_deals = deal_all.includes(:ad).where.not(work_status: 'finished')
-    @finish_deals = deal_all.includes(:ad,:deal_messages,:driver).references(:ad,:deal_messages,:driver).where(work_status: 'finished')
+    @finish_deals = deal_all.where(work_status: 'finished').or(deal_all.where(work_status: 'refuse')).or(deal_all.where(work_status: 'checked_refuse'))
     @rooms = Room.includes(:ad).where(ad_client: @ad_client)
   end
   # 非ログインユーザー/ドライバーから見た広告主一覧
