@@ -94,6 +94,6 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
  
 ### その他
 * ユーザー認証機能
-  *　入力エラーの日本語化及びカスタマイズ
+  * 入力エラーの日本語化及びカスタマイズ
 * 問い合わせ機能
 
