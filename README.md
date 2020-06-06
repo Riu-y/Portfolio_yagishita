@@ -79,11 +79,11 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
 ### ドライバー機能
 * 宣伝作業申し込み機能
 * プロフィール機能
- * 口座情報登録機能
- * 登録者登録機能
- * 活動地域の地図表示機能（Google Map API）
+  * 口座情報登録機能
+  * 登録者登録機能
+  * 活動地域の地図表示機能（Google Map API）
 * ダッシュボード機能
- * 取引管理機能
+  * 取引管理機能
 
 ### 広告主機能
 * 広告投稿機能（広告主側の画面）
