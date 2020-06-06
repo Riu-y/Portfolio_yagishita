@@ -48,8 +48,6 @@ class UnderDealsController < ApplicationController
       @under_deal.update(under_deal_params)
       redirect_back(fallback_location: under_deal_path(@under_deal))
     elsif params[:completed]
-      @under_deal.work_status = 'completed'
-      @under_deal.save
       # deal_detail(取引情報)のテーブルへ振込先の情報保存
       @deal_detail = DealDetail.new(deal_detail_params)
       @transfer_infomation = TransferInformation.find(params[:detail][:transfer_information_id])
@@ -60,6 +58,8 @@ class UnderDealsController < ApplicationController
       @deal_detail.account_number = @transfer_infomation.account_number
       @deal_detail.account_name = @transfer_infomation.account_name
       if @deal_detail.save
+         @under_deal.work_status = 'completed'
+         @under_deal.save
          redirect_back(fallback_location: under_deal_path(@under_deal))
       else
         render 'show'
