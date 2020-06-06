@@ -88,12 +88,12 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
 ### 広告主機能
 * 広告投稿機能（広告主側の画面）
 * プロフィール機能
- * 登録住所の地図表示機能（Google Map API）
+  * 登録住所の地図表示機能（Google Map API）
 * ダッシュボード機能
- * 取引管理機能
+  * 取引管理機能
  
 ### その他
 * ユーザー認証機能
- *　入力エラーの日本語化及びカスタマイズ
+  *　入力エラーの日本語化及びカスタマイズ
 * 問い合わせ機能
 
