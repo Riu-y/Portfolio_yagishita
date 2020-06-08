@@ -3,7 +3,7 @@
 		<table class="table" id="none-border">
 			<% ad_clients.each do |ad_client| %>
 					<td>
-						<%= link_to ad_client_path(ad_client.id) do %>
+						<%= link_to ad_client_path(ad_client.id),data: {"turbolinks" => false} do %>
 						<%= attachment_image_tag ad_client,:profile_image, fallback: "no_image.jpg" ,class: "img_wrap", size:'200x160' %><br>
 						<%= ad_client.company_name %><% end %><br>
 						<%= ad_client.company_name_kana %><br>

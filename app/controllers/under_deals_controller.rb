@@ -62,7 +62,7 @@ class UnderDealsController < ApplicationController
          @under_deal.save
          redirect_back(fallback_location: under_deal_path(@under_deal))
       else
-        render 'show'
+        redirect_back(fallback_location: under_deal_path(@under_deal))
       end
     elsif params[:transferred]
       @under_deal.work_status = 'transferred'
@@ -80,6 +80,7 @@ class UnderDealsController < ApplicationController
       @deal_detail = @under_deal.deal_detail
       @deal_detail.transfer_status = 'checked'
       @deal_detail.update(deal_detail_params)
+      binding.pry
       redirect_back(fallback_location: under_deal_path(@under_deal))
     elsif params[:finished]
       @under_deal.work_status = 'finished'
@@ -98,7 +99,7 @@ class UnderDealsController < ApplicationController
 
   private
   def under_deal_params
-	params.require(:under_deal).permit(:ad_id, :driver_id, :work_status, :installation_image)
+	params.require(:under_deal).permit(:ad_id, :driver_id, :work_status, :installation_image,:agreement)
 	end
 
   def message_params
