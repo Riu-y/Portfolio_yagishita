@@ -13,6 +13,7 @@ class DriversController < ApplicationController
       @message = DealMessage.new()
       @deal_detail = DealDetail.new(deal_detail_params)
     end
+    @deal_detail = @under_deal.deal_detail
   end
   # 非ログインユーザー/広告主から見るドライバー一覧画面
   def index

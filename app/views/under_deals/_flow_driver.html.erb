@@ -75,7 +75,7 @@
 		</div>
 	</div>
 </div>
-	<%= render 'under_deals/report_driver', under_deal: under_deal %>
+	<%= render 'under_deals/report_driver', { under_deal: under_deal,deal_detail: deal_detail } %>
 <% end %>
 <!-- 振り込み完了連絡後の画面 -->
 <% if under_deal.work_status == 'rated'%>

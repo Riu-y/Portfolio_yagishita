@@ -12,7 +12,7 @@
 	<% if current_ad_client == ad_client %>
 	<tr id="none-border">
 		<td class="text-center">
-			<%= link_to 'プロフィール 編集',edit_ad_client_path(ad_client),class: "btn btn-primary" %>
+			<%= link_to 'プロフィール 編集',edit_ad_client_path(ad_client),class: "btn btn-primary",data: {"turbolinks" => false} %>
 		</td>
 	</tr>
 	<% end %>
