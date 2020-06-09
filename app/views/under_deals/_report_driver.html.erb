@@ -67,7 +67,7 @@
 					<td>
 						<% if under_deal.work_status == 'transferred' %><br>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-								<%= f.check_box :agreement,checked: false, checked:false %>
+								<%= f.check_box :agreement,required: true, checked: false %>
 								<%= f.label :agreement,"入金を確認した" %><br>
 								<%= f.submit "広告主を評価", name:'rated', class: "btn btn-primary " %>
 							<% end %>
