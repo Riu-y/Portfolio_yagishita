@@ -44,10 +44,9 @@ Rails.application.routes.draw do
     resources :car_informations, only:[:index, :create, :edit, :update, :destroy]
     resources :transfer_informations, only:[:index, :create, :edit, :update, :destroy]
   end
-  # resources :relationship_drivers, only:[:create, :destroy]
   #広告主→ドライバーへのフォロー動作
-  post 'relationships/:ad_client_id', to: 'relationship_drivers#create', as:'relationship_drivers'
-  delete 'relationships/:ad_client_id', to: 'relationship_drivers#destroy'
+  post 'relationship_drivers/:ad_client_id', to: 'relationship_drivers#create', as:'relationship_drivers'
+  delete 'relationship_drivers/:ad_client_id', to: 'relationship_drivers#destroy'
   #ドライバー→広告主へのフォロー動作
   post '/relationships/:driver_id',to: 'relationships#create',as:'relationships'
   delete '/relationships/:driver_id',to: 'relationships#destroy'
