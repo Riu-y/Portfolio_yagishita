@@ -7,7 +7,7 @@
       <%= form_for @ad, url: ad_client_ads_path(current_ad_client) do |f| %>
          <tr>
             <td><%= f.label :ad_image %></td><br>
-            <td><%= f.attachment_field :ad_image %></td>
+            <td><%= f.attachment_field :ad_image, id: :update_img %></td>
           </tr>
           <tr>
             <td><%= f.label :title %></td>
@@ -48,7 +48,7 @@
   </div>
   <div class = "col-xs-6">
     <%= render 'layouts/error_messages', model: @ad %><!-- フォーム用のエラーメッセージ -->
-      <h3>商品画像プレビュー</h3>
-      <%= attachment_image_tag @ads, :ad_image, fallback: "no_image.jpg", size:'400x300' %>
+      <h3>広告画像プレビュー</h3>
+      <%= image_tag "no_image.jpg", size:'400x300', id: :prev_img %>
   </div>
 </div>

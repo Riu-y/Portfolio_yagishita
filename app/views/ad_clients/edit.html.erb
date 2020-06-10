@@ -1,62 +1,60 @@
-<div class="container">
-	<div class="row">
-		<div class = "col-xs-6">
-			<%= form_for(@ad_client) do |f| %>
-				<%= attachment_image_tag @ad_client, :profile_image, fallback: "no_image.jpg", size:'230x170'  %><br>
-					<%= f.attachment_field :profile_image, class: "user_image" %><br>
+<div class="row">
+	<div class = "col-xs-6">
+		<%= form_for(@ad_client) do |f| %>
+			<%= attachment_image_tag @ad_client, :profile_image,id: :prev_img, fallback: "no_image.jpg", size:'230x170'  %><br>
+				<%= f.attachment_field :profile_image,  id: :update_img, class: "user_image" %><br>
+				<table class="table .table-borderless">
+					<tr>
+						<th><%= f.label :会社名 %></th>
+						<td><%= f.text_field :company_name, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :会社名（カナ） %></th>
+						<td><%= f.text_field :company_name_kana, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+					<tr>
+						<th><%= f.label :代表取締役名 %></th>
+						<td><%= f.text_field :ceo_name, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+					<tr>
+						<th><%= f.label :代表取締役名（カナ） %></th>
+						<td><%= f.text_field :ceo_name_kana, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :郵便番号 %></th>
+						<td><%= f.text_field :postal_code, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :住所 %></th>
+						<td><%= f.text_field :address, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :電話番号 %></th>
+						<td><%= f.text_field :telephone_number, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :メールアドレス %></th>
+						<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td class="text-center"><%= f.submit "更新する",class: "btn btn-primary" %></td>
+					</tr>
+				</table>
+		<% end %>
+</div>
 
-					<table class="table .table-borderless">
-						<tr>
-							<th><%= f.label :会社名 %></th>
-							<td><%= f.text_field :company_name, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th><%= f.label :会社名（カナ） %></th>
-							<td><%= f.text_field :company_name_kana, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-						<tr>
-							<th><%= f.label :代表取締役名 %></th>
-							<td><%= f.text_field :ceo_name, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-						<tr>
-							<th><%= f.label :代表取締役名（カナ） %></th>
-							<td><%= f.text_field :ceo_name_kana, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th><%= f.label :郵便番号 %></th>
-							<td><%= f.text_field :postal_code, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th><%= f.label :住所 %></th>
-							<td><%= f.text_field :address, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th><%= f.label :電話番号 %></th>
-							<td><%= f.text_field :telephone_number, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th><%= f.label :メールアドレス %></th>
-							<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
-						</tr>
-						<tr>
-							<th></th>
-							<td class="text-center"><%= f.submit "更新する",class: "btn btn-primary" %></td>
-						</tr>
-						<% end %>
-					</table>
-		</div>
-
-		<!-- エラーメッセージ表示-->
-		<div class="row">
-			<% if @ad_client.errors.any? %>
-				<h3><%= @ad_client.errors.count %>error occurrence</h3><!--エラーメッセ-->
-				<ul>
-					<% @ad_client.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-					<% end %>
-				</ul>
+<!-- エラーメッセージ表示-->
+<div class="row">
+	<% if @ad_client.errors.any? %>
+		<h3><%= @ad_client.errors.count %>error occurrence</h3><!--エラーメッセ-->
+		<ul>
+			<% @ad_client.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
 			<% end %>
-		</div>
-		<!-- エラーメッセージ表示-->
+		</ul>
+	<% end %>
+</div>
+<!-- エラーメッセージ表示-->

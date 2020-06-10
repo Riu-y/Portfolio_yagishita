@@ -7,7 +7,7 @@
 					<th>広告設置写真</th>
 				</tr>
 				<tr>
-					<td><%= attachment_image_tag under_deal, :installation_image, fallback: "no_image.jpg", size: '160x120' %></td>
+					<td><%= attachment_image_tag under_deal, :installation_image,id: :prev_img, fallback: "no_image.jpg", size: '160x120' %></td>
 				</tr>
 			</table>
 		</div>
@@ -20,7 +20,7 @@
 					<td>
 						<% if under_deal.work_status == 'sent_kit' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-								<%= f.attachment_field :installation_image %>
+								<%= f.attachment_field :installation_image,id: :update_img %>
 								<%= f.submit "写真をアップロード", name:'advertising', class: "btn btn-primary" %>
 							<% end %>
 						<% else %>

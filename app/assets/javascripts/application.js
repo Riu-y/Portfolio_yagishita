@@ -18,3 +18,19 @@
 //= require_tree .
 //= require moment
 //= require bootstrap-datetimepicker
+
+/* 画像プレビュー機能  */
+$( document ).on('turbolinks:load', function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#prev_img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#update_img").change(function(){
+        readURL(this);
+    });
+  });
