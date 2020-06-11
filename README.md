@@ -71,8 +71,8 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
 ### 広告機能
 * 検索機能
 * ジャンル検索機能
-* お気に入り機能（Ajaxによる非同期通信）
 * チャット機能（Action Cableによるリアルタイム通信）
+* お気に入り機能（Ajaxによる非同期通信）
 * コメント機能（Ajaxによる非同期通信）
 * タグ機能（Vision APIを利用したAI自動検索）
 * 画像投稿機能（Javascriptを利用したプレビュー機能）
@@ -85,6 +85,7 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
   * 活動地域の地図表示機能（Google Map API）
 * ダッシュボード機能
   * 取引管理機能（enumによるステータス管理）
+* フォロー機能
 
 ### 広告主機能
 * 広告投稿機能（広告主側の画面）
@@ -92,9 +93,10 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
   * 登録住所の地図表示機能（Google Map API）
 * ダッシュボード機能
   * 取引管理機能（enumによるステータス管理）
+* フォロー機能
  
 ### その他
 * ユーザー認証機能
   * 入力エラーの日本語化及びカスタマイズ
 * 問い合わせ機能
-
+* CRUD処理
