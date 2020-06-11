@@ -75,6 +75,7 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
 * チャット機能（Action Cableによるリアルタイム通信）
 * コメント機能（Ajaxによる非同期通信）
 * タグ機能（Vision APIを利用したAI自動検索）
+* 画像投稿機能（Javascriptを利用したプレビュー機能）
 
 ### ドライバー機能
 * 宣伝作業申し込み機能
@@ -83,14 +84,14 @@ https://docs.google.com/spreadsheets/d/1OteHyH6HQ65CmnNGGMihRTHoI8--vh7PvLMiFVEq
   * 登録者登録機能
   * 活動地域の地図表示機能（Google Map API）
 * ダッシュボード機能
-  * 取引管理機能
+  * 取引管理機能（enumによるステータス管理）
 
 ### 広告主機能
 * 広告投稿機能（広告主側の画面）
 * プロフィール機能
   * 登録住所の地図表示機能（Google Map API）
 * ダッシュボード機能
-  * 取引管理機能
+  * 取引管理機能（enumによるステータス管理）
  
 ### その他
 * ユーザー認証機能
