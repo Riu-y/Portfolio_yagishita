@@ -8,7 +8,7 @@ ja:
         sent_kit: 広告キット発送済
         advertising: 広告作業中
         completed: 広告料振り込み待ち
-        ransferred: 振り込み完了
+        transferred: 振り込み完了
         rated: 評価待ち
         finished: 取引完了
         checked_refuse: 契約見送り
@@ -17,12 +17,14 @@ ja:
         new_inquiry: 新規問い合わせ
         working_inquiry: 対応中
         past_inquiry: 対応済み
-
     transfer_information:
       account_type:
         ordinary: 普通預金
         checking: 当座預金
-
+    deal_detail:
+      account_type:
+        ordinary: 普通預金
+        checking: 当座預金
     driver:
       user_status:
         not_check: 本人証明未確認

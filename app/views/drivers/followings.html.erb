@@ -16,7 +16,7 @@
 					<tr>
 						<td><%= attachment_image_tag ad_client, :profile_image, :fill, 80, 80, fallback: "no-image-mini.jpg" %></td>
 						<td><%= ad_client.company_name %></td>
-						<td><%= link_to "Show", ad_client, class: "ad_clients_#{ad_client.id}" %></td>
+						<td><%= link_to "Show", ad_client, class: "ad_clients_#{ad_client.id}",data: {"turbolinks" => false} %></td>
 					</tr>
 					<%end %>
 				</tbody>
