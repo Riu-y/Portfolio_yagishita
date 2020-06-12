@@ -57,7 +57,7 @@ td {
 /* 3列目レポートエリア */
 #report-area {
 	width: 95%;
-	height: 280px;
+	height: 100%;
 	background: #f5f5f5;
 	margin: 30px auto;
 	padding: 10px;
@@ -98,6 +98,21 @@ td {
 .report-cart-down{
 	margin-top:50px;
 }
+
+	/* 振込先 */
+.deposit-info {
+	width: 100%;
+	height:100%;
+	margin-top:10px;
+	padding:10px;
+	background:#fff;
+	border-radius: 8px;
+}
+
+.deposit-info p{
+	border-bottom: solid 2px #7db4e6
+}
+
 
 /* 取引一覧 */
 .current-deal{

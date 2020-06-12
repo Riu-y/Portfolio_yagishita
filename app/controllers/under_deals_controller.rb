@@ -5,7 +5,7 @@ class UnderDealsController < ApplicationController
   end
 
   def show
-  	@under_deal = UnderDeal.includes(:ad,:driver).includes(:ad => :ad_client).find(params[:id])
+  	@under_deal = UnderDeal.includes(:ad,:driver,:deal_detail).includes(:ad => :ad_client).find(params[:id])
   	@ad = @under_deal.ad
     @message = DealMessage.new()
     @messages = @under_deal.deal_messages
@@ -80,7 +80,6 @@ class UnderDealsController < ApplicationController
       @deal_detail = @under_deal.deal_detail
       @deal_detail.transfer_status = 'checked'
       @deal_detail.update(deal_detail_params)
-      binding.pry
       redirect_back(fallback_location: under_deal_path(@under_deal))
     elsif params[:finished]
       @under_deal.work_status = 'finished'
