@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.30
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundleexec rails s -p 3000 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/Portfolio_yagishita
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
