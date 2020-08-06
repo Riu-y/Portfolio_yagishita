@@ -1,5 +1,5 @@
 class AdClientsController < ApplicationController
-  before_action :authenticate_ad_client!, only:[:dashboard, :edit, :update]
+  before_action :authenticate_ad_client! || :authenticate_admin!, only:[:dashboard, :edit, :update]
 
   # 広告主ダッシュボード
   def dashboard
