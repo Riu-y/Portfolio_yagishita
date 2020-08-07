@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_150317) do
+ActiveRecord::Schema.define(version: 2020_05_10_043246) do
 
-  create_table "ad_clients", force: :cascade do |t|
+  create_table "ad_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.index ["reset_password_token"], name: "index_ad_clients_on_reset_password_token", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "admin_name", null: false
     t.string "admin_name_kana", null: false
     t.string "email", default: "", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "ads", force: :cascade do |t|
+  create_table "ads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "genre_id", null: false
     t.string "title", null: false
     t.string "heading", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "car_informations", force: :cascade do |t|
+  create_table "car_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "driver_id", null: false
     t.string "manufacturer_name", null: false
     t.string "car_name", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "chats", force: :cascade do |t|
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "room_id", null: false
     t.integer "user_type", null: false
     t.text "message", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "company_name"
     t.string "telephone_number", null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.integer "work_status", default: 0, null: false
   end
 
-  create_table "deal_details", force: :cascade do |t|
+  create_table "deal_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "under_deal_id", null: false
     t.integer "payment_amount"
     t.integer "transfer_status", default: 0, null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "deal_messages", force: :cascade do |t|
+  create_table "deal_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message", null: false
     t.integer "user_type", null: false
     t.integer "under_deal_id", null: false
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "drivers", force: :cascade do |t|
+  create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -143,21 +143,21 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "driver_id", null: false
     t.integer "ad_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "genre_name", null: false
     t.boolean "flag_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "information", force: :cascade do |t|
+  create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.integer "viewer_type", default: 0, null: false
@@ -165,21 +165,21 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationship_drivers", force: :cascade do |t|
+  create_table "relationship_drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rooms", force: :cascade do |t|
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "ad_client_id", null: false
     t.integer "driver_id", null: false
     t.integer "ad_id", null: false
@@ -187,14 +187,14 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "ad_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "transfer_informations", force: :cascade do |t|
+  create_table "transfer_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "driver_id", null: false
     t.string "bank_name", null: false
     t.string "branch_name", null: false
@@ -205,7 +205,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_150317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "under_deals", force: :cascade do |t|
+  create_table "under_deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "ad_id", null: false
     t.integer "driver_id", null: false
     t.integer "work_status", limit: 1, default: 0, null: false
