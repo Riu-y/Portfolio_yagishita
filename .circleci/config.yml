@@ -1,8 +1,85 @@
 version: 2.1
-  jobs:
-    build:
-      docker:
-        - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
-      steps:
-        - checkout
-        - run: echo "hello world"
+
+orbs:
+  ruby: circleci/ruby@1.1.0
+  node: circleci/node@2
+
+#exectorsでジョブのステップを実行する環境を定義
+executors:
+  default:
+    working_directory: ~/portfolio_yagishita
+    docker: # Docker でステップを実行
+      - image: cimg/ruby:2.7-node
+        environment:
+          BUNDLER_VERSION: 2.1.4
+          RAILS_ENV: test
+      #mysqlのimageを取得
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
+          MYSQL_PORT: 3306
+
+#アンカーをまとめる場所
+references:
+  restore_gem_cache: &restore_gem_cache
+    restore_cache: #キャッシュのレストア
+      keys:
+        - v1-dependencies-{{ checksum "Gemfile.lock "}}
+        - v1-dependencies-
+
+jobs:
+  test:
+    exectors:
+      name: default
+    steps:
+      - checkout
+      #キャッシュが残っていればレストア
+      -  *restore_gem_cache
+      # bundle installのインストール先を指定して実行
+      - run:
+          name: bundle install setting
+          command: |
+            gem install bundler -v 2.1.4
+            bundler install --jobs=4 --retry=3 --path vendor/bundle
+
+       #キャッシュの保存
+      - save_cache:
+          path:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # MySQL Dockerイメージの起動を待つように設定
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+
+      - run:
+          name: Database setting
+            command: |
+              bundle exec rake db:create
+              bundle exec rake db:migrate
+
+      - run:
+          name: seed.rb setting
+            command: bundle exec db:seed
+
+      - run:
+          name: Run Rspec
+            command: |
+              mkdir /tmp/test-results
+              TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+                circleci tests split --split-by=timings)"
+              bundle exec rspec \
+              --format progress \
+              -- format RspecJunitFormmater \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
