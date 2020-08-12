@@ -9,7 +9,7 @@ executors:
   default:
     working_directory: ~/portfolio_yagishita
     docker: # Docker でステップを実行
-      - image: cimg/ruby:2.5.7-node
+      - image: circleci/ruby:2.5.7-node-blowsers
         environment:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
