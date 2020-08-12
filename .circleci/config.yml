@@ -16,6 +16,7 @@ executors:
       #mysqlのimageを取得
       - image: circleci/mysql:5.7
         environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
@@ -58,6 +59,10 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       - run:
+          name:
+          command: mv -f ./config/database.yml.ci ./config/database.yml
+
+      - run:
           name: Database setting
           command: |
             bundle exec rails db:create
@@ -86,6 +91,45 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+    deploy:
+      executor:
+            name: default
+          steps:
+            - checkout
+            #キャッシュが残っていればレストア
+            -  *restore_gem_cache
+            # bundle installのインストール先を指定して実行
+            - run:
+                name: bundle install setting
+                command: |
+                  gem install bundler -v 2.1.4
+                  bundle config set path 'vendor/bundle'
+                  bundle install
+            - add_ssh_keys:
+              fingerprints:
+                -
+
+
+
+
+
+
+
+
+      - *ruby_docker_image
+    steps:
+      - checkout
+      - *restore_gem_cache
+      - run: gem install bundler -v 2.1.4
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install --check-files
+      - add_ssh_keys:
+          fingerprints:
+            - '23:1f:a5:a5:cd:54:71:f6:fc:7b:5c:a1:b5:07:5f:80'
+      - deploy:
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
 
 workflows:
   version: 2.1
