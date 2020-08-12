@@ -43,6 +43,7 @@ jobs:
           command: |
             gem install bundler -v 2.1.4
             bundle config set path 'vendor/bundle'
+            bundle install
 
        #キャッシュの保存
       - save_cache:
