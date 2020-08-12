@@ -26,7 +26,7 @@ references:
   restore_gem_cache: &restore_gem_cache
     restore_cache: #キャッシュのレストア
       keys:
-        - v1-dependencies-{{ checksum "Gemfile.lock "}}
+        - v1-dependencies-{{ checksum "Gemfile.lock"}}
         - v1-dependencies-
 
 jobs:
