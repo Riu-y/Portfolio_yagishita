@@ -47,6 +47,8 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'rspec-rails', '~> 3.6.0'
   gem "factory_bot_rails", "~> 4.10.0"
+  # rspec実行時にDBをリセット
+  gem 'database_cleaner'
 end
 
 group :development do
