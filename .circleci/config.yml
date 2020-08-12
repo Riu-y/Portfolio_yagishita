@@ -80,10 +80,11 @@ jobs:
               circleci tests split --split-by=timings)"
             bundle exec rspec \
             --format progress \
-            -- format RspecJunitFormmater \
+            --format RspecJunitFormmater \
             --out /tmp/test-results/rspec.xml \
             --format progress \
             $TEST_FILES
+            
 
       #テスト メタデータの収集
       - store_test_results:
@@ -97,3 +98,4 @@ workflows:
   build_and_test:
     jobs:
       - test
+      - deploy
