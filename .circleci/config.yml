@@ -46,9 +46,10 @@ jobs:
 
        #キャッシュの保存
       - save_cache:
-          path:
+          paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
 
       # MySQL Dockerイメージの起動を待つように設定
       - run:
