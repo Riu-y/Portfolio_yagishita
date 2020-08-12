@@ -59,6 +59,7 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
+      #DBのセッティング テスト専用（CircleCI上で用意されるMySQL用コンテナ）で構築されるDBの設定を記述してdb:create&migrate実行
       - run:
           name: Database setting
           command: |
@@ -68,7 +69,7 @@ jobs:
 
       - run:
           name: seed.rb setting
-          command: bundle exec db:seed
+          command: bundle rails exec db:seed
 
       - run:
           name: Run Rspec
