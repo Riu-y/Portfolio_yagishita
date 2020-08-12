@@ -92,6 +92,27 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+    deploy:
+      executor:
+            name: default
+          steps:
+            - checkout
+            #キャッシュが残っていればレストア
+            -  *restore_gem_cache
+            # bundle installのインストール先を指定して実行
+            - run:
+                name: bundle install setting
+                command: |
+                  gem install bundler -v 2.1.4
+                  bundle config set path 'vendor/bundle'
+                  bundle install
+            - add_ssh_keys:
+              fingerprints:
+                - '23:1f:a5:a5:cd:54:71:f6:fc:7b:5c:a1:b5:07:5f:80'
+            - deploy:
+              name: Capistrano deploy
+              command: bundle exec cap production deploy
+
 workflows:
   version: 2.1
   build_and_test:
