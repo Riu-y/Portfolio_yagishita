@@ -17,7 +17,7 @@
 # テスト実行時にDatabaseをリセットし、seeds.rbを読み込む
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseClerner.strategy = :transaction
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     Rails.application.load_seed
   end
