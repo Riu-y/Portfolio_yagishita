@@ -42,9 +42,7 @@ jobs:
       - run:
           name: bundle install setting
           command: |
-            gem install bundler -v 2.1.4
-            bundle config set path 'vendor/bundle'
-            bundle install
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
        #キャッシュの保存
       - save_cache:
@@ -91,7 +89,6 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-
 
 
 workflows:
