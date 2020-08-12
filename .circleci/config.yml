@@ -25,7 +25,8 @@ executors:
 #アンカーをまとめる場所
 references:
   restore_gem_cache: &restore_gem_cache
-    restore_cache: #キャッシュのレストア
+    #キャッシュのレストア
+    restore_cache:
       keys:
         - v1-dependencies-{{ checksum "Gemfile.lock"}}
         - v1-dependencies-
@@ -69,7 +70,7 @@ jobs:
 
       - run:
           name: seed.rb setting
-          command: bundle rails exec db:seed
+          command: bundle exec rails db:seed
 
       - run:
           name: Run Rspec
