@@ -26,6 +26,8 @@ production:
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
+
+
 # SQLite version 3.x
 #   gem install sqlite3
 #

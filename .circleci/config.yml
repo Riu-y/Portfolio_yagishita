@@ -44,7 +44,6 @@ jobs:
           command: |
             gem install bundler -v 2.1.4
             bundle config set path 'vendor/bundle'
-            bundle update
             bundle install
 
        #キャッシュの保存
@@ -60,12 +59,9 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       - run:
-          name: database setup
-          command: mv -f ./config/database.yml.ci ./config/database.yml
-
-      - run:
           name: Database setting
           command: |
+            mv -f ./config/database.yml.ci ./config/database.yml
             bundle exec rails db:create
             bundle exec rails db:migrate
 
@@ -92,7 +88,6 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-
 
 workflows:
   version: 2.1
