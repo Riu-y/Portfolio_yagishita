@@ -40,9 +40,9 @@ jobs:
       # bundle installのインストール先を指定して実行
       - run:
           name: bundle install setting
-            command: |
-              gem install bundler -v 2.1.4
-              bundler install --jobs=4 --retry=3 --path vendor/bundle
+          command: |
+            gem install bundler -v 2.1.4
+            bundler install --jobs=4 --retry=3 --path vendor/bundle
 
        #キャッシュの保存
       - save_cache:
@@ -53,30 +53,30 @@ jobs:
       # MySQL Dockerイメージの起動を待つように設定
       - run:
           name: Wait for DB
-            command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       - run:
           name: Database setting
-            command: |
-              bundle exec rake db:create
-              bundle exec rake db:migrate
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:migrate
 
       - run:
           name: seed.rb setting
-            command: bundle exec db:seed
+          command: bundle exec db:seed
 
       - run:
           name: Run Rspec
-            command: |
-              mkdir /tmp/test-results
-              TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-                circleci tests split --split-by=timings)"
-              bundle exec rspec \
-              --format progress \
-              -- format RspecJunitFormmater \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+            --format progress \
+            -- format RspecJunitFormmater \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
 
       - store_test_results:
           path: /tmp/test-results
