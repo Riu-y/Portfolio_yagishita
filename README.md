@@ -44,8 +44,7 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
   * Nginx
 * AP server 
   * Puma
-* デプロイ
-  * CircleCI (CI/CDパイプラインを構築)
+* CircleCI (CI/CDパイプラインを構築)
   * capistrano (CircleCIでmasterブランチへマージの場合はcapistranoにてデプロイ)
 * その他
   * https
