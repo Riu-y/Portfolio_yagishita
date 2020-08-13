@@ -33,6 +33,7 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * Rails 5.2.4.2
 
 開発環境
+* Docker/docker-compose(8/10変更)
 * Vagrant 2.2.6
 * VirtualBox(CentOS)
 
@@ -44,7 +45,8 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * AP server 
   * Puma
 * デプロイ
-  * capistrano
+  * CircleCI (CI/CDパイプラインを構築)
+  * capistrano (CircleCIでmasterブランチへマージの場合はcapistranoにてデプロイ)
 * その他
   * https
 
