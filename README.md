@@ -27,6 +27,9 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * Uberドライバーがさらに収入を得たいと考える時
 * 企業がオフラインでの広告宣伝を行いたいと考える時
 
+## アプリケーション構成図
+![Network_Diagram](https://user-images.githubusercontent.com/59305276/90147223-ed1e5680-ddbc-11ea-9281-317d34eb215f.png)
+
 ## 環境一覧　(Version list)
 使用言語/フレームワーク
 * ruby-2.5.7
