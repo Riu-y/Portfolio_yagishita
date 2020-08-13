@@ -1,11 +1,22 @@
 # config valid for current version and patch releases of Capistrano
+#capistranoのバージョンを記載
 lock "~> 3.13.0"
 
+#capistranoのログの表示に使用
 set :application, "Portfolio_yagishita"
+
+#どのレポジトリからアプリケーションをpullするか指定
 set :repo_url, "https://github.com/Riu-y/Portfolio_yagishita.git"
+
+#デプロイ先のディレクトリを指定
 set :deploy_to, "/home/ec2-user/Portfolio_yagishita"
+
 set :rbenv_ruby, '2.5.7'
+
+#ec2上のmaster.keyファイルを参照するように指定
 set :linked_files, %w{config/master.key .env}
+
+#共通で参照するディレクトリを指定
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/uploads", "public/system"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

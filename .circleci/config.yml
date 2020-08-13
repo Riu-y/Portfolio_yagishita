@@ -32,7 +32,7 @@ references:
         - v1-dependencies-
 
 jobs:
-  test:
+  test_and_deploy:
     executor:
       name: default
     steps:
@@ -79,11 +79,11 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
             bundle exec rspec \
-            --format progress \
-            -- format RspecJunitFormmater \
-            --out /tmp/test-results/rspec.xml \
-            --format progress \
-            $TEST_FILES
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
 
       #テスト メタデータの収集
       - store_test_results:
@@ -92,8 +92,22 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+      #sshキーを登録 circleci上のdeploykeyを定義
+      - add_ssh_keys:
+          fingerprints:
+          - 'a2:8f:d8:56:69:fc:12:25:b7:49:d4:21:c1:8d:92:fd'
+
+      # masterブランチの場合はcapistranoのコマンド実行
+      - deploy:
+          name: Capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
+
 workflows:
   version: 2.1
-  build_and_test:
+  build_and_test_and_deploy:
     jobs:
-      - test
+      - test_and_deploy
