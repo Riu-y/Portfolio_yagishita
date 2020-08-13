@@ -108,7 +108,7 @@ jobs:
               bundle install
         - add_ssh_keys:
           fingerprints:
-            - a2:8f:d8:56:69:fc:12:25:b7:49:d4:21:c1:8d:92:fd
+            - 'a2:8f:d8:56:69:fc:12:25:b7:49:d4:21:c1:8d:92:fd'
 
         - deploy:
           name: Capistrano deploy
