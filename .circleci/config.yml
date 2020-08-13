@@ -118,9 +118,5 @@ workflows:
   build_and_test:
     jobs:
       - test
-      - deploy:
-          requires:
-            - 
-          filters:
-            branches:
-              only: master
+      - deploy
+         
