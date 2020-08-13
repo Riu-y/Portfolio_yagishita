@@ -106,6 +106,7 @@ jobs:
               gem install bundler -v 2.1.4
               bundle config set path 'vendor/bundle'
               bundle install
+        #sshキーを登録 circleci上のdeploykeyを定義
         - add_ssh_keys:
           fingerprints:
             - 'a2:8f:d8:56:69:fc:12:25:b7:49:d4:21:c1:8d:92:fd'
