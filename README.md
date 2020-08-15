@@ -37,15 +37,15 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 開発環境
 * Docker/docker-compose(8/10変更)
 * Vagrant 2.2.6
-* VirtualBox(CentOS)
+* VirtualBox(ubuntu→CentOS)
 
 本番環境/デプロイ  
 * DB server
   * RDS(MySQL)
 * Web server
-  * Nginx
+  * Nginx(EC2)
 * AP server 
-  * Puma
+  * Puma(EC2)
 * CircleCI (CI/CDパイプラインを構築)
   * capistrano (CircleCIでmasterブランチへマージの場合はcapistranoにてデプロイ)
 * その他
