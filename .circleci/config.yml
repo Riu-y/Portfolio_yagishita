@@ -84,7 +84,6 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
-
       #テスト メタデータの収集
       - store_test_results:
           path: /tmp/test-results
@@ -106,6 +105,7 @@ jobs:
             fi
             bundle exec cap production deploy
 
+#ワークフローの設定
 workflows:
   version: 2.1
   build_and_test_and_deploy:
