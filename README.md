@@ -28,7 +28,7 @@ UberやAirBを代表するように空間、リソースをシェアまたは有
 * 企業がオフラインでの広告宣伝を行いたいと考える時
 
 ## アプリケーション構成図
-![Network_Diagram (2)](https://user-images.githubusercontent.com/59305276/90159792-dcc1a800-ddcb-11ea-8d60-e132be5f6562.png)
+![Network_Diagram (3)](https://user-images.githubusercontent.com/59305276/90369574-fa7e5e00-e0a6-11ea-9a6a-8b67380b6c1b.png)
 ## 環境一覧　(Version list)
 使用言語/フレームワーク
 * ruby-2.5.7
