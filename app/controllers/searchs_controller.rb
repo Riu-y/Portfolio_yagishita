@@ -11,7 +11,7 @@ class SearchsController < ApplicationController
 		@content = params["search"]["content"]
 		@records = search_for(@model,@content)
 	end
-
+	#検索機能
   private
 	def search_for(model, content)
 		if model == 'ad'
