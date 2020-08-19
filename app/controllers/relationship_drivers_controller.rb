@@ -1,5 +1,5 @@
 class RelationshipDriversController < ApplicationController
-	#広告主→ドライバーをフォロー
+	#フォロー機能 広告主がドライバーをフォロー
   def create
     current_driver.follow(params[:ad_client_id])
     @ad_client = AdClient.find(params[:ad_client_id])
