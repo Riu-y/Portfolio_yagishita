@@ -5,7 +5,7 @@
 		<% if ad_client_signed_in? %>
 			<%= render 'ad_clients/profile' , ad_client: @ad_client %>
 		<% elsif driver_signed_in?%>
-			<%= render 'drivers/profile' , driver: @driver %>
+			<%= render 'drivers/sidebar' , driver: @driver %>
 		<% end %>
 		<!-- ジャンル一覧 -->
 			<%= render "ads/genre_templete", genres: @genres %>

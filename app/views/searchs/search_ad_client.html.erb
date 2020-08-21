@@ -2,10 +2,8 @@
 	<div class="col-md-3">
 		<!-- プロフィール -->
 		<% if ad_client_signed_in? %>
-			<%= render 'ad_clients/profile', ad_client: current_ad_client %>
 			<%= render 'ad_clients/sidebar', ad_client: current_ad_client %>
 		<% elsif driver_signed_in?%>
-			<%= render 'drivers/profile', driver: current_driver %>
 			<%= render "drivers/sidebar", driver: current_driver %>
 		<% end %>
 	</div>
