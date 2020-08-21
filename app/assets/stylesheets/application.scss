@@ -18,9 +18,27 @@
  @import "bootstrap";
  @import 'bootstrap-datetimepicker';
 
+body {
+  width: 100;
+  background-color: #eee;
+}
+
 header {
   width: 100%;
   height: 100px;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgb(192,192,192);
+}
+
+/* ロゴとアプリ名 */
+
+.logo {
+  text-align: center;
+}
+
+/* nav-itemの文字色 */
+li a {
+  color: rgb(0, 0, 0);
 }
 
 footer p{
@@ -114,7 +132,7 @@ h3{
 }
 
 /* テーブルの先頭の色を変更 */
-thead,{
+thead {
   background-color: #dcdcdc;
 }
 
@@ -124,8 +142,7 @@ th, tr, td {
 }
 
 /* リンク用のボタン */
-.link-button{
-}
+
 
 /* イメージhover時の動作 */
 .img_wrap{
@@ -155,6 +172,61 @@ th, tr, td {
   filter: drop-shadow(2px 2px 2px #aaa);
 }
 
+/* 各種ボタン */
+
+.btn01 {
+  position: relative;
+  display: inline-block;
+  padding: 10px 28px;
+  background: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.2em;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+
+.btn01 span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn01::before,
+.btn01::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 51%;
+  height: 100%;
+  -webkit-transition: .2s;
+  transition: .2s;
+  background-color: #fff;
+}
+
+.btn01::before {
+  left: 0;
+}
+
+.btn01::after {
+  right: 0;
+}
+
+.btn01:hover::before,
+.btn01:hover::after {
+  width: 0;
+  background: #fff;
+}
+
+.btn01:hover {
+  color: #fff;
+}
+
+
+
 /* Google Map*/
 #map {
   width:420px;
@@ -169,7 +241,7 @@ th, tr, td {
 }
 
 #deal-box{
-  witdh: 120px;
+  width: 120px;
 }
 
 /* チャットレイアウト ドライバー */
