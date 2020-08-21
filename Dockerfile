@@ -4,7 +4,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	# --no-install-recommends 不要なもののインストールをしない
 	nodejs &&\
-	apt-get install -y nginx
+	apt-get install -y nginx \
 	# アーカイブファイルの削除
 	&& apt-get clean \
 	&& rm -r /var/lib/apt/lists/*s

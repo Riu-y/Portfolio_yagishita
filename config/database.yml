@@ -1,14 +1,21 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
-  host: db
+  timeout: 5000
 
 development:
   <<: *default
-  database: Portfolio_yagishita_development
+  database: db/development.sqlite3
+
+  #Dockerにもどしたら以下を有効に
+  # adapter: mysql2
+  # encoding: utf8
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # database: Portfolio_yagishita_test
+  # username: root
+  # password: password
+  # host: localhost
+  # socket: /var/lib/mysql/mysql.sock
 
 test:
   <<: *default
@@ -30,10 +37,10 @@ production:
 
 # SQLite version 3.x
 #   gem install sqlite3
-#
+
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-#
+
 # default: &default
 #   adapter: sqlite3
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
