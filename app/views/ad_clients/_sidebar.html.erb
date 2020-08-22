@@ -1,25 +1,40 @@
 <div class="sidebar-area">
+	<table class="table">
+		<tr id="none-border">
+			<td class="text-center image-circle">
+				<%= attachment_image_tag ad_client, :profile_image, fallback: "no_image.jpg", class: "image-circle", size: "230x170"%>
+			</td>
+		</tr>
+		<tr id="none-border">
+			<td class="text-center">
+				<%= ad_client.company_name %> さん
+			</td>
+		</tr>
+	</table>
+	<div class="ad-side-menu-area">
+		<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), data: {"turbolinks" => false }, class: "btn btn-default btn-lg ad-side-menu" %>
+	</div>
 	<table class="sidebar">
 		<tr>
-			<td class="side-menu"><%= link_to "フォロードライバー", followings_ad_client_path(current_ad_client)  %></td>
+			<td><%= link_to "フォロードライバー", followings_ad_client_path(current_ad_client), class:"side-menu" %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to  "ドライバー 一覧", drivers_path   %></td>
+			<td> <%= link_to  "ドライバー 一覧", drivers_path, class:"side-menu"%></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to  "広告主一覧", ad_clients_path   %></td>
+			<td><%= link_to  "広告主一覧", ad_clients_path, class:"side-menu" %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "掲載広告一覧", ad_client_ads_path(current_ad_client)  %></td>
+			<td><%= link_to "掲載広告一覧", ad_client_ads_path(current_ad_client), class:"side-menu" %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "広告一覧", ads_path(current_ad_client)  %></td>
+			<td><%= link_to "広告一覧", ads_path(current_ad_client), class:"side-menu"  %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "取引一覧", dashboard_ad_client_path(current_ad_client)  %></td>
+			<td><%= link_to "取引一覧", dashboard_ad_client_path(current_ad_client), class:"side-menu" %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "お問い合わせ", new_contact_path  %></td>
+			<td><%= link_to "お問い合わせ", new_contact_path, class:"side-menu" %></td>
 		</tr>
 	</table>
 </div>
