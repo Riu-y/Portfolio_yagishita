@@ -19,20 +19,45 @@
 		<% end %>
 	</table>
 	<table class="sidebar">
+		<thead>
+			<th class="side-menu-heading">マイページ</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= link_to "お気に入り広告", favorite_search_ad_path(current_driver), class:"side-menu"  %></td>
+			</tr>
+			<tr>
+				<td><%= link_to "フォロー広告主", favorite_search_ad_path(current_driver), class:"side-menu"  %></td>
+			</tr>
+			<tr>
+				<td><%= link_to  "広告を探す", ads_path, class:"side-menu"  %></td>
+			</tr>
+			<tr>
+				<td><%= link_to  "広告主一覧", ad_clients_path, class:"side-menu" %></td>
+			</tr>
+			<tr>
+				<td><%= link_to "取引情報", dashboard_driver_path(current_driver), class:"side-menu" %></td>
+			</tr>
+			<tr>
+				<td><%= link_to "お問い合せ", new_contact_path, class:"side-menu" %></td>
+			</tr>
+		</tbody>
+	</table><br>
+	<table class="sidebar">
+			<thead>
+				<th class="side-menu-heading">設定</th>
+			</thead>
 		<tr>
-			<td class="side-menu"><%= link_to "お気に入り広告", favorite_search_ad_path(current_driver)  %></td>
+			<td><%= link_to edit_driver_path(current_driver), class: "side-menu",data: {"turbolinks" => false} do %>アカウント<% end %></td>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to  "広告を探す", ads_path   %></td>
+			<td><%= link_to "口座情報", driver_transfer_informations_path(current_driver) , class: "side-menu",data: {"turbolinks" => false} %>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to  "広告主一覧", ad_clients_path   %></td>
+			<td><%= link_to "車両情報", driver_car_informations_path(current_driver) , class: "side-menu",data: {"turbolinks" => false} %>
 		</tr>
 		<tr>
-			<td class="side-menu"><%= link_to "取引一覧", dashboard_driver_path(current_driver)  %></td>
-		</tr>
-		<tr>
-			<td class="side-menu"><%= link_to "問い合せ", new_contact_path  %></td>
+			<td><%= link_to "ログアウト", destroy_driver_session_path, method: :delete, class:"side-menu" %></td>
 		</tr>
 	</table>
 </div>

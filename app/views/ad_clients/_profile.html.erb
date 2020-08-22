@@ -1,0 +1,12 @@
+<table class="table">
+	<tr id="none-border">
+		<td class="text-center image-circle">
+			<%= attachment_image_tag ad_client, :profile_image, fallback: "no_image.jpg", class: "image-circle", size: "230x170"%>
+		</td>
+	</tr>
+	<tr id="none-border">
+		<td class="text-center">
+			<%= ad_client.company_name %> さん
+		</td>
+	</tr>
+</table>

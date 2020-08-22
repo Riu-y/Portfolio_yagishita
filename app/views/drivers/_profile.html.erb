@@ -1,0 +1,19 @@
+<table class="table">
+    <tr id="none-border">
+        <td class="text-center">
+            <%= attachment_image_tag driver, :profile_image, fallback: "no_image.jpg", class: "image-circle", size: "230x170" %>
+        </td>
+    </tr>
+    <tr id="none-border">
+        <td class="text-center">
+            <%= driver.driver_name %> さん
+        </td>
+    </tr>
+    <% if current_driver == driver %>
+    <tr id="none-border">
+        <td class="text-center">
+            <%= link_to edit_driver_path(current_driver), class: "btn01",data: {"turbolinks" => false} do %><span>ドライバー情報 編集</span><% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>
