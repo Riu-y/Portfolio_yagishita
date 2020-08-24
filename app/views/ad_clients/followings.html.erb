@@ -13,11 +13,11 @@
 				</thead>
 				<tbody>
 					<% @followings.each do |driver| %>
-					<tr>
-						<td><%= attachment_image_tag driver, :profile_image, fallback: "no-image-mini.jpg",size:'80x80' %></td>
-						<td><%= driver.driver_name %></td>
-						<td><%= link_to "Show", driver, class: "drivers_#{driver.id}",data: {"turbolinks" => false} %></td>
-					</tr>
+						<tr>
+							<td><%= attachment_image_tag driver, :profile_image, fallback: "no-image-mini.jpg",size:'80x80' %></td>
+							<td><%= driver.driver_name %></td>
+							<td><%= link_to driver_path(driver), class: "btn02",data: {"turbolinks" => false} do %><span>詳細<i class="fas fa-arrow-right"></i><% end %></i></td>
+						</tr>
 					<%end %>
 				</tbody>
 		</table>

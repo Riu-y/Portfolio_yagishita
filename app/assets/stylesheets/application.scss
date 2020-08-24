@@ -221,6 +221,35 @@ footer.nb-footer .copyright p {
 
 
 /* 検索フィーム*/
+// #form2{
+//   position:relative;
+//   max-width:300px;	
+//   margin-bottom:20px;
+//   }
+//   #sbox2{
+//   height:50px;
+//   padding:0 10px; 
+//   position:absolute; 
+//   left:0;
+//   top:0; 
+//   border-radius:2px;
+//   outline:0;
+//   background:#eee;	
+//   }
+//   #sbtn2{
+//   height:50px;
+//   position:absolute; 
+//   left:255px;/*アイコン左右の位置調整*/
+//   top:0;
+//   background:none;
+//   color:#666;
+//   border:none;
+//   font-size:20px;/*アイコンサイズ*/
+//   }
+//   #sbtn5:hover{
+//   color:#7fbfff;
+//   }
+
 
 
 /* 見出しの下の間隔を開ける */
@@ -279,11 +308,11 @@ th, tr, td {
 
 .btn01 {
   position: relative;
+  width: 70%;
   display: inline-block;
   padding: 10px 28px;
   background: #000;
   border: 2px solid #000;
-  border-radius: 4px;
   color: #000;
   text-decoration: none;
   font-size: 16px;
@@ -328,7 +357,29 @@ th, tr, td {
   color: #fff;
 }
 
+/* 詳細ボタン */
 
+.btn02 {
+  display:inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: #b78c33;
+  border: 1px #b78c33 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.btn02:hover {
+  color: #b78c33;
+  background: #fff;
+}
+
+.fa-arrow-right {
+  margin-left: 0.5em;
+}
 
 /* Google Map*/
 #map {
