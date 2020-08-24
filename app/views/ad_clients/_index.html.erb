@@ -14,7 +14,7 @@
 				<% end %>
 			<% end %>
 		</table>
-	<div class="text-center"><%= paginate @records, class: "paginate" %></div>
+	<div class="text-center"><%= paginate ad_clients, class: "paginate" %></div>
 <% if ad_client_signed_in? %>
 	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
 <% elsif driver_signed_in?%>

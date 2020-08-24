@@ -10,7 +10,7 @@
     <!-- ジャンル一覧 -->
     <%= render "ads/genre_templete", genres: @genres %>
   </div>
-  <div class="col-xs-9">
+  <div class="col-xs-8">
     <div class="ad-area">
       <div class="ad-card">
         <%= attachment_image_tag @ad, :ad_image, fallback: "no_image.jpg", size:'560x420' %>

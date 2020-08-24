@@ -1,22 +1,26 @@
-<table class="table table-hover">
-	<h3>お知らせ一覧</h3>
-	  <thead>
-	    <tr>
-	      <td>タイトル</td>
-	      <td>日時</td>
-	      <td>お知らせ内容</td>
-	      <td colspan="2">詳細画面</td>
-	    </tr>
-	  </thead>
-	  <tbody>
-	   <% @informations.each do |i| %>
-	    <tr>
-	      <td><%= i.title %></td>
-	      <td><%= i.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-	      <td><%= i.content %></td>
-	      <td colspan="2">
-	        <%= link_to "詳細", information_path(i.id), class: "btn-sm btn-success" %></td>
-	    </tr>
-	   <% end %>
-	  </tbody>
-</table>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+		<table class="table table-hover">
+			<h3>お知らせ一覧</h3>
+			<thead>
+				<tr>
+				<td>タイトル</td>
+				<td>日時</td>
+				<td>お知らせ内容</td>
+				<td colspan="2">詳細画面</td>
+				</tr>
+			</thead>
+			<tbody>
+			<% @informations.each do |i| %>
+				<tr>
+				<td><%= i.title %></td>
+				<td><%= i.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+				<td><%= i.content %></td>
+				<td colspan="2">
+					<%= link_to "詳細", information_path(i.id), class: "btn-sm btn-success" %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

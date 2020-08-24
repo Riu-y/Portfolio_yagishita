@@ -1,18 +1,21 @@
 <div class="sidebar-area">
 	<table class="table">
 		<tr id="none-border">
-			<td class="text-center">
+			<td class="text-center" colspan="2">
 				<%= attachment_image_tag driver, :profile_image, fallback: "no_image.jpg", class: "image-circle", size: "230x170" %>
 			</td>
 		</tr>
 		<tr id="none-border">
-			<td class="text-center">
+			<td class="text-center" colspan="2">
 				<%= driver.driver_name %> さん
 			</td>
 		</tr>
+		<tr id="none-border" follow_count_<%= driver.id %>>
+			<%= render "relationships/follow_count_driver", driver: current_driver %>
+		</tr>
 		<% if current_driver == driver %>
 		<tr id="none-border">
-			<td class="text-center">
+			<td class="text-center " colspan="2">
 				<%= link_to edit_driver_path(current_driver), class: "btn01",data: {"turbolinks" => false} do %><span>ドライバー情報 編集</span><% end %>
 			</td>
 		</tr>
@@ -20,17 +23,17 @@
 	</table>
 	<table class="sidebar">
 		<thead>
-			<th class="side-menu-heading">マイページ</th>
+			<th class="side-menu-heading">メニュー</th>
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= link_to "お気に入り広告", favorite_search_ad_path(current_driver), class:"side-menu"  %></td>
+				<td><%= link_to "マイページ", dashboard_driver_path(current_driver), class:"side-menu" %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "フォロー広告主", followings_driver_path(current_driver), class:"side-menu"  %></td>
+				<td><%= link_to "お気に入り広告", favorite_search_ad_path(current_driver), class:"side-menu" %></td>
 			</tr>
 			<tr>
-				<td><%= link_to  "広告を探す", ads_path, class:"side-menu"  %></td>
+				<td><%= link_to  "広告を探す", ads_path, class:"side-menu" %></td>
 			</tr>
 			<tr>
 				<td><%= link_to  "広告主一覧", ad_clients_path, class:"side-menu" %></td>

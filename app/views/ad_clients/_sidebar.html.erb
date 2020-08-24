@@ -4,31 +4,31 @@
 			<td class="text-center image-circle" colspan="2">
 				<%= attachment_image_tag ad_client, :profile_image, fallback: "no_image.jpg", class: "image-circle", size: "230x170"%>
 			</td>
-
 		</tr>
 		<tr id="none-border">
 			<td class="text-center" colspan="2">
 				<%= ad_client.company_name %> さん
 			</td>
-
 		</tr>
-		<tr id="none-border follow_count_<%= @ad_client.id %>">
-			<%= render "relationship_drivers/follow_count_ad_client", ad_client: @ad_client %>
+		<tr id="none-border" follow_count_<%= ad_client.id %>>
+			<%= render "relationship_drivers/follow_count_ad_client", ad_client: current_ad_client %>
 		</tr>
 	<% if current_ad_client == ad_client %>
 		<tr id="none-border">
 			<td class="text-center" colspan="2">
 				<%= link_to new_ad_client_ad_path(current_ad_client), class: "btn01", data: {"turbolinks" => false } do %><span>新規広告依頼</span><% end %>
 			</td>
-
 		</tr>
 	<% end %>
 	</table>
 	<table class="sidebar">
 		<thead>
-			<th class="side-menu-heading">マイページ</th>
+			<th class="side-menu-heading">メニュー</th>
 		</thead>
 		<tbody>
+			<tr>
+				<td><%= link_to "マイページ", dashboard_ad_client_path(current_ad_client), class:"side-menu" %></td>
+			</tr>
 			<tr>
 				<td><%= link_to  "ドライバー 一覧", drivers_path, class:"side-menu" %></td>
 			</tr>
