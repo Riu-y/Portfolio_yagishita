@@ -15,10 +15,11 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-2">
-            <h3 class="logo"><%= link_to image_tag('logo.png',width:'70'),homes_index_path %>&emsp;Ader</h3>
+            <h3 class="logo"><%= link_to image_tag('logo.png',width:'70'),homes_index_path %> Ader</h3>
           </nav>
           </div>
           <div class="col-xs-3">
+          
             <% if ad_client_signed_in? %>
               <div class="search-form" style="margin-top: 30px;">
                   <%= form_tag(search_ad_client_path, method: :get) do %>
@@ -36,24 +37,24 @@
                     <%= submit_tag 'Search', class: "fa fa-search"%>
                   <% end %>
               </div>
-            <% end %>
+            <% end %>z
           </div><!-- nav-search -->
        　<!-- ヘッダーメニュー -->
          　<div class="col-xs-7">
             <nav class="navbar navbar-nav navbar-right">
                 <ul class="nav navbar-nav">
                   <% if ad_client_signed_in? %>
-                    <li><%= link_to followings_ad_client_path(current_ad_client) do %><i class="far fa-check-circle">&emsp;フォロードライバー</i><% end %></li>
-                    <li><%= link_to informations_path do %><i class="far fa-bell">&emsp;お知らせ</i><% end %></li>
-                    <li><%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="far fa-address-card">&emsp;マイぺージ</i><% end %></li>
-                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">&emsp;お問い合わせ</i><% end %></li>
-                    <li><%= link_to destroy_ad_client_session_path, method: :delete do %><i class="far fa-user">&emsp;ログアウト</i><% end %></li>
+                    <li><%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="far fa-address-card">  マイぺージ</i><% end %></li>
+                    <li><%= link_to followings_ad_client_path(current_ad_client) do %><i class="far fa-check-circle">  フォロードライバー</i><% end %></li>
+                    <li><%= link_to informations_path do %><i class="far fa-bell">  お知らせ</i><% end %></li>
+                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">  お問い合わせ</i><% end %></li>
+                    <li><%= link_to destroy_ad_client_session_path, method: :delete do %><i class="far fa-user">  ログアウト</i><% end %></li>
                   <% elsif driver_signed_in? %>
-                    <li><%= link_to favorite_search_ad_path(current_driver) do %><i class="far fa-heart"></i>&emsp;お気に入り</i><% end %></li>
-                    <li><%= link_to informations_path do %><i class="far fa-bell">&emsp;お知らせ</i><% end %></li>
-                    <li><%= link_to dashboard_driver_path(current_driver) do %><i class="far fa-address-card">&emsp;マイぺージ</i><% end %></li>
-                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">&emsp;お問い合わせ</i><% end %></li>
-                    <li><%= link_to destroy_driver_session_path, method: :delete do %><i class="far fa-user">&emsp;ログアウト</i><% end %></li>
+                    <li><%= link_to dashboard_driver_path(current_driver) do %><i class="far fa-address-card"> マイぺージ</i><% end %></li>                  
+                    <li><%= link_to favorite_search_ad_path(current_driver) do %><i class="far fa-heart"></i> お気に入り</i><% end %></li>
+                    <li><%= link_to informations_path do %><i class="far fa-bell">  お知らせ</i><% end %></li>
+                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">  お問い合わせ</i><% end %></li>
+                    <li><%= link_to destroy_driver_session_path, method: :delete do %><i class="far fa-user">  ログアウト</i><% end %></li>
                   <% elsif admin_signed_in?%>
                     <li><%= link_to "ダッシュボード",admins_path %></li>
                     <li><%= link_to "広告 一覧",ads_path %></li>
@@ -61,17 +62,17 @@
                     <li><%= link_to "広告主 一覧",ad_clients_path %></li>
                     <li><%= link_to "ログアウト",destroy_admin_session_path  , method: :delete %></li>
                   <% else %>
-                    <li><%= link_to homes_about_path do %><i class="fab fa-adn">&emsp;About Ader</i><% end %></li>
-                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">&emsp;お問い合わせ</i><% end %></li>
+                    <li><%= link_to homes_about_path do %><i class="fab fa-adn">  About Ader</i><% end %></li>
+                    <li><%= link_to new_contact_path do %><i class="far fa-envelope">  お問い合わせ</i><% end %></li>
                     <li>
-                      <a class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-edit">&emsp;新規登録</i><span class="caret"></span></a>
+                      <a class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-edit">  新規登録</i><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown"><%= link_to "ドライバーになる",new_driver_registration_path %></a></li>
                           <li><a class="dropdown"><%= link_to "広告主になる",new_ad_client_registration_path %></a></li>
                         </ul>
                     </li>                                
                     <li>
-                      <a class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-user">&emsp;ログイン</i><span class="caret"></span></a>
+                      <a class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-user">  ログイン</i><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown"><%= link_to "ドライバー",new_driver_session_path %></a></li>
                           <li><a class="dropdown"><%= link_to "広告主",new_ad_client_session_path %></a></li>

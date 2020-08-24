@@ -18,7 +18,7 @@
 		      <td><%= u.ad.start_date %>〜<%= u.ad.end_date %></td>
 		      <td><%= u.work_status_i18n %></td>
 		      <td colspan="2">
-		        <%= link_to "詳細", under_deal_path(u.id), class: "btn-sm btn-success" %></td>
+		        <%= link_to under_deal_path(u.id), class: "btn02" do %><span>詳細<i class="fas fa-arrow-right"></i><% end %></td>
 		    </tr>
 		   <% end %>
 		  </tbody>
@@ -49,7 +49,7 @@
 		      <td><%= f.ad.start_date %>〜<%= f.ad.end_date %></td>
 		      <td><%= f.work_status_i18n %></td>
 		      <td colspan="2">
-		        <%= link_to "詳細", under_deal_path(f.id), class: "btn-sm btn-success" %></td>
+			  	<%= link_to under_deal_path(f.id), class: "btn02" do %><span>詳細<i class="fas fa-arrow-right"></i><% end %></td>
 		    </tr>
 		   <% end %>
 		  </tbody>

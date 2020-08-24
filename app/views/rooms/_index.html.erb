@@ -21,7 +21,7 @@
 						<td><%= room.ad.title %></td>
 						<td><%= room.driver.driver_name %></td>
 						<td></td>
-						<td><%= link_to "詳細", ad_room_path(room.ad_id,room.id) %></td>
+						<td><%= link_to ad_room_path(room.ad_id,room.id), class: "btn02" do %><span>詳細<i class="fas fa-arrow-right"></i><% end %></td>
 					</tr>
 				 <% end %>
 				</tbody>

@@ -7,6 +7,7 @@ class SearchsController < ApplicationController
 	end
 	#広告主側 検索アクション
 	def search_ad_client
+		@ad_client = current_ad_client
 		@model = params["search"]["model"]
 		@content = params["search"]["content"]
 		@records = search_for(@model,@content)
