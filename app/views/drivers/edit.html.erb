@@ -1,46 +1,46 @@
 <div class="row">
-	<div class = "col-xs-6">
-		<h4>プロフィール情報</h4>
-		<%= form_for(@driver) do |f| %>
-			<%= attachment_image_tag @driver, :profile_image, id: :prev_img, fallback: "no_image.jpg", size:'230x170'  %><br>
-				<%= f.attachment_field :profile_image,id: :update_img %><br>
-				<table class="table .table-borderless">
-					<tr>
-						<th><%= f.label :driver_name %></th>
-						<td><%= f.text_field :driver_name, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-						<th><%= f.label :driver_name_kana %></th>
-						<td><%= f.text_field :driver_name_kana, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-						<th><%= f.label :postal_code %></th>
-						<td><%= f.text_field :postal_code, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-						<th><%= f.label :address %></th>
-						<td><%= f.text_field :address, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-						<th><%= f.label :telephone_number %></th>
-						<td><%= f.text_field :telephone_number, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-						<th><%= f.label :email %></th>
-						<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
-					</tr>
-					<tr>
-            <th><%= f.label :activity_area %></th>
-            <td>(例)東京都港区<%= f.text_field :activity_area, placeholder:"都道府県と市町村名までを入力", class: "form-control"%></td>
-          </tr>
-					<tr>
-						<th></th>
-						<td class="text-center"><%= f.submit "更新する",class: "btn btn-primary" %></td>
-					</tr>
-					<% end %>
-				</table>
+	<div class = "col-xs-6 col-xs-offset-1">
+	<h4>プロフィール情報</h4>
+	<%= form_for(@driver) do |f| %>
+		<%= attachment_image_tag @driver, :profile_image, id: :prev_img, fallback: "no_image.jpg", size:'230x170'  %><br>
+		<%= f.attachment_field :profile_image,id: :update_img %><br>
+		<table class="table .table-borderless">
+			<tr>
+				<th><%= f.label :driver_name %></th>
+				<td><%= f.text_field :driver_name, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :driver_name_kana %></th>
+				<td><%= f.text_field :driver_name_kana, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :postal_code %></th>
+				<td><%= f.text_field :postal_code, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :address %></th>
+				<td><%= f.text_field :address, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :telephone_number %></th>
+				<td><%= f.text_field :telephone_number, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :email %></th>
+				<td><%= f.text_field :email, class: "form-control form-control-sm" %></td>
+			</tr>
+			<tr>
+				<th><%= f.label :activity_area %></th>
+				<td>(例)東京都港区<%= f.text_field :activity_area, placeholder:"都道府県と市町村名までを入力", class: "form-control"%></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td class="text-left"><%= button_tag :type => "submit", class: "btn03" do %><span>更新する</span><i class="fas fa-angle-double-right"></i><% end %></td>
+			</tr>
+			<% end %>
+		</table>
 	</div>
-	<div class = "col-xs-6">
+	<div class = "col-xs-5">
 		<h4>広告活動地域</h4>
 			<div id="map"></div>
 			<script>
@@ -63,22 +63,21 @@
 			<tr>
 				<th>振込先情報</th>
 					<% if  @driver.transfer_informations.present?  %>
-						<td><%= link_to "編集する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
+						<td><%= link_to driver_transfer_informations_path(@driver.id), class: "btn03",data: {"turbolinks" => false} do %><span>編集する</span><i class="fas fa-angle-double-right"></i><% end %></td>
 					<% else %>
-						<td><%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
-								<p class="alert">口座情報が登録されていません。</p></td>
+						<td><%= link_to "登録する", driver_transfer_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %><p class="alert">口座情報が登録されていません。</p></td>
 					<% end %>
 			</tr>
 			<tr>
 				<th>登録車情報</th>
 					<% if @driver.car_informations.present?  %>
-						<td><%= link_to "編集する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %></td>
+						<td><%= link_to driver_car_informations_path(@driver.id), class: "btn03",data: {"turbolinks" => false} do %><span>編集する</span><i class="fas fa-angle-double-right"></i><% end %></td>
 					<% else %>
-						<td><%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %>
-								<p class="alert">車両情報が登録されていません。</p></td>
+						<td><%= link_to "登録する", driver_car_informations_path(@driver.id) , class: "btn btn-primary",data: {"turbolinks" => false} %><p class="alert">車両情報が登録されていません。</p></td>
 				<% end %>
 			</tr>
 		</table>
+	</div>
 </div>
 <!-- エラーメッセージ表示-->
 <div class="row">

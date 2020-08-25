@@ -53,7 +53,7 @@
          </table>
       </div>
       <%= render "under_deals/apply_ad", under_deal: @under_deal, ad: @ad, room: @room %>
-    </div>
-    <span class="link-button" ><%= link_to "前の画面に戻る", ads_path  %></span>
+    </div><br>
+    <%= link_to ads_path do %><i class="fas fa-angle-left"> 広告一覧へ戻る</i><% end %>
   </div>
 </div>

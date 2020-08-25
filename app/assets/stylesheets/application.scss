@@ -305,7 +305,6 @@ th, tr, td {
 }
 
 /* 各種ボタン */
-
 .btn01 {
   position: relative;
   width: 70%;
@@ -358,7 +357,6 @@ th, tr, td {
 }
 
 /* 詳細ボタン */
-
 .btn02 {
   display:inline-block;
   padding: 0.4em 1.6em;
@@ -379,6 +377,92 @@ th, tr, td {
 
 .fa-arrow-right {
   margin-left: 0.5em;
+}
+
+/* Submit & 更新 & 編集ボタン */
+.btn03 {
+  display:inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: #b78c33;
+  border: 1px #b78c33 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.btn03:hover {
+  color: #b78c33;
+  background: #fff;
+}
+
+.fa-angle-double-right {
+  margin-left: 0.5em;
+}
+
+/* 戻るボタン */
+.btn04 {
+  display:inline-block;
+  /* 右の送信ボタンとの距離をとる */
+  margin-right: 0.4em;
+  padding: 0.4em 1.6em;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: #808080;
+  border: 1px #808080 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.btn04:hover {
+  color: #808080;
+  background: #fff;
+}
+
+/* プロフィール確認ボタン(広告主の取引ページ) */
+.btn05 {
+  display:inline-block;
+  /* 右の送信ボタンとの距離をとる */
+  margin-right: 0.4em;
+  padding: 0.4em 1.6em;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  user-select: none;
+  background: #1e90ff;
+  border: 1px #1e90ff solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.btn05:hover {
+  color: #1e90ff;
+  background: #fff;
+}
+
+/* 承認ボタン(ドライバーの取引ページ) */
+.btn06 {
+  display:inline-block;
+  /* 右の送信ボタンとの距離をとる */
+  margin-right: 0.4em;
+  padding: 0.4em 1.6em;
+  font-size: 1em;
+  color: #000;
+  text-decoration: none;
+  user-select: none;
+  background: x#fff;
+  border: 1px #b78c33 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.btn06:hover {
+  color: #b78c33;
+  background: #fff;
 }
 
 /* Google Map*/
@@ -418,9 +502,6 @@ th, tr, td {
 .message .chatting {
   width: 100%;
 }
-
-
-
 
 .says {
   display: inline-block;
@@ -597,15 +678,28 @@ th, tr, td {
   padding:12px; font-weight:850;
   }
 
-/* adminからのメッセージ */
+/* adminからのメッセージ  シンプルver */
+// .message-box{
+//   padding: 0.5em 1em;
+//   background: #fff;
+//   border: 3px solid #b78c33;
+//   color: #000;
+//   margin-bottom:30px;
+//   border-radius: 3px;
+// }
+
+/* adminからのメッセージ グラデーションver */
 .message-box{
-  padding: 0.5em 1em;
-  background: -moz-linear-gradient(#ffb03c, #ff708d);
-  background: -webkit-linear-gradient(#ffb03c, #ff708d);
-  background: linear-gradient(to right, #ffb03c, #ff708d);
-  color: #FFF;
-  margin-bottom:30px
+    padding: 0.5em 1em;
+    background: -moz-linear-gradient(#fccd45, #ec6722);
+    background: -webkit-linear-gradient(#fccd45, #ec6722);
+    background: linear-gradient(to right, #fccd45, #ec6722);
+    color: #FFF;
+    margin-bottom:30px;
+    border-radius: 3px;
 }
+
+
 
 /* 新規広告ボタン*/
 .ad-button-area{

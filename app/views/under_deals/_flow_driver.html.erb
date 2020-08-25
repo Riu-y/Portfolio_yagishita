@@ -11,10 +11,9 @@
 <% if under_deal.work_status == 'refuse'%>
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
-			<h3>誠に残念ですが、こちらのお申し込みは広告主から承認されませんでした。</h3>
-				<h4>別の広告を探してみましょう！</h4>
+			<h3>誠に残念ですが、こちらのお申し込みは<br>広告主から承認されませんでした。<br>別の広告を探してみましょう！</h3>
 					<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-						<%= f.submit "了承して、別の広告を探す", name: 'checked_refuse',class: "btn btn-sm btn-default" %>
+						<%= f.submit "了承して、別の広告を探す", name: 'checked_refuse',class: "btn06" %>
 					<% end %>
 		</div>
 	</div>
@@ -82,9 +81,7 @@
 <div class="row">
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
-			<h3>お疲れ様でした。お取引き完了です。</h3>
-				<h4>さぁ次の広告を探しにいきましょう！</h4>
-					<p><%= link_to "広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+			<h3>お疲れ様でした。お取引き完了です。<br>さぁ次の広告を探しにいきましょう！</h3>
 		</div>
 	</div>
 </div>
@@ -94,9 +91,7 @@
 <div class="row">
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
-			<h3>この取引きは完了しています。</h3>
-				<h4>さぁ次の広告を探しにいきましょう！</h4>
-					<p><%= link_to "広告を探す",ads_path, class: "btn btn-sm btn-default" %></p>
+			<h3>この取引きは完了しています。<br>さぁ次の広告を探しにいきましょう！</h3>
 		</div>
 	</div>
 </div>

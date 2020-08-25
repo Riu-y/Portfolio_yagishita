@@ -21,7 +21,7 @@
 						<% if under_deal.work_status == 'sent_kit' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<%= f.attachment_field :installation_image,id: :update_img %>
-								<%= f.submit "写真をアップロード", name:'advertising', class: "btn btn-primary" %>
+								<%= f.submit "写真をアップロード", name:'advertising', class: "btn03" %>
 							<% end %>
 						<% else %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">アップロード済み</p>
@@ -46,7 +46,7 @@
 										<%= d.label :transfer_informations, "振込先の銀行口座を指定する" %>
 										<%= collection_select(:detail, :transfer_information_id, driver.transfer_informations.order("id DESC"),:id,:full_info) %>
 									<% end %>
-									<%= f.submit "広告作業の完了報告", name:'completed', class: "btn btn-primary " %>
+									<%= f.submit "広告作業の完了報告", name:'completed', class: "btn03 " %>
 								<% end %>
 							<% end %>
 						<% elsif under_deal.work_status == 'sent_kit' %>
@@ -69,7 +69,7 @@
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<%= f.check_box :agreement,required: true, checked: false %>
 								<%= f.label :agreement,"入金を確認した" %><br>
-								<%= f.submit "広告主を評価", name:'rated', class: "btn btn-primary " %>
+								<%= f.submit "広告主を評価", name:'rated', class: "btn03 " %>
 							<% end %>
 						<% elsif under_deal.work_status == 'rated' %>
 							<p class="btn btn-default report-cart-down" disabled="disabled">評価済み</p>

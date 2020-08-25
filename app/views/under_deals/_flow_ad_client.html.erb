@@ -5,11 +5,11 @@
 		</div>
 		<div id="report-driver">
 			<%= render 'drivers/profile' , driver: under_deal.driver %>
-				<p><%= link_to "プロフィールを確認する",driver_path(under_deal.driver.id),name: 'driver_check', class: "btn btn-primary" %></p>
+				<p><%= link_to "プロフィールを確認する",driver_path(under_deal.driver.id),name: 'driver_check', class: "btn05" %></p>
 				<p>取引承認待ちです。こちらのドライバーと広告契約を結びますか？</p>
 				<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-					<%= f.submit "広告を依頼する", name:'accept', class: "btn btn-primary " %>
-					<%= f.submit "お断りする",name: 'refuse', class: "btn btn-danger" %>
+					<%= f.submit "広告を依頼する", name:'accept', class: "btn03 " %>
+					<%= f.submit "お断りする",name: 'refuse', class: "btn04" %>
 				<% end %>
 			</div>
 		</div>
@@ -19,7 +19,6 @@
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
 			<h3>ドライバーからの申し込みをお断りしました。</h3>
-			<p><%= link_to "マイページへ戻る",dashboard_ad_client_path(current_ad_client), class: "btn btn-sm btn-default" %></p>
 		</div>
 	</div>
 <% end %>

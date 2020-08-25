@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-6">
     <h3>確認画面</h3>
-      <table class="table table-hover">
+      <table class="table">
          <tr>
             <th>お名前</th>
             <td><%= @contact.name %></td>
@@ -23,15 +23,16 @@
             <td><%= @contact.content %></td>
           </tr><br>
           <tr>
-            <td class="text-center">
+            <th></th>
+            <td class="text-left">
             	<%= form_with model: @contact, local: true do |f| %>
             	  <%= f.hidden_field :name %>
             	  <%= f.hidden_field :company_name %>
             	  <%= f.hidden_field :telephone_number %>
             	  <%= f.hidden_field :email %>
             	  <%= f.hidden_field :content %>
-              <%= f.submit "戻る", name: 'back', class: "btn btn-success" %>
-              <%= f.submit "送信する", class: "btn btn-primary" %>
+              <%= f.submit "戻る", name: 'back', class: "btn04" %>
+              <%= button_tag :type => "submit", class: "btn03" do %><span>送信する</span><i class="fas fa-angle-double-right"></i><% end %>
             </td>
           </tr>
         </table>
