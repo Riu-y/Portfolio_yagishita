@@ -18,8 +18,8 @@
             <h3 class="logo"><%= link_to image_tag('logo.png',width:'70'),homes_index_path %> Ader</h3>
           </nav>
           </div>
+          <!-- 検索フォーム -->
           <div class="col-xs-3">
-          
             <% if ad_client_signed_in? %>
               <div class="search-form" style="margin-top: 30px;">
                   <%= form_tag(search_ad_client_path, method: :get) do %>
@@ -37,8 +37,8 @@
                     <%= submit_tag 'Search', class: "fa fa-search"%>
                   <% end %>
               </div>
-            <% end %>z
-          </div><!-- nav-search -->
+            <% end %>
+          </div>
        　<!-- ヘッダーメニュー -->
          　<div class="col-xs-7">
             <nav class="navbar navbar-nav navbar-right">

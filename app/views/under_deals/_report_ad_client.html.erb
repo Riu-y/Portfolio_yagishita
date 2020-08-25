@@ -20,7 +20,7 @@
 					<td>
 					<% if under_deal.work_status == 'waiting_kit' %>
 						<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-							<%= f.submit "発送連絡", name:'sent_kit', class: "btn btn-primary " %>
+							<%= f.submit "発送連絡", name:'sent_kit', class: "btn03" %>
 						<% end %>
 					<% else %>
 						<p class="btn btn-default" disabled="disabled">発送完了</p>
@@ -38,7 +38,7 @@
 					<td>
 						<% if under_deal.work_status == 'completed' %>
 						<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-							<%= f.submit "振込み報告", name:'transferred', class: "btn btn-primary " %>
+							<%= f.submit "振込み報告", name:'transferred', class: "btn03" %>
 						<% end %>
 					</td>
 				</tr>
@@ -78,7 +78,7 @@
 						<% if under_deal.work_status == 'rated' %>
 							<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
 								<br>
-								<%= f.submit "ドライバーを評価", name:'finished', class: "btn btn-primary " %>
+								<%= f.submit "ドライバーを評価", name:'finished', class: "btn03" %>
 							<% end %>
 						<% elsif under_deal.work_status == 'completed' %>
 							<p class="btn btn-default" disabled="disabled">振込み待ち</p>

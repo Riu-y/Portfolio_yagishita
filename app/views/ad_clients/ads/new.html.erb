@@ -2,51 +2,48 @@
     data-turbolinks="false"
 <% end %>
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-xs-6 col-xs-offset-1">
     <h3>広告依頼フォーム</h3>
       <%= form_for @ad, url: ad_client_ads_path(current_ad_client) do |f| %>
-         <tr>
-            <td><%= f.label :ad_image %></td><br>
-            <td><%= f.attachment_field :ad_image, id: :update_img %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :title %></td>
-            <td><%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %></td>
-          </tr>
-          <tr>
-            <th><%= f.label :start_date %></th>
-            <td><%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
-            <th><%= f.label :end_date %></th>
-            <td><%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :ad_fee %></td>
-            <td><%= f.text_field :ad_fee, autofocus: true, autocomplete:"", placeholder:"金額を入力", class: "form-control input-small" %></td>
-              <p>※こちらの金額とは別に掲載手数料が10％発生します</p>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :heading %></td>
-            <td><%= f.text_field :heading, autofocus: true, autocomplete:"", placeholder:"見出しを入力", class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :content %></td>
-            <td><%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control", id:"input-area" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :genre_id %></td>
-            <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, :prompt => "選択してください") %></td>
-          </tr>
-          <tr>
-            <td class="text-center">
-              <%= f.submit "登録する", class: "btn btn-primary col-lg-offset-10"%>
-            </td>
-           </tr>
-         <% end %>
-      <%= link_to "前の画面に戻る", dashboard_ad_client_path(current_ad_client)  %>
+        <p>
+          <%= f.label :ad_image %>
+          <%= f.attachment_field :ad_image, id: :update_img %>
+        </p>
+        <p>
+          <%= f.label :title %>
+          <%= f.text_field :title, autofocus: true, autocomplete:"", placeholder:"タイトルを入力", class: "form-control" %>
+        <p>
+          <%= f.label :start_date %>
+          <%= f.text_field :start_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %>
+        </p>
+        <p>
+          <%= f.label :end_date %>
+          <%= f.text_field :end_date,data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker input-medium', placeholder: '2020/01/01'  %>
+        </p>
+        <p>
+          <%= f.label :ad_fee %>
+          <%= f.text_field :ad_fee, autofocus: true, autocomplete:"", placeholder:"金額を入力", class: "form-control input-small" %>
+          ※こちらの金額とは別に掲載手数料が10％発生します
+        </p>
+        <p>
+          <%= f.label :heading %>
+          <%= f.text_field :heading, autofocus: true, autocomplete:"", placeholder:"見出しを入力", class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :content %>
+          <%= f.text_area :content, autofocus: true, autocomplete:"", placeholder:"内容を入力", class: "form-control", id:"input-area" %></td>
+        </p>
+        <p>
+          <%= f.label :genre_id %>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, :prompt => "選択してください") %></td>
+        </p>
+        <p class="text-right">
+          <%= button_tag :type => "submit", class: "btn03" do %><span>依頼する</span><i class="fas fa-angle-double-right"></i><% end %></td>
+        </p>
+      <% end %>
+    <%= link_to dashboard_ad_client_path(current_ad_client), class:"btn03" do %><i class="fas fa-angle-left"> 前の画面に戻る</i><% end %>
   </div>
-  <div class = "col-xs-6">
+  <div class = "col-xs-5">
     <%= render 'layouts/error_messages', model: @ad %><!-- フォーム用のエラーメッセージ -->
       <h3>広告画像プレビュー</h3>
       <%= image_tag "no_image.jpg", size:'400x300', id: :prev_img %>
