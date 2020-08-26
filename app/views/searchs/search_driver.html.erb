@@ -4,10 +4,10 @@
 		<%= render "drivers/sidebar", driver: current_driver %>
 	</div>
 	<div class="col-xs-8">
-		<h3>広告主 一覧</h3>
+		<h4>検索結果 > 広告主 一覧</h4>
 		<% i = 0 %>
 			<table class="table" id="none-border">
-				<% @records.each do |ad_client| %>
+				<% @ad_clients.each do |ad_client| %>
 					<td>
 						<%= link_to ad_client_path(ad_client.id),data: {"turbolinks" => false} do %>
 						<%= attachment_image_tag ad_client,:profile_image, fallback: "no_image.jpg" ,class: "img_wrap", size:'200x160' %><br>
@@ -16,11 +16,32 @@
 					</td>
 					<% i = i + 1 %>
 					<% if i % 3 == 0 %>
-					<tr></tr>
+					<tr></tr>s
 					<% end %>
 				<% end %>
 			</table>
-		<div class="text-center"><%= paginate @records, class: "paginate" %></div>
+		<div class="text-center"><%= paginate @ad_clients, class: "paginate" %></div>
+		<h4>検索結果 > 広告一覧</h4>
+	<% i = 0 %>
+	<table class="table" id="none-border">
+		<% @ads.each do |ad| %>
+			<td class="ad-index">
+				<%= link_to ad_path(ad.id) do %>
+					<%= attachment_image_tag ad,:ad_image, fallback: "no_image.jpg", class: "img_wrap",size:'200x160' %><br>
+				<%= ad.title %><% end %>&emsp;
+			<div id="favorites_buttons_<%= ad.id %>">
+					<%= render partial:'favorites/favorite', locals: { ad: ad} %>
+			</div>
+				<%= convert_fee(ad.ad_fee) %><br>
+				<%= ad.heading %>
+			</td>
+			<% i = i + 1 %>
+				<% if i % 3 == 0 %>
+					<tr></tr>
+				<% end %>
+			<% end %>
+	</table>
+	<div class="text-center"><%= paginate @ads, class: "paginate" %></div>
 <% if ad_client_signed_in? %>
 	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
 <% elsif driver_signed_in?%>
