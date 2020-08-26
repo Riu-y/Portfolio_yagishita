@@ -23,7 +23,6 @@
             <% if ad_client_signed_in? %>
               <div class="search-form" style="margin-top: 30px;">
                   <%= form_tag(search_ad_client_path, method: :get) do %>
-                    <%= select_tag 'search[model]', options_for_select({"ドライバー名" => "driver","都市名" => "address"}) %>
                     <%= text_field_tag 'search[content]' %>
                     <%= submit_tag 'Search',class: "fa fa-search" %>
                   <% end %>
@@ -32,7 +31,6 @@
             <% elsif driver_signed_in? %>
               <div class="search-form" style="margin-top: 30px;">
                 <%= form_tag(search_driver_path, method: :get) do %>
-                  <%= select_tag 'search[model]',options_for_select({"広告" => "ad","広告主" => "ad_client"}) %>
                     <%= text_field_tag 'search[content]' %>
                     <%= submit_tag 'Search', class: "fa fa-search"%>
                   <% end %>
