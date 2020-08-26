@@ -4,7 +4,7 @@
 		<%= render 'ad_clients/sidebar', ad_client: @ad_client %>
 	</div>
 	<div class="col-xs-8">
-		<h3>ドライバー 一覧</h3>
+		<h4>検索結果 > ドライバー 一覧</h4>
 		<% i = 0 %>
 			<table class="table" id="none-border">
 				<% @records.each do |driver| %>
@@ -20,7 +20,7 @@
 					<% end %>
 				<% end %>
 			</table>
-	<div class="text-center"><%= paginate @records, class: "paginate" %></div>
+		<div class="text-center"><%= paginate @records, class: "paginate" %></div>
 <% if ad_client_signed_in? %>
 	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
 <% elsif driver_signed_in?%>
