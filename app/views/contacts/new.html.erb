@@ -27,7 +27,11 @@
             <%= button_tag :type => "submit", class: "btn03" do %><span>確認画面へ進む</span><i class="fas fa-angle-double-right"></i><% end %>
         </p>
       <% end %><br>
-      <%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="fas fa-angle-left"> マイページへ戻る</i><% end %>
+        <% if ad_client_signed_in? %>
+          <%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="fas fa-angle-left"></i> マイページへ戻る<% end %>
+        <% elsif driver_signed_in?%>
+          <%= link_to  dashboard_driver_path(current_driver) do %><i class="fas fa-angle-left"></i> トップページに戻る<% end %>
+        <% end %>
     </div>
     <div class="col-xs-3">
       <%= render 'layouts/error_messages', model: @contact %>

@@ -16,7 +16,7 @@
 		</table>
 	<div class="text-center"><%= paginate ad_clients, class: "paginate" %></div>
 <% if ad_client_signed_in? %>
-	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+	<%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="fas fa-angle-left"></i> マイページへ戻る<% end %>
 <% elsif driver_signed_in?%>
-	<%= link_to "トップページに戻る", dashboard_driver_path(current_driver) %>
+	<%= link_to  dashboard_driver_path(current_driver) do %><i class="fas fa-angle-left"></i> トップページに戻る<% end %>
 <% end %>

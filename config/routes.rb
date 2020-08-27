@@ -7,11 +7,18 @@ Rails.application.routes.draw do
     registrations: 'drivers/registrations',
     sessions: 'drivers/sessions'
   }
+   devise_scope :driver do
+    post 'driver/guest_sign_in', to: 'drivers/sessions#new_guest'
+  end
 
   devise_for :ad_clients, controllers:{
     registrations: 'ad_clients/registrations',
     sessions: 'ad_clients/sessions'
   }
+  devise_scope :ad_client do
+    post 'ad_client/guest_sign_in', to: 'ad_clients/sessions#new_guest'
+  end
+
   root :to => 'homes#index'
   get 'homes/index'
   get 'homes/about'

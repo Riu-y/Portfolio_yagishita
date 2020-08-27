@@ -8,6 +8,13 @@ class Drivers::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  #ゲストユーザーログイン
+  def new_guest
+    driver = Driver.guest
+    sign_in driver
+    redirect_to dashboard_driver_path(current_driver), notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # POST /resource/sign_in
   # def create
   #   super

@@ -53,4 +53,9 @@ class Driver < ApplicationRecord
 	def following(ad_client_id)
 		follower.find_by(followed_id: ad_client_id)
 	end
+
+	#　ゲストユーザーログイン
+	def self.guest
+		find_by!( email: 'driver1@dmm.com')
+	 end
 end
