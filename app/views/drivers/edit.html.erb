@@ -39,6 +39,7 @@
 			</tr>
 			<% end %>
 		</table>
+		<%= link_to dashboard_driver_path(current_driver) do %><i class="fas fa-angle-left"> マイページへ戻る</i><% end %>
 	</div>
 	<div class = "col-xs-5">
 		<h4>広告活動地域</h4>
@@ -82,7 +83,7 @@
 <!-- エラーメッセージ表示-->
 <div class="row">
 	<% if @driver.errors.any? %>
-		<h3><%= @driver.errors.count %>error occurrence</h3><!--エラーメッセ-->
+		<h3><%= @driver.errors.count %>error occurrence</h3>
 		<ul>
 			<% @driver.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
@@ -90,4 +91,3 @@
 		</ul>
 	<% end %>
 </div>
-<!-- エラーメッセージ表示-->

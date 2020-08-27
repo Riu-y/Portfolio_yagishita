@@ -19,20 +19,20 @@
           </nav>
           </div>
           <!-- 検索フォーム -->
-          <div class="col-xs-3">
+          <div class="col-xs-3" id="search-area">
             <% if ad_client_signed_in? %>
-              <div class="search-form" style="margin-top: 30px;">
+              <div class="search-form" >
                   <%= form_tag(search_ad_client_path, method: :get) do %>
                     <%= text_field_tag 'search[content]' %>
-                    <%= submit_tag 'Search',class: "fa fa-search" %>
+                    <%= button_tag type:"submit" do %><i class="fas fa-search"></i><% end %>
                   <% end %>
               </div>
             </form>
             <% elsif driver_signed_in? %>
-              <div class="search-form" style="margin-top: 30px;">
+              <div class="search-form">
                 <%= form_tag(search_driver_path, method: :get) do %>
                     <%= text_field_tag 'search[content]' %>
-                    <%= submit_tag 'Search', class: "fa fa-search"%>
+                    <%= button_tag type:"submit" do %><i class="fas fa-search"></i><% end %>
                   <% end %>
               </div>
             <% end %>

@@ -12,9 +12,9 @@
 	<div class="col-xs-8 col-xs-offset-2">
 		<div class="message-box">
 			<h3>誠に残念ですが、こちらのお申し込みは<br>広告主から承認されませんでした。<br>別の広告を探してみましょう！</h3>
-					<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
-						<%= f.submit "了承して、別の広告を探す", name: 'checked_refuse',class: "btn06" %>
-					<% end %>
+				<%= form_for under_deal, url:under_deal_path(under_deal), method: :patch do |f| %>
+					<%= f.submit "了承して、別の広告を探す", name: 'checked_refuse',class: "btn06" %>
+				<% end %>
 		</div>
 	</div>
 <% end %>	
