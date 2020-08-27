@@ -1,8 +1,5 @@
 <div class="row">
 	<div class="col-xs-3">
-		<div class="ad-button-area">
-			<%= link_to "新規広告依頼", new_ad_client_ad_path(current_ad_client), data: {"turbolinks" => false }, class: "btn btn-lg btn-default ad-button" %>
-		</div>
 		<%= render 'ad_clients/sidebar', ad_client: current_ad_client %>
 	</div>
 	<div class="col-xs-8">

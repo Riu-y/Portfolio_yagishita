@@ -17,8 +17,8 @@ Admin.create!(
 AdClient.create!(
 				id: 1,
 				email: 'client1@dmm.com',
-				company_name: "安井総合保険株式会社", company_name_kana:"ヤスイソウゴウホケンカブシキガイシャ",
-				ceo_name: "安井康平", ceo_name_kana:"ヤスイコウヘイ",
+				company_name: "ゲスト広告株式会社", company_name_kana:"ゲストコウコクカブシキガイシャ",
+				ceo_name: "ゲスト太郎", ceo_name_kana:"ゲストタロウ",
 				postal_code: "1203749",
 				address: "東京都新宿区",
 				telephone_number: "01201112222",
@@ -165,19 +165,33 @@ AdClient.create!(
 				)
 
 
+			AdClient.create!(
+				id: 11,
+				email: 'client11@dmm.com',
+				company_name: "安井総合保険株式会社", company_name_kana:"ヤスイソウゴウホケンカブシキガイシャ",
+				ceo_name: "安井康平", ceo_name_kana:"ヤスイコウヘイ",
+				postal_code: "1203749",
+				address: "東京都新宿区",
+				telephone_number: "01201112222",
+				profile_image: File.open("./app/assets/images/ad_clients/client11.png"),
+				registry_image: File.open("./app/assets/images/license_image.png") ,
+				terms: true,
+				password: "client11",
+				password_confirmation: "client11",
+				)
 
 Driver.create!(
 				id: 1,
 				email: 'driver1@dmm.com',
-				driver_name: "柳下龍介", driver_name_kana:"ヤギシタリュウスケ",
+				driver_name: "ゲストドライバー", driver_name_kana:"ゲスト",
 				postal_code: "1111111",
-				address: "神奈川県小田原市",
-				telephone_number: "0900000111",
-				profile_image: File.open("./app/assets/images/drivers/driver1.jpg"),
+				address: "東京都港区",
+				telephone_number: "012222333",
+				profile_image: File.open("./app/assets/images/drivers/driver1.png"),
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
 				terms: true,
-				activity_area: "神奈川県小田原市",
+				activity_area: "東京都港区",
 				password: "driver1",
 				password_confirmation: "driver1",
 				)
@@ -325,6 +339,22 @@ Driver.create!(
 				password: "driver10",
 				password_confirmation: "driver10",
 				)
+
+			Driver.create!(
+				id: 11,
+				email: 'driver11@dmm.com',
+				driver_name: "柳下龍介", driver_name_kana:"ヤギシタリュウスケ",
+				postal_code: "1111111",
+				address: "神奈川県小田原市",
+				telephone_number: "0900000111",
+				profile_image: File.open("./app/assets/images/drivers/driver11.jpg"),
+				driver_license_image: File.open("./app/assets/images/license_image.png") ,
+				is_active: true,
+				terms: true,
+				activity_area: "神奈川県小田原市",
+				password: "driver11",
+				password_confirmation: "driver11",
+				)				
 
 Genre.create!(
 				id:1,
