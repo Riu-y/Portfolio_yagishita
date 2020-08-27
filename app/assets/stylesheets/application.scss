@@ -221,35 +221,43 @@ footer.nb-footer .copyright p {
 
 
 /* 検索フィーム*/
-// #form2{
-//   position:relative;
-//   max-width:300px;	
-//   margin-bottom:20px;
-//   }
-//   #sbox2{
-//   height:50px;
-//   padding:0 10px; 
-//   position:absolute; 
-//   left:0;
-//   top:0; 
-//   border-radius:2px;
-//   outline:0;
-//   background:#eee;	
-//   }
-//   #sbtn2{
-//   height:50px;
-//   position:absolute; 
-//   left:255px;/*アイコン左右の位置調整*/
-//   top:0;
-//   background:none;
-//   color:#666;
-//   border:none;
-//   font-size:20px;/*アイコンサイズ*/
-//   }
-//   #sbtn5:hover{
-//   color:#7fbfff;
-//   }
-
+#search-area {
+  height: 100%;
+}
+.search-form{
+  box-sizing: border-box;
+  margin-top: 30px;
+  position: relative;
+  border: 1px solid ;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  width: 260px;
+  overflow: hidden;
+}
+.search-form input[type="text"]{
+  border: none;
+  height: 2.0em;
+  width: 90%;
+}
+.search-form input[type="text"]:focus {
+  outline: 0;
+}
+.search-form button[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  color: #3879D9;
+  position: absolute;
+  width: 2.5em;
+  height: 2.7em;
+  right: 0;
+  top: -10px;
+  outline : none;
+}
 
 
 /* 見出しの下の間隔を開ける */
@@ -697,17 +705,14 @@ th, tr, td {
     color: #FFF;
     margin-bottom:30px;
     border-radius: 3px;
+    text-align: center;
 }
-
-
 
 /* 新規広告ボタン*/
 .ad-button-area{
   text-align: center;
   margin-bottom:20px;
 }
-
-
 
 /* Submitボタン */
 $thick : 3px;

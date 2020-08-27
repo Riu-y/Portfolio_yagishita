@@ -20,8 +20,8 @@
 	</table>
 	<div class="text-center"><%= paginate ads, class: "paginate" %></div>
 <% if ad_client_signed_in? %>
-	<%= link_to "マイページへ戻る", dashboard_ad_client_path(current_ad_client) %>
+	<%= link_to dashboard_ad_client_path(current_ad_client) do %><i class="fas fa-angle-left"> マイページへ戻る</i><% end %>
 <% elsif driver_signed_in?%>
-	<%= link_to "マイページに戻る", dashboard_driver_path(current_driver) %>
+	<%= link_to dashboard_driver_path(current_driver) do %><i class="fas fa-angle-left"> マイページに戻る</i><% end %>
 <% end %>
 
