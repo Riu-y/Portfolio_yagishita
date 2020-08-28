@@ -51,12 +51,14 @@
               <tr>
                 <td><%= link_to "ご利用規約","https://drive.google.com/open?id=1S4yUlGV0eq2iKZGOVUhfwSGGeFXSo35_" %><br>
                     必ずご一読、ご了承の上でご登録ください</td>
-              </tr>
-              <tr>
                 <td><%= f.check_box :terms, checked:false, :as => :boolean %>利用規約に同意する</td>
               </tr>
               <tr>
-                <td><%= f.submit "新規登録", class: "btn btn-primary btn-lg col-lg-offset-12" %></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><%= f.submit  class: "btn03" do %>新規登録<i class="far fa-edit"></i><% end %></td>
               </tr>
             </tbody>
           </table>
@@ -64,7 +66,7 @@
     </div>
   </div>
   <div class="col-xs-3">
-    <h4>既に登録済みのドライバーは</h4>
+    <h4>既に登録済みのドライバー<br>ゲストログイン希望の方は</h4>
       <%=link_to "こちら", new_driver_session_path %>からログインしてください。
   </div>
 </div>
