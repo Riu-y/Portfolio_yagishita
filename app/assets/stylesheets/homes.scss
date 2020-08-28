@@ -50,3 +50,25 @@ h1 {
   transform: translateY(-5px);
   transition-duration: 0.5s;
 }
+
+/* aboutページの企業情報エリア */
+.about-card {
+	background: #fff;
+	height: 150px;
+	margin: 30px auto;
+	padding: 20px;
+	color: #222;
+	border: 2px solid #b78c33;
+	text-align: center;
+	box-shadow: 5px 5px 5px rgb(192,192,192);
+}
+
+
+/* aboutページの企業情報エリア */
+.company-area {
+	background: #fff;
+	padding: 25px;
+	border: 2px solid #b78c33;
+	box-shadow: 5px 5px 5px rgb(192,192,192);
+
+}
