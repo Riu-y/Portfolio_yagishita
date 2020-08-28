@@ -5,31 +5,15 @@
       <%= form_for (under_deal), url: under_deals_path, method: :post do |f| %>
         <%= f.hidden_field :ad_id, :value => ad.id %>
         <%= f.hidden_field :driver_id, :value => current_driver.id %>
-          <section class="entry">
-            <a>
-              <%= f.submit "この広告に申し込む", :class => "text" %>
-                <span class="line -right"></span>
-                <span class="line -top"></span>
-                <span class="line -left"></span>
-                <span class="line -bottom"></span>
-             </a>
-           </section>
-        <% end %><br>
-      <% end %>
+          <%= f.submit "この広告に申し込む", :class => "btn03" %>
+        <% end %>
+      <% end %><br>
       <section class="question">
-        <b>
-          <div class="text">
-            <% if room.nil? %>
-              <%= link_to 'この広告のことで質問する', ad_rooms_path(ad.id), method: :POST %>
-            <% else %>
-             <%= link_to 'この広告のことで質問する', ad_room_path(ad.id,room.id) %>
-            <% end %>
-         </div>
-          <span class="line -right"></span>
-          <span class="line -top"></span>
-          <span class="line -left"></span>
-          <span class="line -bottom"></span>
-       </b>
-    </section>
+        <% if room.nil? %>
+          <%= link_to '広告のことで質問する', ad_rooms_path(ad.id),class:"btn05", method: :POST %>
+        <% else %>
+          <%= link_to '広告のことで質問する', ad_room_path(ad.id,room.id),class:"btn05" %>
+        <% end %>
+      </section>
     <br>
 <% end %>
