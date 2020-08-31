@@ -63,6 +63,12 @@ h1 {
 	box-shadow: 5px 5px 5px rgb(192,192,192);
 }
 
+.about-image {
+	background-image: url("/images/about_background.png");
+	height: 800px;
+	background-size: cover;
+}
+
 
 /* aboutページの企業情報エリア */
 .company-area {

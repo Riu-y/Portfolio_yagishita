@@ -191,7 +191,7 @@ Driver.create!(
 				driver_license_image: File.open("./app/assets/images/license_image.png") ,
 				is_active: true,
 				terms: true,
-				activity_area: "東京都港区",
+				activity_area: "東京都渋谷区",
 				password: "driver1",
 				password_confirmation: "driver1",
 				)
