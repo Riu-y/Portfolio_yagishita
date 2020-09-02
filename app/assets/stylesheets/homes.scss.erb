@@ -51,30 +51,35 @@ h1 {
   transition-duration: 0.5s;
 }
 
+/* aboutページ　背景画像 */
+.about-image {
+	background-image: url("<%= asset_path('about_background.png') %>");
+    width: 100%;
+	display: table;
+	height: 350px;
+	margin: 30px auto;
+	background-size: cover;
+}
+
+/* aboutカードページ */
+.about-card-area {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
 /* aboutページの企業情報エリア */
 .about-card {
 	background: #fff;
 	height: 150px;
-	margin: 30px auto;
+	margin: 30px 4%;
 	padding: 20px;
 	color: #222;
-	border: 2px solid #b78c33;
+	<%# border: 2px solid #b78c33; %>
 	text-align: center;
-	box-shadow: 5px 5px 5px rgb(192,192,192);
+	opacity: 88%;
 }
 
-.about-image {
-	background-image: url("/images/about_background.png");
-	height: 800px;
-	background-size: cover;
-}
-
-
-/* aboutページの企業情報エリア */
-.company-area {
+.table-white {
 	background: #fff;
-	padding: 25px;
-	border: 2px solid #b78c33;
-	box-shadow: 5px 5px 5px rgb(192,192,192);
-
 }
