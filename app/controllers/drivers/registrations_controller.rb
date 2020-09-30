@@ -12,6 +12,7 @@ class Drivers::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #   super
+  
   # end
   def after_sign_in_path_for(resource)
       dashboard_driver_path(resource)
