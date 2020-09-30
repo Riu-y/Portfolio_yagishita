@@ -1,6 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 #capistranoのバージョンを記載
-lock "~> 3.13.0"
+lock "~> 3.14.1"
 
 #capistranoのログの表示に使用
 set :application, "Portfolio_yagishita"
